@@ -1,0 +1,5935 @@
+{
+ "3.10": {
+  "cache_entries": {},
+  "corpus_files": 192,
+  "extraneous": [],
+  "rows": [
+   {
+    "handled": true,
+    "name": "POP_TOP",
+    "num": 1,
+    "pycdc_name": "POP_TOP",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 2013
+   },
+   {
+    "handled": true,
+    "name": "ROT_TWO",
+    "num": 2,
+    "pycdc_name": "ROT_TWO",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 96
+   },
+   {
+    "handled": true,
+    "name": "ROT_THREE",
+    "num": 3,
+    "pycdc_name": "ROT_THREE",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 57
+   },
+   {
+    "handled": true,
+    "name": "DUP_TOP",
+    "num": 4,
+    "pycdc_name": "DUP_TOP",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 495
+   },
+   {
+    "handled": true,
+    "name": "DUP_TOP_TWO",
+    "num": 5,
+    "pycdc_name": "DUP_TOP_TWO",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 21
+   },
+   {
+    "handled": true,
+    "name": "ROT_FOUR",
+    "num": 6,
+    "pycdc_name": "ROT_FOUR",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 45
+   },
+   {
+    "handled": true,
+    "name": "NOP",
+    "num": 9,
+    "pycdc_name": "NOP",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 46
+   },
+   {
+    "handled": true,
+    "name": "UNARY_POSITIVE",
+    "num": 10,
+    "pycdc_name": "UNARY_POSITIVE",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 3
+   },
+   {
+    "handled": true,
+    "name": "UNARY_NEGATIVE",
+    "num": 11,
+    "pycdc_name": "UNARY_NEGATIVE",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 27
+   },
+   {
+    "handled": true,
+    "name": "UNARY_NOT",
+    "num": 12,
+    "pycdc_name": "UNARY_NOT",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 21
+   },
+   {
+    "handled": true,
+    "name": "UNARY_INVERT",
+    "num": 15,
+    "pycdc_name": "UNARY_INVERT",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 9
+   },
+   {
+    "handled": true,
+    "name": "BINARY_MATRIX_MULTIPLY",
+    "num": 16,
+    "pycdc_name": "BINARY_MATRIX_MULTIPLY",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 3
+   },
+   {
+    "handled": true,
+    "name": "INPLACE_MATRIX_MULTIPLY",
+    "num": 17,
+    "pycdc_name": "INPLACE_MATRIX_MULTIPLY",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 3
+   },
+   {
+    "handled": true,
+    "name": "BINARY_POWER",
+    "num": 19,
+    "pycdc_name": "BINARY_POWER",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 6
+   },
+   {
+    "handled": true,
+    "name": "BINARY_MULTIPLY",
+    "num": 20,
+    "pycdc_name": "BINARY_MULTIPLY",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 102
+   },
+   {
+    "handled": true,
+    "name": "BINARY_MODULO",
+    "num": 22,
+    "pycdc_name": "BINARY_MODULO",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 166
+   },
+   {
+    "handled": true,
+    "name": "BINARY_ADD",
+    "num": 23,
+    "pycdc_name": "BINARY_ADD",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 201
+   },
+   {
+    "handled": true,
+    "name": "BINARY_SUBTRACT",
+    "num": 24,
+    "pycdc_name": "BINARY_SUBTRACT",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 30
+   },
+   {
+    "handled": true,
+    "name": "BINARY_SUBSCR",
+    "num": 25,
+    "pycdc_name": "BINARY_SUBSCR",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 243
+   },
+   {
+    "handled": true,
+    "name": "BINARY_FLOOR_DIVIDE",
+    "num": 26,
+    "pycdc_name": "BINARY_FLOOR_DIVIDE",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 9
+   },
+   {
+    "handled": true,
+    "name": "BINARY_TRUE_DIVIDE",
+    "num": 27,
+    "pycdc_name": "BINARY_TRUE_DIVIDE",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 18
+   },
+   {
+    "handled": true,
+    "name": "INPLACE_FLOOR_DIVIDE",
+    "num": 28,
+    "pycdc_name": "INPLACE_FLOOR_DIVIDE",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 3
+   },
+   {
+    "handled": true,
+    "name": "INPLACE_TRUE_DIVIDE",
+    "num": 29,
+    "pycdc_name": "INPLACE_TRUE_DIVIDE",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 3
+   },
+   {
+    "handled": false,
+    "name": "GET_LEN",
+    "num": 30,
+    "pycdc_name": "GET_LEN",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 24
+   },
+   {
+    "handled": false,
+    "name": "MATCH_MAPPING",
+    "num": 31,
+    "pycdc_name": "MATCH_MAPPING",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 6
+   },
+   {
+    "handled": false,
+    "name": "MATCH_SEQUENCE",
+    "num": 32,
+    "pycdc_name": "MATCH_SEQUENCE",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 15
+   },
+   {
+    "handled": false,
+    "name": "MATCH_KEYS",
+    "num": 33,
+    "pycdc_name": "MATCH_KEYS",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 6
+   },
+   {
+    "handled": false,
+    "name": "COPY_DICT_WITHOUT_KEYS",
+    "num": 34,
+    "pycdc_name": "COPY_DICT_WITHOUT_KEYS",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 3
+   },
+   {
+    "handled": true,
+    "name": "WITH_EXCEPT_START",
+    "num": 49,
+    "pycdc_name": "WITH_EXCEPT_START",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 54
+   },
+   {
+    "handled": true,
+    "name": "GET_AITER",
+    "num": 50,
+    "pycdc_name": "GET_AITER",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 15
+   },
+   {
+    "handled": true,
+    "name": "GET_ANEXT",
+    "num": 51,
+    "pycdc_name": "GET_ANEXT",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 15
+   },
+   {
+    "handled": false,
+    "name": "BEFORE_ASYNC_WITH",
+    "num": 52,
+    "pycdc_name": "BEFORE_ASYNC_WITH",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 12
+   },
+   {
+    "handled": false,
+    "name": "END_ASYNC_FOR",
+    "num": 54,
+    "pycdc_name": "END_ASYNC_FOR",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 15
+   },
+   {
+    "handled": true,
+    "name": "INPLACE_ADD",
+    "num": 55,
+    "pycdc_name": "INPLACE_ADD",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 90
+   },
+   {
+    "handled": true,
+    "name": "INPLACE_SUBTRACT",
+    "num": 56,
+    "pycdc_name": "INPLACE_SUBTRACT",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 15
+   },
+   {
+    "handled": true,
+    "name": "INPLACE_MULTIPLY",
+    "num": 57,
+    "pycdc_name": "INPLACE_MULTIPLY",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 3
+   },
+   {
+    "handled": true,
+    "name": "INPLACE_MODULO",
+    "num": 59,
+    "pycdc_name": "INPLACE_MODULO",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 3
+   },
+   {
+    "handled": true,
+    "name": "STORE_SUBSCR",
+    "num": 60,
+    "pycdc_name": "STORE_SUBSCR",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 102
+   },
+   {
+    "handled": true,
+    "name": "DELETE_SUBSCR",
+    "num": 61,
+    "pycdc_name": "DELETE_SUBSCR",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 36
+   },
+   {
+    "handled": true,
+    "name": "BINARY_LSHIFT",
+    "num": 62,
+    "pycdc_name": "BINARY_LSHIFT",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 3
+   },
+   {
+    "handled": true,
+    "name": "BINARY_RSHIFT",
+    "num": 63,
+    "pycdc_name": "BINARY_RSHIFT",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 3
+   },
+   {
+    "handled": true,
+    "name": "BINARY_AND",
+    "num": 64,
+    "pycdc_name": "BINARY_AND",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 3
+   },
+   {
+    "handled": true,
+    "name": "BINARY_XOR",
+    "num": 65,
+    "pycdc_name": "BINARY_XOR",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 3
+   },
+   {
+    "handled": true,
+    "name": "BINARY_OR",
+    "num": 66,
+    "pycdc_name": "BINARY_OR",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 6
+   },
+   {
+    "handled": true,
+    "name": "INPLACE_POWER",
+    "num": 67,
+    "pycdc_name": "INPLACE_POWER",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 3
+   },
+   {
+    "handled": true,
+    "name": "GET_ITER",
+    "num": 68,
+    "pycdc_name": "GET_ITER",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 282
+   },
+   {
+    "handled": true,
+    "name": "GET_YIELD_FROM_ITER",
+    "num": 69,
+    "pycdc_name": "GET_YIELD_FROM_ITER",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 9
+   },
+   {
+    "handled": false,
+    "name": "PRINT_EXPR",
+    "num": 70,
+    "pycdc_name": "PRINT_EXPR",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 0
+   },
+   {
+    "handled": true,
+    "name": "LOAD_BUILD_CLASS",
+    "num": 71,
+    "pycdc_name": "LOAD_BUILD_CLASS",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 198
+   },
+   {
+    "handled": true,
+    "name": "YIELD_FROM",
+    "num": 72,
+    "pycdc_name": "YIELD_FROM",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 111
+   },
+   {
+    "handled": true,
+    "name": "GET_AWAITABLE",
+    "num": 73,
+    "pycdc_name": "GET_AWAITABLE",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 87
+   },
+   {
+    "handled": false,
+    "name": "LOAD_ASSERTION_ERROR",
+    "num": 74,
+    "pycdc_name": "LOAD_ASSERTION_ERROR",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 2
+   },
+   {
+    "handled": true,
+    "name": "INPLACE_LSHIFT",
+    "num": 75,
+    "pycdc_name": "INPLACE_LSHIFT",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 3
+   },
+   {
+    "handled": true,
+    "name": "INPLACE_RSHIFT",
+    "num": 76,
+    "pycdc_name": "INPLACE_RSHIFT",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 3
+   },
+   {
+    "handled": true,
+    "name": "INPLACE_AND",
+    "num": 77,
+    "pycdc_name": "INPLACE_AND",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 3
+   },
+   {
+    "handled": true,
+    "name": "INPLACE_XOR",
+    "num": 78,
+    "pycdc_name": "INPLACE_XOR",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 3
+   },
+   {
+    "handled": true,
+    "name": "INPLACE_OR",
+    "num": 79,
+    "pycdc_name": "INPLACE_OR",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 3
+   },
+   {
+    "handled": false,
+    "name": "LIST_TO_TUPLE",
+    "num": 82,
+    "pycdc_name": "LIST_TO_TUPLE",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 9
+   },
+   {
+    "handled": true,
+    "name": "RETURN_VALUE",
+    "num": 83,
+    "pycdc_name": "RETURN_VALUE",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 1938
+   },
+   {
+    "handled": true,
+    "name": "IMPORT_STAR",
+    "num": 84,
+    "pycdc_name": "IMPORT_STAR",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 3
+   },
+   {
+    "handled": true,
+    "name": "SETUP_ANNOTATIONS",
+    "num": 85,
+    "pycdc_name": "SETUP_ANNOTATIONS",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 15
+   },
+   {
+    "handled": true,
+    "name": "YIELD_VALUE",
+    "num": 86,
+    "pycdc_name": "YIELD_VALUE",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 78
+   },
+   {
+    "handled": true,
+    "name": "POP_BLOCK",
+    "num": 87,
+    "pycdc_name": "POP_BLOCK",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 327
+   },
+   {
+    "handled": true,
+    "name": "POP_EXCEPT",
+    "num": 89,
+    "pycdc_name": "POP_EXCEPT",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 180
+   },
+   {
+    "handled": true,
+    "name": "STORE_NAME",
+    "num": 90,
+    "pycdc_name": "STORE_NAME_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 1873
+   },
+   {
+    "handled": true,
+    "name": "DELETE_NAME",
+    "num": 91,
+    "pycdc_name": "DELETE_NAME_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 24
+   },
+   {
+    "handled": true,
+    "name": "UNPACK_SEQUENCE",
+    "num": 92,
+    "pycdc_name": "UNPACK_SEQUENCE_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 81
+   },
+   {
+    "handled": true,
+    "name": "FOR_ITER",
+    "num": 93,
+    "pycdc_name": "FOR_ITER_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 282
+   },
+   {
+    "handled": false,
+    "name": "UNPACK_EX",
+    "num": 94,
+    "pycdc_name": "UNPACK_EX_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 21
+   },
+   {
+    "handled": true,
+    "name": "STORE_ATTR",
+    "num": 95,
+    "pycdc_name": "STORE_ATTR_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 168
+   },
+   {
+    "handled": true,
+    "name": "DELETE_ATTR",
+    "num": 96,
+    "pycdc_name": "DELETE_ATTR_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 9
+   },
+   {
+    "handled": true,
+    "name": "STORE_GLOBAL",
+    "num": 97,
+    "pycdc_name": "STORE_GLOBAL_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 12
+   },
+   {
+    "handled": true,
+    "name": "DELETE_GLOBAL",
+    "num": 98,
+    "pycdc_name": "DELETE_GLOBAL_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 3
+   },
+   {
+    "handled": false,
+    "name": "ROT_N",
+    "num": 99,
+    "pycdc_name": "ROT_N_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 3
+   },
+   {
+    "handled": true,
+    "name": "LOAD_CONST",
+    "num": 100,
+    "pycdc_name": "LOAD_CONST_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 10002
+   },
+   {
+    "handled": true,
+    "name": "LOAD_NAME",
+    "num": 101,
+    "pycdc_name": "LOAD_NAME_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 546
+   },
+   {
+    "handled": true,
+    "name": "BUILD_TUPLE",
+    "num": 102,
+    "pycdc_name": "BUILD_TUPLE_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 427
+   },
+   {
+    "handled": true,
+    "name": "BUILD_LIST",
+    "num": 103,
+    "pycdc_name": "BUILD_LIST_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 717
+   },
+   {
+    "handled": true,
+    "name": "BUILD_SET",
+    "num": 104,
+    "pycdc_name": "BUILD_SET_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 12
+   },
+   {
+    "handled": true,
+    "name": "BUILD_MAP",
+    "num": 105,
+    "pycdc_name": "BUILD_MAP_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 132
+   },
+   {
+    "handled": true,
+    "name": "LOAD_ATTR",
+    "num": 106,
+    "pycdc_name": "LOAD_ATTR_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 780
+   },
+   {
+    "handled": true,
+    "name": "COMPARE_OP",
+    "num": 107,
+    "pycdc_name": "COMPARE_OP_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 403
+   },
+   {
+    "handled": true,
+    "name": "IMPORT_NAME",
+    "num": 108,
+    "pycdc_name": "IMPORT_NAME_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 93
+   },
+   {
+    "handled": true,
+    "name": "IMPORT_FROM",
+    "num": 109,
+    "pycdc_name": "IMPORT_FROM_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 39
+   },
+   {
+    "handled": true,
+    "name": "JUMP_FORWARD",
+    "num": 110,
+    "pycdc_name": "JUMP_FORWARD_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 249
+   },
+   {
+    "handled": true,
+    "name": "JUMP_IF_FALSE_OR_POP",
+    "num": 111,
+    "pycdc_name": "JUMP_IF_FALSE_OR_POP_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 51
+   },
+   {
+    "handled": true,
+    "name": "JUMP_IF_TRUE_OR_POP",
+    "num": 112,
+    "pycdc_name": "JUMP_IF_TRUE_OR_POP_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 42
+   },
+   {
+    "handled": true,
+    "name": "JUMP_ABSOLUTE",
+    "num": 113,
+    "pycdc_name": "JUMP_ABSOLUTE_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 345
+   },
+   {
+    "handled": true,
+    "name": "POP_JUMP_IF_FALSE",
+    "num": 114,
+    "pycdc_name": "POP_JUMP_IF_FALSE_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 459
+   },
+   {
+    "handled": true,
+    "name": "POP_JUMP_IF_TRUE",
+    "num": 115,
+    "pycdc_name": "POP_JUMP_IF_TRUE_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 119
+   },
+   {
+    "handled": true,
+    "name": "LOAD_GLOBAL",
+    "num": 116,
+    "pycdc_name": "LOAD_GLOBAL_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 3134
+   },
+   {
+    "handled": true,
+    "name": "IS_OP",
+    "num": 117,
+    "pycdc_name": "IS_OP_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 66
+   },
+   {
+    "handled": true,
+    "name": "CONTAINS_OP",
+    "num": 118,
+    "pycdc_name": "CONTAINS_OP_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 54
+   },
+   {
+    "handled": true,
+    "name": "RERAISE",
+    "num": 119,
+    "pycdc_name": "RERAISE_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 297
+   },
+   {
+    "handled": false,
+    "name": "JUMP_IF_NOT_EXC_MATCH",
+    "num": 121,
+    "pycdc_name": "JUMP_IF_NOT_EXC_MATCH_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 135
+   },
+   {
+    "handled": true,
+    "name": "SETUP_FINALLY",
+    "num": 122,
+    "pycdc_name": "SETUP_FINALLY_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 264
+   },
+   {
+    "handled": true,
+    "name": "LOAD_FAST",
+    "num": 124,
+    "pycdc_name": "LOAD_FAST_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 4563
+   },
+   {
+    "handled": true,
+    "name": "STORE_FAST",
+    "num": 125,
+    "pycdc_name": "STORE_FAST_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 1596
+   },
+   {
+    "handled": true,
+    "name": "DELETE_FAST",
+    "num": 126,
+    "pycdc_name": "DELETE_FAST_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 156
+   },
+   {
+    "handled": true,
+    "name": "GEN_START",
+    "num": 129,
+    "pycdc_name": "GEN_START_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 108
+   },
+   {
+    "handled": true,
+    "name": "RAISE_VARARGS",
+    "num": 130,
+    "pycdc_name": "RAISE_VARARGS_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 71
+   },
+   {
+    "handled": true,
+    "name": "CALL_FUNCTION",
+    "num": 131,
+    "pycdc_name": "CALL_FUNCTION_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 3152
+   },
+   {
+    "handled": true,
+    "name": "MAKE_FUNCTION",
+    "num": 132,
+    "pycdc_name": "MAKE_FUNCTION_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 1500
+   },
+   {
+    "handled": true,
+    "name": "BUILD_SLICE",
+    "num": 133,
+    "pycdc_name": "BUILD_SLICE_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 90
+   },
+   {
+    "handled": true,
+    "name": "LOAD_CLOSURE",
+    "num": 135,
+    "pycdc_name": "LOAD_CLOSURE_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 210
+   },
+   {
+    "handled": true,
+    "name": "LOAD_DEREF",
+    "num": 136,
+    "pycdc_name": "LOAD_DEREF_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 174
+   },
+   {
+    "handled": true,
+    "name": "STORE_DEREF",
+    "num": 137,
+    "pycdc_name": "STORE_DEREF_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 99
+   },
+   {
+    "handled": false,
+    "name": "DELETE_DEREF",
+    "num": 138,
+    "pycdc_name": "DELETE_DEREF_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 3
+   },
+   {
+    "handled": true,
+    "name": "CALL_FUNCTION_KW",
+    "num": 141,
+    "pycdc_name": "CALL_FUNCTION_KW_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 102
+   },
+   {
+    "handled": false,
+    "name": "CALL_FUNCTION_EX",
+    "num": 142,
+    "pycdc_name": "CALL_FUNCTION_EX_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 39
+   },
+   {
+    "handled": true,
+    "name": "SETUP_WITH",
+    "num": 143,
+    "pycdc_name": "SETUP_WITH_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 42
+   },
+   {
+    "handled": false,
+    "name": "EXTENDED_ARG",
+    "num": 144,
+    "pycdc_name": "EXTENDED_ARG_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 48
+   },
+   {
+    "handled": true,
+    "name": "LIST_APPEND",
+    "num": 145,
+    "pycdc_name": "LIST_APPEND_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 192
+   },
+   {
+    "handled": false,
+    "name": "SET_ADD",
+    "num": 146,
+    "pycdc_name": "SET_ADD_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 6
+   },
+   {
+    "handled": false,
+    "name": "MAP_ADD",
+    "num": 147,
+    "pycdc_name": "MAP_ADD_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 27
+   },
+   {
+    "handled": true,
+    "name": "LOAD_CLASSDEREF",
+    "num": 148,
+    "pycdc_name": "LOAD_CLASSDEREF_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 3
+   },
+   {
+    "handled": false,
+    "name": "MATCH_CLASS",
+    "num": 152,
+    "pycdc_name": "MATCH_CLASS_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 36
+   },
+   {
+    "handled": false,
+    "name": "SETUP_ASYNC_WITH",
+    "num": 154,
+    "pycdc_name": "SETUP_ASYNC_WITH_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 12
+   },
+   {
+    "handled": true,
+    "name": "FORMAT_VALUE",
+    "num": 155,
+    "pycdc_name": "FORMAT_VALUE_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 102
+   },
+   {
+    "handled": true,
+    "name": "BUILD_CONST_KEY_MAP",
+    "num": 156,
+    "pycdc_name": "BUILD_CONST_KEY_MAP_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 51
+   },
+   {
+    "handled": true,
+    "name": "BUILD_STRING",
+    "num": 157,
+    "pycdc_name": "BUILD_STRING_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 30
+   },
+   {
+    "handled": true,
+    "name": "LOAD_METHOD",
+    "num": 160,
+    "pycdc_name": "LOAD_METHOD_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 804
+   },
+   {
+    "handled": true,
+    "name": "CALL_METHOD",
+    "num": 161,
+    "pycdc_name": "CALL_METHOD_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 807
+   },
+   {
+    "handled": true,
+    "name": "LIST_EXTEND",
+    "num": 162,
+    "pycdc_name": "LIST_EXTEND_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 117
+   },
+   {
+    "handled": true,
+    "name": "SET_UPDATE",
+    "num": 163,
+    "pycdc_name": "SET_UPDATE_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 12
+   },
+   {
+    "handled": false,
+    "name": "DICT_MERGE",
+    "num": 164,
+    "pycdc_name": "DICT_MERGE_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 21
+   },
+   {
+    "handled": false,
+    "name": "DICT_UPDATE",
+    "num": 165,
+    "pycdc_name": "DICT_UPDATE_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 9
+   }
+  ],
+  "table_size": 127,
+  "version": "3.10.22"
+ },
+ "3.11": {
+  "cache_entries": {
+   "BINARY_OP": 1,
+   "BINARY_SUBSCR": 4,
+   "CALL": 4,
+   "COMPARE_OP": 2,
+   "LOAD_ATTR": 4,
+   "LOAD_GLOBAL": 5,
+   "LOAD_METHOD": 10,
+   "PRECALL": 1,
+   "STORE_ATTR": 4,
+   "STORE_SUBSCR": 1,
+   "UNPACK_SEQUENCE": 1
+  },
+  "corpus_files": 201,
+  "extraneous": [],
+  "rows": [
+   {
+    "handled": true,
+    "name": "CACHE",
+    "num": 0,
+    "pycdc_name": "CACHE",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 51754
+   },
+   {
+    "handled": true,
+    "name": "POP_TOP",
+    "num": 1,
+    "pycdc_name": "POP_TOP",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 1779
+   },
+   {
+    "handled": true,
+    "name": "PUSH_NULL",
+    "num": 2,
+    "pycdc_name": "PUSH_NULL",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 498
+   },
+   {
+    "handled": true,
+    "name": "NOP",
+    "num": 9,
+    "pycdc_name": "NOP",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 241
+   },
+   {
+    "handled": true,
+    "name": "UNARY_POSITIVE",
+    "num": 10,
+    "pycdc_name": "UNARY_POSITIVE",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 3
+   },
+   {
+    "handled": true,
+    "name": "UNARY_NEGATIVE",
+    "num": 11,
+    "pycdc_name": "UNARY_NEGATIVE",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 27
+   },
+   {
+    "handled": true,
+    "name": "UNARY_NOT",
+    "num": 12,
+    "pycdc_name": "UNARY_NOT",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 21
+   },
+   {
+    "handled": true,
+    "name": "UNARY_INVERT",
+    "num": 15,
+    "pycdc_name": "UNARY_INVERT",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 9
+   },
+   {
+    "handled": true,
+    "name": "BINARY_SUBSCR",
+    "num": 25,
+    "pycdc_name": "BINARY_SUBSCR",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 213
+   },
+   {
+    "handled": false,
+    "name": "GET_LEN",
+    "num": 30,
+    "pycdc_name": "GET_LEN",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 24
+   },
+   {
+    "handled": false,
+    "name": "MATCH_MAPPING",
+    "num": 31,
+    "pycdc_name": "MATCH_MAPPING",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 6
+   },
+   {
+    "handled": false,
+    "name": "MATCH_SEQUENCE",
+    "num": 32,
+    "pycdc_name": "MATCH_SEQUENCE",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 15
+   },
+   {
+    "handled": false,
+    "name": "MATCH_KEYS",
+    "num": 33,
+    "pycdc_name": "MATCH_KEYS",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 6
+   },
+   {
+    "handled": true,
+    "name": "PUSH_EXC_INFO",
+    "num": 35,
+    "pycdc_name": "PUSH_EXC_INFO",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 240
+   },
+   {
+    "handled": true,
+    "name": "CHECK_EXC_MATCH",
+    "num": 36,
+    "pycdc_name": "CHECK_EXC_MATCH",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 141
+   },
+   {
+    "handled": false,
+    "name": "CHECK_EG_MATCH",
+    "num": 37,
+    "pycdc_name": "CHECK_EG_MATCH",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 15
+   },
+   {
+    "handled": true,
+    "name": "WITH_EXCEPT_START",
+    "num": 49,
+    "pycdc_name": "WITH_EXCEPT_START",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 54
+   },
+   {
+    "handled": true,
+    "name": "GET_AITER",
+    "num": 50,
+    "pycdc_name": "GET_AITER",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 15
+   },
+   {
+    "handled": true,
+    "name": "GET_ANEXT",
+    "num": 51,
+    "pycdc_name": "GET_ANEXT",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 15
+   },
+   {
+    "handled": false,
+    "name": "BEFORE_ASYNC_WITH",
+    "num": 52,
+    "pycdc_name": "BEFORE_ASYNC_WITH",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 12
+   },
+   {
+    "handled": true,
+    "name": "BEFORE_WITH",
+    "num": 53,
+    "pycdc_name": "BEFORE_WITH",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 42
+   },
+   {
+    "handled": false,
+    "name": "END_ASYNC_FOR",
+    "num": 54,
+    "pycdc_name": "END_ASYNC_FOR",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 15
+   },
+   {
+    "handled": true,
+    "name": "STORE_SUBSCR",
+    "num": 60,
+    "pycdc_name": "STORE_SUBSCR",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 102
+   },
+   {
+    "handled": true,
+    "name": "DELETE_SUBSCR",
+    "num": 61,
+    "pycdc_name": "DELETE_SUBSCR",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 42
+   },
+   {
+    "handled": true,
+    "name": "GET_ITER",
+    "num": 68,
+    "pycdc_name": "GET_ITER",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 291
+   },
+   {
+    "handled": true,
+    "name": "GET_YIELD_FROM_ITER",
+    "num": 69,
+    "pycdc_name": "GET_YIELD_FROM_ITER",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 9
+   },
+   {
+    "handled": false,
+    "name": "PRINT_EXPR",
+    "num": 70,
+    "pycdc_name": "PRINT_EXPR",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 0
+   },
+   {
+    "handled": true,
+    "name": "LOAD_BUILD_CLASS",
+    "num": 71,
+    "pycdc_name": "LOAD_BUILD_CLASS",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 201
+   },
+   {
+    "handled": false,
+    "name": "LOAD_ASSERTION_ERROR",
+    "num": 74,
+    "pycdc_name": "LOAD_ASSERTION_ERROR",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 2
+   },
+   {
+    "handled": false,
+    "name": "RETURN_GENERATOR",
+    "num": 75,
+    "pycdc_name": "RETURN_GENERATOR",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 111
+   },
+   {
+    "handled": false,
+    "name": "LIST_TO_TUPLE",
+    "num": 82,
+    "pycdc_name": "LIST_TO_TUPLE",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 24
+   },
+   {
+    "handled": true,
+    "name": "RETURN_VALUE",
+    "num": 83,
+    "pycdc_name": "RETURN_VALUE",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 1887
+   },
+   {
+    "handled": true,
+    "name": "IMPORT_STAR",
+    "num": 84,
+    "pycdc_name": "IMPORT_STAR",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 3
+   },
+   {
+    "handled": true,
+    "name": "SETUP_ANNOTATIONS",
+    "num": 85,
+    "pycdc_name": "SETUP_ANNOTATIONS",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 15
+   },
+   {
+    "handled": true,
+    "name": "YIELD_VALUE",
+    "num": 86,
+    "pycdc_name": "YIELD_VALUE",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 192
+   },
+   {
+    "handled": false,
+    "name": "ASYNC_GEN_WRAP",
+    "num": 87,
+    "pycdc_name": "ASYNC_GEN_WRAP",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 6
+   },
+   {
+    "handled": false,
+    "name": "PREP_RERAISE_STAR",
+    "num": 88,
+    "pycdc_name": "PREP_RERAISE_STAR",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 12
+   },
+   {
+    "handled": true,
+    "name": "POP_EXCEPT",
+    "num": 89,
+    "pycdc_name": "POP_EXCEPT",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 447
+   },
+   {
+    "handled": true,
+    "name": "STORE_NAME",
+    "num": 90,
+    "pycdc_name": "STORE_NAME_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 1912
+   },
+   {
+    "handled": true,
+    "name": "DELETE_NAME",
+    "num": 91,
+    "pycdc_name": "DELETE_NAME_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 24
+   },
+   {
+    "handled": true,
+    "name": "UNPACK_SEQUENCE",
+    "num": 92,
+    "pycdc_name": "UNPACK_SEQUENCE_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 129
+   },
+   {
+    "handled": true,
+    "name": "FOR_ITER",
+    "num": 93,
+    "pycdc_name": "FOR_ITER_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 291
+   },
+   {
+    "handled": false,
+    "name": "UNPACK_EX",
+    "num": 94,
+    "pycdc_name": "UNPACK_EX_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 21
+   },
+   {
+    "handled": true,
+    "name": "STORE_ATTR",
+    "num": 95,
+    "pycdc_name": "STORE_ATTR_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 168
+   },
+   {
+    "handled": true,
+    "name": "DELETE_ATTR",
+    "num": 96,
+    "pycdc_name": "DELETE_ATTR_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 9
+   },
+   {
+    "handled": true,
+    "name": "STORE_GLOBAL",
+    "num": 97,
+    "pycdc_name": "STORE_GLOBAL_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 12
+   },
+   {
+    "handled": true,
+    "name": "DELETE_GLOBAL",
+    "num": 98,
+    "pycdc_name": "DELETE_GLOBAL_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 3
+   },
+   {
+    "handled": true,
+    "name": "SWAP",
+    "num": 99,
+    "pycdc_name": "SWAP_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 225
+   },
+   {
+    "handled": true,
+    "name": "LOAD_CONST",
+    "num": 100,
+    "pycdc_name": "LOAD_CONST_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 8610
+   },
+   {
+    "handled": true,
+    "name": "LOAD_NAME",
+    "num": 101,
+    "pycdc_name": "LOAD_NAME_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 549
+   },
+   {
+    "handled": true,
+    "name": "BUILD_TUPLE",
+    "num": 102,
+    "pycdc_name": "BUILD_TUPLE_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 408
+   },
+   {
+    "handled": true,
+    "name": "BUILD_LIST",
+    "num": 103,
+    "pycdc_name": "BUILD_LIST_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 780
+   },
+   {
+    "handled": true,
+    "name": "BUILD_SET",
+    "num": 104,
+    "pycdc_name": "BUILD_SET_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 12
+   },
+   {
+    "handled": true,
+    "name": "BUILD_MAP",
+    "num": 105,
+    "pycdc_name": "BUILD_MAP_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 135
+   },
+   {
+    "handled": true,
+    "name": "LOAD_ATTR",
+    "num": 106,
+    "pycdc_name": "LOAD_ATTR_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 831
+   },
+   {
+    "handled": true,
+    "name": "COMPARE_OP",
+    "num": 107,
+    "pycdc_name": "COMPARE_OP_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 403
+   },
+   {
+    "handled": true,
+    "name": "IMPORT_NAME",
+    "num": 108,
+    "pycdc_name": "IMPORT_NAME_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 93
+   },
+   {
+    "handled": true,
+    "name": "IMPORT_FROM",
+    "num": 109,
+    "pycdc_name": "IMPORT_FROM_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 39
+   },
+   {
+    "handled": true,
+    "name": "JUMP_FORWARD",
+    "num": 110,
+    "pycdc_name": "JUMP_FORWARD_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 429
+   },
+   {
+    "handled": true,
+    "name": "JUMP_IF_FALSE_OR_POP",
+    "num": 111,
+    "pycdc_name": "JUMP_IF_FALSE_OR_POP_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 51
+   },
+   {
+    "handled": true,
+    "name": "JUMP_IF_TRUE_OR_POP",
+    "num": 112,
+    "pycdc_name": "JUMP_IF_TRUE_OR_POP_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 42
+   },
+   {
+    "handled": true,
+    "name": "POP_JUMP_FORWARD_IF_FALSE",
+    "num": 114,
+    "pycdc_name": "POP_JUMP_FORWARD_IF_FALSE_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 501
+   },
+   {
+    "handled": true,
+    "name": "POP_JUMP_FORWARD_IF_TRUE",
+    "num": 115,
+    "pycdc_name": "POP_JUMP_FORWARD_IF_TRUE_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 86
+   },
+   {
+    "handled": true,
+    "name": "LOAD_GLOBAL",
+    "num": 116,
+    "pycdc_name": "LOAD_GLOBAL_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 3272
+   },
+   {
+    "handled": true,
+    "name": "IS_OP",
+    "num": 117,
+    "pycdc_name": "IS_OP_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 33
+   },
+   {
+    "handled": true,
+    "name": "CONTAINS_OP",
+    "num": 118,
+    "pycdc_name": "CONTAINS_OP_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 54
+   },
+   {
+    "handled": true,
+    "name": "RERAISE",
+    "num": 119,
+    "pycdc_name": "RERAISE_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 561
+   },
+   {
+    "handled": true,
+    "name": "COPY",
+    "num": 120,
+    "pycdc_name": "COPY_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 576
+   },
+   {
+    "handled": true,
+    "name": "BINARY_OP",
+    "num": 122,
+    "pycdc_name": "BINARY_OP_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 654
+   },
+   {
+    "handled": false,
+    "name": "SEND",
+    "num": 123,
+    "pycdc_name": "SEND_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 111
+   },
+   {
+    "handled": true,
+    "name": "LOAD_FAST",
+    "num": 124,
+    "pycdc_name": "LOAD_FAST_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 4614
+   },
+   {
+    "handled": true,
+    "name": "STORE_FAST",
+    "num": 125,
+    "pycdc_name": "STORE_FAST_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 1695
+   },
+   {
+    "handled": true,
+    "name": "DELETE_FAST",
+    "num": 126,
+    "pycdc_name": "DELETE_FAST_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 189
+   },
+   {
+    "handled": false,
+    "name": "POP_JUMP_FORWARD_IF_NOT_NONE",
+    "num": 128,
+    "pycdc_name": "POP_JUMP_FORWARD_IF_NOT_NONE_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 33
+   },
+   {
+    "handled": false,
+    "name": "POP_JUMP_FORWARD_IF_NONE",
+    "num": 129,
+    "pycdc_name": "POP_JUMP_FORWARD_IF_NONE_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 63
+   },
+   {
+    "handled": true,
+    "name": "RAISE_VARARGS",
+    "num": 130,
+    "pycdc_name": "RAISE_VARARGS_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 89
+   },
+   {
+    "handled": false,
+    "name": "GET_AWAITABLE",
+    "num": 131,
+    "pycdc_name": "GET_AWAITABLE_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 87
+   },
+   {
+    "handled": true,
+    "name": "MAKE_FUNCTION",
+    "num": 132,
+    "pycdc_name": "MAKE_FUNCTION_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 1542
+   },
+   {
+    "handled": true,
+    "name": "BUILD_SLICE",
+    "num": 133,
+    "pycdc_name": "BUILD_SLICE_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 90
+   },
+   {
+    "handled": true,
+    "name": "JUMP_BACKWARD_NO_INTERRUPT",
+    "num": 134,
+    "pycdc_name": "JUMP_BACKWARD_NO_INTERRUPT_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 111
+   },
+   {
+    "handled": false,
+    "name": "MAKE_CELL",
+    "num": 135,
+    "pycdc_name": "MAKE_CELL_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 135
+   },
+   {
+    "handled": true,
+    "name": "LOAD_CLOSURE",
+    "num": 136,
+    "pycdc_name": "LOAD_CLOSURE_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 210
+   },
+   {
+    "handled": true,
+    "name": "LOAD_DEREF",
+    "num": 137,
+    "pycdc_name": "LOAD_DEREF_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 174
+   },
+   {
+    "handled": true,
+    "name": "STORE_DEREF",
+    "num": 138,
+    "pycdc_name": "STORE_DEREF_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 99
+   },
+   {
+    "handled": false,
+    "name": "DELETE_DEREF",
+    "num": 139,
+    "pycdc_name": "DELETE_DEREF_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 3
+   },
+   {
+    "handled": true,
+    "name": "JUMP_BACKWARD",
+    "num": 140,
+    "pycdc_name": "JUMP_BACKWARD_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 354
+   },
+   {
+    "handled": false,
+    "name": "CALL_FUNCTION_EX",
+    "num": 142,
+    "pycdc_name": "CALL_FUNCTION_EX_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 39
+   },
+   {
+    "handled": false,
+    "name": "EXTENDED_ARG",
+    "num": 144,
+    "pycdc_name": "EXTENDED_ARG_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 6
+   },
+   {
+    "handled": true,
+    "name": "LIST_APPEND",
+    "num": 145,
+    "pycdc_name": "LIST_APPEND_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 228
+   },
+   {
+    "handled": false,
+    "name": "SET_ADD",
+    "num": 146,
+    "pycdc_name": "SET_ADD_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 6
+   },
+   {
+    "handled": false,
+    "name": "MAP_ADD",
+    "num": 147,
+    "pycdc_name": "MAP_ADD_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 27
+   },
+   {
+    "handled": true,
+    "name": "LOAD_CLASSDEREF",
+    "num": 148,
+    "pycdc_name": "LOAD_CLASSDEREF_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 3
+   },
+   {
+    "handled": false,
+    "name": "COPY_FREE_VARS",
+    "num": 149,
+    "pycdc_name": "COPY_FREE_VARS_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 147
+   },
+   {
+    "handled": true,
+    "name": "RESUME",
+    "num": 151,
+    "pycdc_name": "RESUME_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 1935
+   },
+   {
+    "handled": false,
+    "name": "MATCH_CLASS",
+    "num": 152,
+    "pycdc_name": "MATCH_CLASS_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 36
+   },
+   {
+    "handled": true,
+    "name": "FORMAT_VALUE",
+    "num": 155,
+    "pycdc_name": "FORMAT_VALUE_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 160
+   },
+   {
+    "handled": true,
+    "name": "BUILD_CONST_KEY_MAP",
+    "num": 156,
+    "pycdc_name": "BUILD_CONST_KEY_MAP_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 51
+   },
+   {
+    "handled": true,
+    "name": "BUILD_STRING",
+    "num": 157,
+    "pycdc_name": "BUILD_STRING_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 67
+   },
+   {
+    "handled": true,
+    "name": "LOAD_METHOD",
+    "num": 160,
+    "pycdc_name": "LOAD_METHOD_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 792
+   },
+   {
+    "handled": true,
+    "name": "LIST_EXTEND",
+    "num": 162,
+    "pycdc_name": "LIST_EXTEND_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 135
+   },
+   {
+    "handled": true,
+    "name": "SET_UPDATE",
+    "num": 163,
+    "pycdc_name": "SET_UPDATE_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 12
+   },
+   {
+    "handled": false,
+    "name": "DICT_MERGE",
+    "num": 164,
+    "pycdc_name": "DICT_MERGE_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 21
+   },
+   {
+    "handled": false,
+    "name": "DICT_UPDATE",
+    "num": 165,
+    "pycdc_name": "DICT_UPDATE_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 12
+   },
+   {
+    "handled": true,
+    "name": "PRECALL",
+    "num": 166,
+    "pycdc_name": "PRECALL_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 4187
+   },
+   {
+    "handled": true,
+    "name": "CALL",
+    "num": 171,
+    "pycdc_name": "CALL_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 4187
+   },
+   {
+    "handled": true,
+    "name": "KW_NAMES",
+    "num": 172,
+    "pycdc_name": "KW_NAMES_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 102
+   },
+   {
+    "handled": false,
+    "name": "POP_JUMP_BACKWARD_IF_NOT_NONE",
+    "num": 173,
+    "pycdc_name": "POP_JUMP_BACKWARD_IF_NOT_NONE_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 3
+   },
+   {
+    "handled": false,
+    "name": "POP_JUMP_BACKWARD_IF_NONE",
+    "num": 174,
+    "pycdc_name": "POP_JUMP_BACKWARD_IF_NONE_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 3
+   },
+   {
+    "handled": false,
+    "name": "POP_JUMP_BACKWARD_IF_FALSE",
+    "num": 175,
+    "pycdc_name": "POP_JUMP_BACKWARD_IF_FALSE_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 30
+   },
+   {
+    "handled": false,
+    "name": "POP_JUMP_BACKWARD_IF_TRUE",
+    "num": 176,
+    "pycdc_name": "POP_JUMP_BACKWARD_IF_TRUE_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 27
+   }
+  ],
+  "table_size": 110,
+  "version": "3.11.17"
+ },
+ "3.12": {
+  "cache_entries": {
+   "BINARY_OP": 1,
+   "BINARY_SUBSCR": 1,
+   "CALL": 3,
+   "COMPARE_OP": 1,
+   "FOR_ITER": 1,
+   "LOAD_ATTR": 9,
+   "LOAD_GLOBAL": 4,
+   "LOAD_SUPER_ATTR": 1,
+   "SEND": 1,
+   "STORE_ATTR": 4,
+   "STORE_SUBSCR": 1,
+   "UNPACK_SEQUENCE": 1
+  },
+  "corpus_files": 207,
+  "extraneous": [],
+  "rows": [
+   {
+    "handled": true,
+    "name": "CACHE",
+    "num": 0,
+    "pycdc_name": "CACHE",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 43272
+   },
+   {
+    "handled": true,
+    "name": "POP_TOP",
+    "num": 1,
+    "pycdc_name": "POP_TOP",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 2034
+   },
+   {
+    "handled": true,
+    "name": "PUSH_NULL",
+    "num": 2,
+    "pycdc_name": "PUSH_NULL",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 516
+   },
+   {
+    "handled": false,
+    "name": "INTERPRETER_EXIT",
+    "num": 3,
+    "pycdc_name": "INTERPRETER_EXIT",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 0
+   },
+   {
+    "handled": true,
+    "name": "END_FOR",
+    "num": 4,
+    "pycdc_name": "END_FOR",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 300
+   },
+   {
+    "handled": false,
+    "name": "END_SEND",
+    "num": 5,
+    "pycdc_name": "END_SEND",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 102
+   },
+   {
+    "handled": true,
+    "name": "NOP",
+    "num": 9,
+    "pycdc_name": "NOP",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 253
+   },
+   {
+    "handled": true,
+    "name": "UNARY_NEGATIVE",
+    "num": 11,
+    "pycdc_name": "UNARY_NEGATIVE",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 27
+   },
+   {
+    "handled": true,
+    "name": "UNARY_NOT",
+    "num": 12,
+    "pycdc_name": "UNARY_NOT",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 21
+   },
+   {
+    "handled": true,
+    "name": "UNARY_INVERT",
+    "num": 15,
+    "pycdc_name": "UNARY_INVERT",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 9
+   },
+   {
+    "handled": false,
+    "name": "RESERVED",
+    "num": 17,
+    "pycdc_name": "RESERVED",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 0
+   },
+   {
+    "handled": true,
+    "name": "BINARY_SUBSCR",
+    "num": 25,
+    "pycdc_name": "BINARY_SUBSCR",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 210
+   },
+   {
+    "handled": true,
+    "name": "BINARY_SLICE",
+    "num": 26,
+    "pycdc_name": "BINARY_SLICE",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 30
+   },
+   {
+    "handled": true,
+    "name": "STORE_SLICE",
+    "num": 27,
+    "pycdc_name": "STORE_SLICE",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 6
+   },
+   {
+    "handled": false,
+    "name": "GET_LEN",
+    "num": 30,
+    "pycdc_name": "GET_LEN",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 24
+   },
+   {
+    "handled": false,
+    "name": "MATCH_MAPPING",
+    "num": 31,
+    "pycdc_name": "MATCH_MAPPING",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 6
+   },
+   {
+    "handled": false,
+    "name": "MATCH_SEQUENCE",
+    "num": 32,
+    "pycdc_name": "MATCH_SEQUENCE",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 15
+   },
+   {
+    "handled": false,
+    "name": "MATCH_KEYS",
+    "num": 33,
+    "pycdc_name": "MATCH_KEYS",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 6
+   },
+   {
+    "handled": true,
+    "name": "PUSH_EXC_INFO",
+    "num": 35,
+    "pycdc_name": "PUSH_EXC_INFO",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 240
+   },
+   {
+    "handled": true,
+    "name": "CHECK_EXC_MATCH",
+    "num": 36,
+    "pycdc_name": "CHECK_EXC_MATCH",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 141
+   },
+   {
+    "handled": false,
+    "name": "CHECK_EG_MATCH",
+    "num": 37,
+    "pycdc_name": "CHECK_EG_MATCH",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 15
+   },
+   {
+    "handled": true,
+    "name": "WITH_EXCEPT_START",
+    "num": 49,
+    "pycdc_name": "WITH_EXCEPT_START",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 54
+   },
+   {
+    "handled": true,
+    "name": "GET_AITER",
+    "num": 50,
+    "pycdc_name": "GET_AITER",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 15
+   },
+   {
+    "handled": true,
+    "name": "GET_ANEXT",
+    "num": 51,
+    "pycdc_name": "GET_ANEXT",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 15
+   },
+   {
+    "handled": false,
+    "name": "BEFORE_ASYNC_WITH",
+    "num": 52,
+    "pycdc_name": "BEFORE_ASYNC_WITH",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 12
+   },
+   {
+    "handled": true,
+    "name": "BEFORE_WITH",
+    "num": 53,
+    "pycdc_name": "BEFORE_WITH",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 42
+   },
+   {
+    "handled": false,
+    "name": "END_ASYNC_FOR",
+    "num": 54,
+    "pycdc_name": "END_ASYNC_FOR",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 15
+   },
+   {
+    "handled": false,
+    "name": "CLEANUP_THROW",
+    "num": 55,
+    "pycdc_name": "CLEANUP_THROW",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 102
+   },
+   {
+    "handled": true,
+    "name": "STORE_SUBSCR",
+    "num": 60,
+    "pycdc_name": "STORE_SUBSCR",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 96
+   },
+   {
+    "handled": true,
+    "name": "DELETE_SUBSCR",
+    "num": 61,
+    "pycdc_name": "DELETE_SUBSCR",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 42
+   },
+   {
+    "handled": true,
+    "name": "GET_ITER",
+    "num": 68,
+    "pycdc_name": "GET_ITER",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 300
+   },
+   {
+    "handled": true,
+    "name": "GET_YIELD_FROM_ITER",
+    "num": 69,
+    "pycdc_name": "GET_YIELD_FROM_ITER",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 9
+   },
+   {
+    "handled": true,
+    "name": "LOAD_BUILD_CLASS",
+    "num": 71,
+    "pycdc_name": "LOAD_BUILD_CLASS",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 207
+   },
+   {
+    "handled": false,
+    "name": "LOAD_ASSERTION_ERROR",
+    "num": 74,
+    "pycdc_name": "LOAD_ASSERTION_ERROR",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 2
+   },
+   {
+    "handled": false,
+    "name": "RETURN_GENERATOR",
+    "num": 75,
+    "pycdc_name": "RETURN_GENERATOR",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 105
+   },
+   {
+    "handled": true,
+    "name": "RETURN_VALUE",
+    "num": 83,
+    "pycdc_name": "RETURN_VALUE",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 1128
+   },
+   {
+    "handled": true,
+    "name": "SETUP_ANNOTATIONS",
+    "num": 85,
+    "pycdc_name": "SETUP_ANNOTATIONS",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 15
+   },
+   {
+    "handled": true,
+    "name": "LOAD_LOCALS",
+    "num": 87,
+    "pycdc_name": "LOAD_LOCALS",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 15
+   },
+   {
+    "handled": true,
+    "name": "POP_EXCEPT",
+    "num": 89,
+    "pycdc_name": "POP_EXCEPT",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 447
+   },
+   {
+    "handled": true,
+    "name": "STORE_NAME",
+    "num": 90,
+    "pycdc_name": "STORE_NAME_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 1975
+   },
+   {
+    "handled": true,
+    "name": "DELETE_NAME",
+    "num": 91,
+    "pycdc_name": "DELETE_NAME_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 24
+   },
+   {
+    "handled": true,
+    "name": "UNPACK_SEQUENCE",
+    "num": 92,
+    "pycdc_name": "UNPACK_SEQUENCE_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 129
+   },
+   {
+    "handled": true,
+    "name": "FOR_ITER",
+    "num": 93,
+    "pycdc_name": "FOR_ITER_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 300
+   },
+   {
+    "handled": false,
+    "name": "UNPACK_EX",
+    "num": 94,
+    "pycdc_name": "UNPACK_EX_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 21
+   },
+   {
+    "handled": true,
+    "name": "STORE_ATTR",
+    "num": 95,
+    "pycdc_name": "STORE_ATTR_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 171
+   },
+   {
+    "handled": true,
+    "name": "DELETE_ATTR",
+    "num": 96,
+    "pycdc_name": "DELETE_ATTR_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 9
+   },
+   {
+    "handled": true,
+    "name": "STORE_GLOBAL",
+    "num": 97,
+    "pycdc_name": "STORE_GLOBAL_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 12
+   },
+   {
+    "handled": true,
+    "name": "DELETE_GLOBAL",
+    "num": 98,
+    "pycdc_name": "DELETE_GLOBAL_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 3
+   },
+   {
+    "handled": true,
+    "name": "SWAP",
+    "num": 99,
+    "pycdc_name": "SWAP_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 858
+   },
+   {
+    "handled": true,
+    "name": "LOAD_CONST",
+    "num": 100,
+    "pycdc_name": "LOAD_CONST_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 7935
+   },
+   {
+    "handled": true,
+    "name": "LOAD_NAME",
+    "num": 101,
+    "pycdc_name": "LOAD_NAME_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 558
+   },
+   {
+    "handled": true,
+    "name": "BUILD_TUPLE",
+    "num": 102,
+    "pycdc_name": "BUILD_TUPLE_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 453
+   },
+   {
+    "handled": true,
+    "name": "BUILD_LIST",
+    "num": 103,
+    "pycdc_name": "BUILD_LIST_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 804
+   },
+   {
+    "handled": true,
+    "name": "BUILD_SET",
+    "num": 104,
+    "pycdc_name": "BUILD_SET_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 12
+   },
+   {
+    "handled": true,
+    "name": "BUILD_MAP",
+    "num": 105,
+    "pycdc_name": "BUILD_MAP_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 138
+   },
+   {
+    "handled": true,
+    "name": "LOAD_ATTR",
+    "num": 106,
+    "pycdc_name": "LOAD_ATTR_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 1641
+   },
+   {
+    "handled": true,
+    "name": "COMPARE_OP",
+    "num": 107,
+    "pycdc_name": "COMPARE_OP_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 403
+   },
+   {
+    "handled": true,
+    "name": "IMPORT_NAME",
+    "num": 108,
+    "pycdc_name": "IMPORT_NAME_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 93
+   },
+   {
+    "handled": true,
+    "name": "IMPORT_FROM",
+    "num": 109,
+    "pycdc_name": "IMPORT_FROM_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 39
+   },
+   {
+    "handled": true,
+    "name": "JUMP_FORWARD",
+    "num": 110,
+    "pycdc_name": "JUMP_FORWARD_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 198
+   },
+   {
+    "handled": true,
+    "name": "POP_JUMP_IF_FALSE",
+    "num": 114,
+    "pycdc_name": "POP_JUMP_IF_FALSE_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 564
+   },
+   {
+    "handled": true,
+    "name": "POP_JUMP_IF_TRUE",
+    "num": 115,
+    "pycdc_name": "POP_JUMP_IF_TRUE_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 176
+   },
+   {
+    "handled": true,
+    "name": "LOAD_GLOBAL",
+    "num": 116,
+    "pycdc_name": "LOAD_GLOBAL_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 3383
+   },
+   {
+    "handled": true,
+    "name": "IS_OP",
+    "num": 117,
+    "pycdc_name": "IS_OP_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 33
+   },
+   {
+    "handled": true,
+    "name": "CONTAINS_OP",
+    "num": 118,
+    "pycdc_name": "CONTAINS_OP_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 54
+   },
+   {
+    "handled": true,
+    "name": "RERAISE",
+    "num": 119,
+    "pycdc_name": "RERAISE_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 798
+   },
+   {
+    "handled": true,
+    "name": "COPY",
+    "num": 120,
+    "pycdc_name": "COPY_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 702
+   },
+   {
+    "handled": true,
+    "name": "RETURN_CONST",
+    "num": 121,
+    "pycdc_name": "RETURN_CONST_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 792
+   },
+   {
+    "handled": true,
+    "name": "BINARY_OP",
+    "num": 122,
+    "pycdc_name": "BINARY_OP_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 663
+   },
+   {
+    "handled": false,
+    "name": "SEND",
+    "num": 123,
+    "pycdc_name": "SEND_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 102
+   },
+   {
+    "handled": true,
+    "name": "LOAD_FAST",
+    "num": 124,
+    "pycdc_name": "LOAD_FAST_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 4659
+   },
+   {
+    "handled": true,
+    "name": "STORE_FAST",
+    "num": 125,
+    "pycdc_name": "STORE_FAST_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 2109
+   },
+   {
+    "handled": true,
+    "name": "DELETE_FAST",
+    "num": 126,
+    "pycdc_name": "DELETE_FAST_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 189
+   },
+   {
+    "handled": false,
+    "name": "LOAD_FAST_CHECK",
+    "num": 127,
+    "pycdc_name": "LOAD_FAST_CHECK_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 48
+   },
+   {
+    "handled": false,
+    "name": "POP_JUMP_IF_NOT_NONE",
+    "num": 128,
+    "pycdc_name": "POP_JUMP_IF_NOT_NONE_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 36
+   },
+   {
+    "handled": false,
+    "name": "POP_JUMP_IF_NONE",
+    "num": 129,
+    "pycdc_name": "POP_JUMP_IF_NONE_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 69
+   },
+   {
+    "handled": true,
+    "name": "RAISE_VARARGS",
+    "num": 130,
+    "pycdc_name": "RAISE_VARARGS_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 89
+   },
+   {
+    "handled": false,
+    "name": "GET_AWAITABLE",
+    "num": 131,
+    "pycdc_name": "GET_AWAITABLE_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 78
+   },
+   {
+    "handled": true,
+    "name": "MAKE_FUNCTION",
+    "num": 132,
+    "pycdc_name": "MAKE_FUNCTION_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 1479
+   },
+   {
+    "handled": true,
+    "name": "BUILD_SLICE",
+    "num": 133,
+    "pycdc_name": "BUILD_SLICE_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 54
+   },
+   {
+    "handled": true,
+    "name": "JUMP_BACKWARD_NO_INTERRUPT",
+    "num": 134,
+    "pycdc_name": "JUMP_BACKWARD_NO_INTERRUPT_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 102
+   },
+   {
+    "handled": false,
+    "name": "MAKE_CELL",
+    "num": 135,
+    "pycdc_name": "MAKE_CELL_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 129
+   },
+   {
+    "handled": true,
+    "name": "LOAD_CLOSURE",
+    "num": 136,
+    "pycdc_name": "LOAD_CLOSURE_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 210
+   },
+   {
+    "handled": true,
+    "name": "LOAD_DEREF",
+    "num": 137,
+    "pycdc_name": "LOAD_DEREF_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 192
+   },
+   {
+    "handled": true,
+    "name": "STORE_DEREF",
+    "num": 138,
+    "pycdc_name": "STORE_DEREF_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 90
+   },
+   {
+    "handled": false,
+    "name": "DELETE_DEREF",
+    "num": 139,
+    "pycdc_name": "DELETE_DEREF_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 3
+   },
+   {
+    "handled": true,
+    "name": "JUMP_BACKWARD",
+    "num": 140,
+    "pycdc_name": "JUMP_BACKWARD_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 546
+   },
+   {
+    "handled": false,
+    "name": "LOAD_SUPER_ATTR",
+    "num": 141,
+    "pycdc_name": "LOAD_SUPER_ATTR_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 39
+   },
+   {
+    "handled": false,
+    "name": "CALL_FUNCTION_EX",
+    "num": 142,
+    "pycdc_name": "CALL_FUNCTION_EX_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 39
+   },
+   {
+    "handled": false,
+    "name": "LOAD_FAST_AND_CLEAR",
+    "num": 143,
+    "pycdc_name": "LOAD_FAST_AND_CLEAR_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 174
+   },
+   {
+    "handled": false,
+    "name": "EXTENDED_ARG",
+    "num": 144,
+    "pycdc_name": "EXTENDED_ARG_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 9
+   },
+   {
+    "handled": true,
+    "name": "LIST_APPEND",
+    "num": 145,
+    "pycdc_name": "LIST_APPEND_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 231
+   },
+   {
+    "handled": false,
+    "name": "SET_ADD",
+    "num": 146,
+    "pycdc_name": "SET_ADD_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 6
+   },
+   {
+    "handled": false,
+    "name": "MAP_ADD",
+    "num": 147,
+    "pycdc_name": "MAP_ADD_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 27
+   },
+   {
+    "handled": false,
+    "name": "COPY_FREE_VARS",
+    "num": 149,
+    "pycdc_name": "COPY_FREE_VARS_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 138
+   },
+   {
+    "handled": false,
+    "name": "YIELD_VALUE",
+    "num": 150,
+    "pycdc_name": "YIELD_VALUE_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 186
+   },
+   {
+    "handled": true,
+    "name": "RESUME",
+    "num": 151,
+    "pycdc_name": "RESUME_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 1872
+   },
+   {
+    "handled": false,
+    "name": "MATCH_CLASS",
+    "num": 152,
+    "pycdc_name": "MATCH_CLASS_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 36
+   },
+   {
+    "handled": true,
+    "name": "FORMAT_VALUE",
+    "num": 155,
+    "pycdc_name": "FORMAT_VALUE_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 187
+   },
+   {
+    "handled": true,
+    "name": "BUILD_CONST_KEY_MAP",
+    "num": 156,
+    "pycdc_name": "BUILD_CONST_KEY_MAP_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 51
+   },
+   {
+    "handled": true,
+    "name": "BUILD_STRING",
+    "num": 157,
+    "pycdc_name": "BUILD_STRING_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 70
+   },
+   {
+    "handled": true,
+    "name": "LIST_EXTEND",
+    "num": 162,
+    "pycdc_name": "LIST_EXTEND_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 135
+   },
+   {
+    "handled": true,
+    "name": "SET_UPDATE",
+    "num": 163,
+    "pycdc_name": "SET_UPDATE_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 12
+   },
+   {
+    "handled": false,
+    "name": "DICT_MERGE",
+    "num": 164,
+    "pycdc_name": "DICT_MERGE_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 21
+   },
+   {
+    "handled": false,
+    "name": "DICT_UPDATE",
+    "num": 165,
+    "pycdc_name": "DICT_UPDATE_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 12
+   },
+   {
+    "handled": true,
+    "name": "CALL",
+    "num": 171,
+    "pycdc_name": "CALL_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 4115
+   },
+   {
+    "handled": true,
+    "name": "KW_NAMES",
+    "num": 172,
+    "pycdc_name": "KW_NAMES_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 102
+   },
+   {
+    "handled": false,
+    "name": "CALL_INTRINSIC_1",
+    "num": 173,
+    "pycdc_name": "CALL_INTRINSIC_1_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 174
+   },
+   {
+    "handled": false,
+    "name": "CALL_INTRINSIC_2",
+    "num": 174,
+    "pycdc_name": "CALL_INTRINSIC_2_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 30
+   },
+   {
+    "handled": false,
+    "name": "LOAD_FROM_DICT_OR_GLOBALS",
+    "num": 175,
+    "pycdc_name": "LOAD_FROM_DICT_OR_GLOBALS_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 9
+   },
+   {
+    "handled": false,
+    "name": "LOAD_FROM_DICT_OR_DEREF",
+    "num": 176,
+    "pycdc_name": "LOAD_FROM_DICT_OR_DEREF_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 12
+   },
+   {
+    "handled": false,
+    "name": "INSTRUMENTED_LOAD_SUPER_ATTR",
+    "num": 237,
+    "pycdc_name": "INSTRUMENTED_LOAD_SUPER_ATTR_A",
+    "runtime_only": true,
+    "table": "ok",
+    "used": 0
+   },
+   {
+    "handled": false,
+    "name": "INSTRUMENTED_POP_JUMP_IF_NONE",
+    "num": 238,
+    "pycdc_name": "INSTRUMENTED_POP_JUMP_IF_NONE_A",
+    "runtime_only": true,
+    "table": "ok",
+    "used": 0
+   },
+   {
+    "handled": false,
+    "name": "INSTRUMENTED_POP_JUMP_IF_NOT_NONE",
+    "num": 239,
+    "pycdc_name": "INSTRUMENTED_POP_JUMP_IF_NOT_NONE_A",
+    "runtime_only": true,
+    "table": "ok",
+    "used": 0
+   },
+   {
+    "handled": true,
+    "name": "INSTRUMENTED_RESUME",
+    "num": 240,
+    "pycdc_name": "INSTRUMENTED_RESUME_A",
+    "runtime_only": true,
+    "table": "ok",
+    "used": 0
+   },
+   {
+    "handled": true,
+    "name": "INSTRUMENTED_CALL",
+    "num": 241,
+    "pycdc_name": "INSTRUMENTED_CALL_A",
+    "runtime_only": true,
+    "table": "ok",
+    "used": 0
+   },
+   {
+    "handled": true,
+    "name": "INSTRUMENTED_RETURN_VALUE",
+    "num": 242,
+    "pycdc_name": "INSTRUMENTED_RETURN_VALUE_A",
+    "runtime_only": true,
+    "table": "ok",
+    "used": 0
+   },
+   {
+    "handled": true,
+    "name": "INSTRUMENTED_YIELD_VALUE",
+    "num": 243,
+    "pycdc_name": "INSTRUMENTED_YIELD_VALUE_A",
+    "runtime_only": true,
+    "table": "ok",
+    "used": 0
+   },
+   {
+    "handled": false,
+    "name": "INSTRUMENTED_CALL_FUNCTION_EX",
+    "num": 244,
+    "pycdc_name": "INSTRUMENTED_CALL_FUNCTION_EX_A",
+    "runtime_only": true,
+    "table": "ok",
+    "used": 0
+   },
+   {
+    "handled": true,
+    "name": "INSTRUMENTED_JUMP_FORWARD",
+    "num": 245,
+    "pycdc_name": "INSTRUMENTED_JUMP_FORWARD_A",
+    "runtime_only": true,
+    "table": "ok",
+    "used": 0
+   },
+   {
+    "handled": false,
+    "name": "INSTRUMENTED_JUMP_BACKWARD",
+    "num": 246,
+    "pycdc_name": "INSTRUMENTED_JUMP_BACKWARD_A",
+    "runtime_only": true,
+    "table": "ok",
+    "used": 0
+   },
+   {
+    "handled": true,
+    "name": "INSTRUMENTED_RETURN_CONST",
+    "num": 247,
+    "pycdc_name": "INSTRUMENTED_RETURN_CONST_A",
+    "runtime_only": true,
+    "table": "ok",
+    "used": 0
+   },
+   {
+    "handled": true,
+    "name": "INSTRUMENTED_FOR_ITER",
+    "num": 248,
+    "pycdc_name": "INSTRUMENTED_FOR_ITER_A",
+    "runtime_only": true,
+    "table": "ok",
+    "used": 0
+   },
+   {
+    "handled": true,
+    "name": "INSTRUMENTED_POP_JUMP_IF_FALSE",
+    "num": 249,
+    "pycdc_name": "INSTRUMENTED_POP_JUMP_IF_FALSE_A",
+    "runtime_only": true,
+    "table": "ok",
+    "used": 0
+   },
+   {
+    "handled": true,
+    "name": "INSTRUMENTED_POP_JUMP_IF_TRUE",
+    "num": 250,
+    "pycdc_name": "INSTRUMENTED_POP_JUMP_IF_TRUE_A",
+    "runtime_only": true,
+    "table": "ok",
+    "used": 0
+   },
+   {
+    "handled": false,
+    "name": "INSTRUMENTED_END_FOR",
+    "num": 251,
+    "pycdc_name": "INSTRUMENTED_END_FOR_A",
+    "runtime_only": true,
+    "table": "ok",
+    "used": 0
+   },
+   {
+    "handled": false,
+    "name": "INSTRUMENTED_END_SEND",
+    "num": 252,
+    "pycdc_name": "INSTRUMENTED_END_SEND_A",
+    "runtime_only": true,
+    "table": "ok",
+    "used": 0
+   },
+   {
+    "handled": false,
+    "name": "INSTRUMENTED_INSTRUCTION",
+    "num": 253,
+    "pycdc_name": "INSTRUMENTED_INSTRUCTION_A",
+    "runtime_only": true,
+    "table": "ok",
+    "used": 0
+   },
+   {
+    "handled": false,
+    "name": "INSTRUMENTED_LINE",
+    "num": 254,
+    "pycdc_name": "INSTRUMENTED_LINE_A",
+    "runtime_only": true,
+    "table": "ok",
+    "used": 0
+   }
+  ],
+  "table_size": 129,
+  "version": "3.12.15"
+ },
+ "3.13": {
+  "cache_entries": {
+   "BINARY_OP": 1,
+   "BINARY_SUBSCR": 1,
+   "CALL": 3,
+   "COMPARE_OP": 1,
+   "CONTAINS_OP": 1,
+   "FOR_ITER": 1,
+   "JUMP_BACKWARD": 1,
+   "LOAD_ATTR": 9,
+   "LOAD_GLOBAL": 4,
+   "LOAD_SUPER_ATTR": 1,
+   "POP_JUMP_IF_FALSE": 1,
+   "POP_JUMP_IF_NONE": 1,
+   "POP_JUMP_IF_NOT_NONE": 1,
+   "POP_JUMP_IF_TRUE": 1,
+   "SEND": 1,
+   "STORE_ATTR": 4,
+   "STORE_SUBSCR": 1,
+   "TO_BOOL": 3,
+   "UNPACK_SEQUENCE": 1
+  },
+  "corpus_files": 210,
+  "extraneous": [],
+  "rows": [
+   {
+    "handled": true,
+    "name": "CACHE",
+    "num": 0,
+    "pycdc_name": "CACHE",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 45845
+   },
+   {
+    "handled": false,
+    "name": "BEFORE_ASYNC_WITH",
+    "num": 1,
+    "pycdc_name": "BEFORE_ASYNC_WITH",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 12
+   },
+   {
+    "handled": true,
+    "name": "BEFORE_WITH",
+    "num": 2,
+    "pycdc_name": "BEFORE_WITH",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 42
+   },
+   {
+    "handled": true,
+    "name": "BINARY_SLICE",
+    "num": 4,
+    "pycdc_name": "BINARY_SLICE",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 30
+   },
+   {
+    "handled": true,
+    "name": "BINARY_SUBSCR",
+    "num": 5,
+    "pycdc_name": "BINARY_SUBSCR",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 219
+   },
+   {
+    "handled": false,
+    "name": "CHECK_EG_MATCH",
+    "num": 6,
+    "pycdc_name": "CHECK_EG_MATCH",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 15
+   },
+   {
+    "handled": true,
+    "name": "CHECK_EXC_MATCH",
+    "num": 7,
+    "pycdc_name": "CHECK_EXC_MATCH",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 141
+   },
+   {
+    "handled": false,
+    "name": "CLEANUP_THROW",
+    "num": 8,
+    "pycdc_name": "CLEANUP_THROW",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 102
+   },
+   {
+    "handled": true,
+    "name": "DELETE_SUBSCR",
+    "num": 9,
+    "pycdc_name": "DELETE_SUBSCR",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 42
+   },
+   {
+    "handled": false,
+    "name": "END_ASYNC_FOR",
+    "num": 10,
+    "pycdc_name": "END_ASYNC_FOR",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 15
+   },
+   {
+    "handled": true,
+    "name": "END_FOR",
+    "num": 11,
+    "pycdc_name": "END_FOR",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 309
+   },
+   {
+    "handled": false,
+    "name": "END_SEND",
+    "num": 12,
+    "pycdc_name": "END_SEND",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 102
+   },
+   {
+    "handled": false,
+    "name": "EXIT_INIT_CHECK",
+    "num": 13,
+    "pycdc_name": "EXIT_INIT_CHECK",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 0
+   },
+   {
+    "handled": false,
+    "name": "FORMAT_SIMPLE",
+    "num": 14,
+    "pycdc_name": "FORMAT_SIMPLE",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 142
+   },
+   {
+    "handled": false,
+    "name": "FORMAT_WITH_SPEC",
+    "num": 15,
+    "pycdc_name": "FORMAT_WITH_SPEC",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 45
+   },
+   {
+    "handled": true,
+    "name": "GET_AITER",
+    "num": 16,
+    "pycdc_name": "GET_AITER",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 15
+   },
+   {
+    "handled": false,
+    "name": "RESERVED",
+    "num": 17,
+    "pycdc_name": "RESERVED",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 0
+   },
+   {
+    "handled": true,
+    "name": "GET_ANEXT",
+    "num": 18,
+    "pycdc_name": "GET_ANEXT",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 15
+   },
+   {
+    "handled": true,
+    "name": "GET_ITER",
+    "num": 19,
+    "pycdc_name": "GET_ITER",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 489
+   },
+   {
+    "handled": false,
+    "name": "GET_LEN",
+    "num": 20,
+    "pycdc_name": "GET_LEN",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 24
+   },
+   {
+    "handled": true,
+    "name": "GET_YIELD_FROM_ITER",
+    "num": 21,
+    "pycdc_name": "GET_YIELD_FROM_ITER",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 9
+   },
+   {
+    "handled": false,
+    "name": "INTERPRETER_EXIT",
+    "num": 22,
+    "pycdc_name": "INTERPRETER_EXIT",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 0
+   },
+   {
+    "handled": false,
+    "name": "LOAD_ASSERTION_ERROR",
+    "num": 23,
+    "pycdc_name": "LOAD_ASSERTION_ERROR",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 2
+   },
+   {
+    "handled": true,
+    "name": "LOAD_BUILD_CLASS",
+    "num": 24,
+    "pycdc_name": "LOAD_BUILD_CLASS",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 210
+   },
+   {
+    "handled": true,
+    "name": "LOAD_LOCALS",
+    "num": 25,
+    "pycdc_name": "LOAD_LOCALS",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 18
+   },
+   {
+    "handled": false,
+    "name": "MAKE_FUNCTION",
+    "num": 26,
+    "pycdc_name": "MAKE_FUNCTION",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 1518
+   },
+   {
+    "handled": false,
+    "name": "MATCH_KEYS",
+    "num": 27,
+    "pycdc_name": "MATCH_KEYS",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 6
+   },
+   {
+    "handled": false,
+    "name": "MATCH_MAPPING",
+    "num": 28,
+    "pycdc_name": "MATCH_MAPPING",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 6
+   },
+   {
+    "handled": false,
+    "name": "MATCH_SEQUENCE",
+    "num": 29,
+    "pycdc_name": "MATCH_SEQUENCE",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 15
+   },
+   {
+    "handled": true,
+    "name": "NOP",
+    "num": 30,
+    "pycdc_name": "NOP",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 246
+   },
+   {
+    "handled": true,
+    "name": "POP_EXCEPT",
+    "num": 31,
+    "pycdc_name": "POP_EXCEPT",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 447
+   },
+   {
+    "handled": true,
+    "name": "POP_TOP",
+    "num": 32,
+    "pycdc_name": "POP_TOP",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 2334
+   },
+   {
+    "handled": true,
+    "name": "PUSH_EXC_INFO",
+    "num": 33,
+    "pycdc_name": "PUSH_EXC_INFO",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 240
+   },
+   {
+    "handled": true,
+    "name": "PUSH_NULL",
+    "num": 34,
+    "pycdc_name": "PUSH_NULL",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 561
+   },
+   {
+    "handled": false,
+    "name": "RETURN_GENERATOR",
+    "num": 35,
+    "pycdc_name": "RETURN_GENERATOR",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 105
+   },
+   {
+    "handled": true,
+    "name": "RETURN_VALUE",
+    "num": 36,
+    "pycdc_name": "RETURN_VALUE",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 1164
+   },
+   {
+    "handled": true,
+    "name": "SETUP_ANNOTATIONS",
+    "num": 37,
+    "pycdc_name": "SETUP_ANNOTATIONS",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 15
+   },
+   {
+    "handled": true,
+    "name": "STORE_SLICE",
+    "num": 38,
+    "pycdc_name": "STORE_SLICE",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 6
+   },
+   {
+    "handled": true,
+    "name": "STORE_SUBSCR",
+    "num": 39,
+    "pycdc_name": "STORE_SUBSCR",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 96
+   },
+   {
+    "handled": false,
+    "name": "TO_BOOL",
+    "num": 40,
+    "pycdc_name": "TO_BOOL",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 343
+   },
+   {
+    "handled": true,
+    "name": "UNARY_INVERT",
+    "num": 41,
+    "pycdc_name": "UNARY_INVERT",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 9
+   },
+   {
+    "handled": true,
+    "name": "UNARY_NEGATIVE",
+    "num": 42,
+    "pycdc_name": "UNARY_NEGATIVE",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 27
+   },
+   {
+    "handled": true,
+    "name": "UNARY_NOT",
+    "num": 43,
+    "pycdc_name": "UNARY_NOT",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 15
+   },
+   {
+    "handled": true,
+    "name": "WITH_EXCEPT_START",
+    "num": 44,
+    "pycdc_name": "WITH_EXCEPT_START",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 54
+   },
+   {
+    "handled": true,
+    "name": "BINARY_OP",
+    "num": 45,
+    "pycdc_name": "BINARY_OP_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 663
+   },
+   {
+    "handled": true,
+    "name": "BUILD_CONST_KEY_MAP",
+    "num": 46,
+    "pycdc_name": "BUILD_CONST_KEY_MAP_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 51
+   },
+   {
+    "handled": true,
+    "name": "BUILD_LIST",
+    "num": 47,
+    "pycdc_name": "BUILD_LIST_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 819
+   },
+   {
+    "handled": true,
+    "name": "BUILD_MAP",
+    "num": 48,
+    "pycdc_name": "BUILD_MAP_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 138
+   },
+   {
+    "handled": true,
+    "name": "BUILD_SET",
+    "num": 49,
+    "pycdc_name": "BUILD_SET_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 12
+   },
+   {
+    "handled": true,
+    "name": "BUILD_SLICE",
+    "num": 50,
+    "pycdc_name": "BUILD_SLICE_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 54
+   },
+   {
+    "handled": true,
+    "name": "BUILD_STRING",
+    "num": 51,
+    "pycdc_name": "BUILD_STRING_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 67
+   },
+   {
+    "handled": true,
+    "name": "BUILD_TUPLE",
+    "num": 52,
+    "pycdc_name": "BUILD_TUPLE_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 492
+   },
+   {
+    "handled": true,
+    "name": "CALL",
+    "num": 53,
+    "pycdc_name": "CALL_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 4037
+   },
+   {
+    "handled": false,
+    "name": "CALL_FUNCTION_EX",
+    "num": 54,
+    "pycdc_name": "CALL_FUNCTION_EX_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 39
+   },
+   {
+    "handled": false,
+    "name": "CALL_INTRINSIC_1",
+    "num": 55,
+    "pycdc_name": "CALL_INTRINSIC_1_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 198
+   },
+   {
+    "handled": false,
+    "name": "CALL_INTRINSIC_2",
+    "num": 56,
+    "pycdc_name": "CALL_INTRINSIC_2_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 51
+   },
+   {
+    "handled": false,
+    "name": "CALL_KW",
+    "num": 57,
+    "pycdc_name": "CALL_KW_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 102
+   },
+   {
+    "handled": true,
+    "name": "COMPARE_OP",
+    "num": 58,
+    "pycdc_name": "COMPARE_OP_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 403
+   },
+   {
+    "handled": true,
+    "name": "CONTAINS_OP",
+    "num": 59,
+    "pycdc_name": "CONTAINS_OP_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 54
+   },
+   {
+    "handled": false,
+    "name": "CONVERT_VALUE",
+    "num": 60,
+    "pycdc_name": "CONVERT_VALUE_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 85
+   },
+   {
+    "handled": true,
+    "name": "COPY",
+    "num": 61,
+    "pycdc_name": "COPY_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 720
+   },
+   {
+    "handled": false,
+    "name": "COPY_FREE_VARS",
+    "num": 62,
+    "pycdc_name": "COPY_FREE_VARS_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 147
+   },
+   {
+    "handled": true,
+    "name": "DELETE_ATTR",
+    "num": 63,
+    "pycdc_name": "DELETE_ATTR_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 9
+   },
+   {
+    "handled": false,
+    "name": "DELETE_DEREF",
+    "num": 64,
+    "pycdc_name": "DELETE_DEREF_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 3
+   },
+   {
+    "handled": true,
+    "name": "DELETE_FAST",
+    "num": 65,
+    "pycdc_name": "DELETE_FAST_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 189
+   },
+   {
+    "handled": true,
+    "name": "DELETE_GLOBAL",
+    "num": 66,
+    "pycdc_name": "DELETE_GLOBAL_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 3
+   },
+   {
+    "handled": true,
+    "name": "DELETE_NAME",
+    "num": 67,
+    "pycdc_name": "DELETE_NAME_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 24
+   },
+   {
+    "handled": false,
+    "name": "DICT_MERGE",
+    "num": 68,
+    "pycdc_name": "DICT_MERGE_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 21
+   },
+   {
+    "handled": false,
+    "name": "DICT_UPDATE",
+    "num": 69,
+    "pycdc_name": "DICT_UPDATE_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 12
+   },
+   {
+    "handled": false,
+    "name": "ENTER_EXECUTOR",
+    "num": 70,
+    "pycdc_name": "ENTER_EXECUTOR_A",
+    "runtime_only": true,
+    "table": "ok",
+    "used": 0
+   },
+   {
+    "handled": false,
+    "name": "EXTENDED_ARG",
+    "num": 71,
+    "pycdc_name": "EXTENDED_ARG_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 9
+   },
+   {
+    "handled": true,
+    "name": "FOR_ITER",
+    "num": 72,
+    "pycdc_name": "FOR_ITER_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 309
+   },
+   {
+    "handled": false,
+    "name": "GET_AWAITABLE",
+    "num": 73,
+    "pycdc_name": "GET_AWAITABLE_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 78
+   },
+   {
+    "handled": true,
+    "name": "IMPORT_FROM",
+    "num": 74,
+    "pycdc_name": "IMPORT_FROM_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 39
+   },
+   {
+    "handled": true,
+    "name": "IMPORT_NAME",
+    "num": 75,
+    "pycdc_name": "IMPORT_NAME_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 93
+   },
+   {
+    "handled": true,
+    "name": "IS_OP",
+    "num": 76,
+    "pycdc_name": "IS_OP_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 33
+   },
+   {
+    "handled": true,
+    "name": "JUMP_BACKWARD",
+    "num": 77,
+    "pycdc_name": "JUMP_BACKWARD_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 447
+   },
+   {
+    "handled": true,
+    "name": "JUMP_BACKWARD_NO_INTERRUPT",
+    "num": 78,
+    "pycdc_name": "JUMP_BACKWARD_NO_INTERRUPT_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 210
+   },
+   {
+    "handled": true,
+    "name": "JUMP_FORWARD",
+    "num": 79,
+    "pycdc_name": "JUMP_FORWARD_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 204
+   },
+   {
+    "handled": true,
+    "name": "LIST_APPEND",
+    "num": 80,
+    "pycdc_name": "LIST_APPEND_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 264
+   },
+   {
+    "handled": true,
+    "name": "LIST_EXTEND",
+    "num": 81,
+    "pycdc_name": "LIST_EXTEND_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 135
+   },
+   {
+    "handled": true,
+    "name": "LOAD_ATTR",
+    "num": 82,
+    "pycdc_name": "LOAD_ATTR_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 1668
+   },
+   {
+    "handled": true,
+    "name": "LOAD_CONST",
+    "num": 83,
+    "pycdc_name": "LOAD_CONST_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 8544
+   },
+   {
+    "handled": true,
+    "name": "LOAD_DEREF",
+    "num": 84,
+    "pycdc_name": "LOAD_DEREF_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 204
+   },
+   {
+    "handled": true,
+    "name": "LOAD_FAST",
+    "num": 85,
+    "pycdc_name": "LOAD_FAST_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 3834
+   },
+   {
+    "handled": false,
+    "name": "LOAD_FAST_AND_CLEAR",
+    "num": 86,
+    "pycdc_name": "LOAD_FAST_AND_CLEAR_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 183
+   },
+   {
+    "handled": false,
+    "name": "LOAD_FAST_CHECK",
+    "num": 87,
+    "pycdc_name": "LOAD_FAST_CHECK_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 48
+   },
+   {
+    "handled": true,
+    "name": "LOAD_FAST_LOAD_FAST",
+    "num": 88,
+    "pycdc_name": "LOAD_FAST_LOAD_FAST_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 468
+   },
+   {
+    "handled": false,
+    "name": "LOAD_FROM_DICT_OR_DEREF",
+    "num": 89,
+    "pycdc_name": "LOAD_FROM_DICT_OR_DEREF_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 15
+   },
+   {
+    "handled": false,
+    "name": "LOAD_FROM_DICT_OR_GLOBALS",
+    "num": 90,
+    "pycdc_name": "LOAD_FROM_DICT_OR_GLOBALS_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 9
+   },
+   {
+    "handled": true,
+    "name": "LOAD_GLOBAL",
+    "num": 91,
+    "pycdc_name": "LOAD_GLOBAL_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 3425
+   },
+   {
+    "handled": true,
+    "name": "LOAD_NAME",
+    "num": 92,
+    "pycdc_name": "LOAD_NAME_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 561
+   },
+   {
+    "handled": false,
+    "name": "LOAD_SUPER_ATTR",
+    "num": 93,
+    "pycdc_name": "LOAD_SUPER_ATTR_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 39
+   },
+   {
+    "handled": false,
+    "name": "MAKE_CELL",
+    "num": 94,
+    "pycdc_name": "MAKE_CELL_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 138
+   },
+   {
+    "handled": false,
+    "name": "MAP_ADD",
+    "num": 95,
+    "pycdc_name": "MAP_ADD_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 27
+   },
+   {
+    "handled": false,
+    "name": "MATCH_CLASS",
+    "num": 96,
+    "pycdc_name": "MATCH_CLASS_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 36
+   },
+   {
+    "handled": true,
+    "name": "POP_JUMP_IF_FALSE",
+    "num": 97,
+    "pycdc_name": "POP_JUMP_IF_FALSE_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 564
+   },
+   {
+    "handled": false,
+    "name": "POP_JUMP_IF_NONE",
+    "num": 98,
+    "pycdc_name": "POP_JUMP_IF_NONE_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 69
+   },
+   {
+    "handled": false,
+    "name": "POP_JUMP_IF_NOT_NONE",
+    "num": 99,
+    "pycdc_name": "POP_JUMP_IF_NOT_NONE_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 36
+   },
+   {
+    "handled": true,
+    "name": "POP_JUMP_IF_TRUE",
+    "num": 100,
+    "pycdc_name": "POP_JUMP_IF_TRUE_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 176
+   },
+   {
+    "handled": true,
+    "name": "RAISE_VARARGS",
+    "num": 101,
+    "pycdc_name": "RAISE_VARARGS_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 89
+   },
+   {
+    "handled": true,
+    "name": "RERAISE",
+    "num": 102,
+    "pycdc_name": "RERAISE_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 807
+   },
+   {
+    "handled": true,
+    "name": "RETURN_CONST",
+    "num": 103,
+    "pycdc_name": "RETURN_CONST_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 789
+   },
+   {
+    "handled": false,
+    "name": "SEND",
+    "num": 104,
+    "pycdc_name": "SEND_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 102
+   },
+   {
+    "handled": false,
+    "name": "SET_ADD",
+    "num": 105,
+    "pycdc_name": "SET_ADD_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 6
+   },
+   {
+    "handled": false,
+    "name": "SET_FUNCTION_ATTRIBUTE",
+    "num": 106,
+    "pycdc_name": "SET_FUNCTION_ATTRIBUTE_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 267
+   },
+   {
+    "handled": true,
+    "name": "SET_UPDATE",
+    "num": 107,
+    "pycdc_name": "SET_UPDATE_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 12
+   },
+   {
+    "handled": true,
+    "name": "STORE_ATTR",
+    "num": 108,
+    "pycdc_name": "STORE_ATTR_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 171
+   },
+   {
+    "handled": true,
+    "name": "STORE_DEREF",
+    "num": 109,
+    "pycdc_name": "STORE_DEREF_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 99
+   },
+   {
+    "handled": true,
+    "name": "STORE_FAST",
+    "num": 110,
+    "pycdc_name": "STORE_FAST_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 1788
+   },
+   {
+    "handled": false,
+    "name": "STORE_FAST_LOAD_FAST",
+    "num": 111,
+    "pycdc_name": "STORE_FAST_LOAD_FAST_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 141
+   },
+   {
+    "handled": false,
+    "name": "STORE_FAST_STORE_FAST",
+    "num": 112,
+    "pycdc_name": "STORE_FAST_STORE_FAST_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 111
+   },
+   {
+    "handled": true,
+    "name": "STORE_GLOBAL",
+    "num": 113,
+    "pycdc_name": "STORE_GLOBAL_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 12
+   },
+   {
+    "handled": true,
+    "name": "STORE_NAME",
+    "num": 114,
+    "pycdc_name": "STORE_NAME_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 2422
+   },
+   {
+    "handled": true,
+    "name": "SWAP",
+    "num": 115,
+    "pycdc_name": "SWAP_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 906
+   },
+   {
+    "handled": false,
+    "name": "UNPACK_EX",
+    "num": 116,
+    "pycdc_name": "UNPACK_EX_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 21
+   },
+   {
+    "handled": true,
+    "name": "UNPACK_SEQUENCE",
+    "num": 117,
+    "pycdc_name": "UNPACK_SEQUENCE_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 132
+   },
+   {
+    "handled": false,
+    "name": "YIELD_VALUE",
+    "num": 118,
+    "pycdc_name": "YIELD_VALUE_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 186
+   },
+   {
+    "handled": true,
+    "name": "RESUME",
+    "num": 149,
+    "pycdc_name": "RESUME_A",
+    "runtime_only": false,
+    "table": "ok",
+    "used": 1914
+   },
+   {
+    "handled": true,
+    "name": "INSTRUMENTED_RESUME",
+    "num": 236,
+    "pycdc_name": "INSTRUMENTED_RESUME_A",
+    "runtime_only": true,
+    "table": "ok",
+    "used": 0
+   },
+   {
+    "handled": false,
+    "name": "INSTRUMENTED_END_FOR",
+    "num": 237,
+    "pycdc_name": "INSTRUMENTED_END_FOR_A",
+    "runtime_only": true,
+    "table": "ok",
+    "used": 0
+   },
+   {
+    "handled": false,
+    "name": "INSTRUMENTED_END_SEND",
+    "num": 238,
+    "pycdc_name": "INSTRUMENTED_END_SEND_A",
+    "runtime_only": true,
+    "table": "ok",
+    "used": 0
+   },
+   {
+    "handled": true,
+    "name": "INSTRUMENTED_RETURN_VALUE",
+    "num": 239,
+    "pycdc_name": "INSTRUMENTED_RETURN_VALUE_A",
+    "runtime_only": true,
+    "table": "ok",
+    "used": 0
+   },
+   {
+    "handled": true,
+    "name": "INSTRUMENTED_RETURN_CONST",
+    "num": 240,
+    "pycdc_name": "INSTRUMENTED_RETURN_CONST_A",
+    "runtime_only": true,
+    "table": "ok",
+    "used": 0
+   },
+   {
+    "handled": true,
+    "name": "INSTRUMENTED_YIELD_VALUE",
+    "num": 241,
+    "pycdc_name": "INSTRUMENTED_YIELD_VALUE_A",
+    "runtime_only": true,
+    "table": "ok",
+    "used": 0
+   },
+   {
+    "handled": false,
+    "name": "INSTRUMENTED_LOAD_SUPER_ATTR",
+    "num": 242,
+    "pycdc_name": "INSTRUMENTED_LOAD_SUPER_ATTR_A",
+    "runtime_only": true,
+    "table": "ok",
+    "used": 0
+   },
+   {
+    "handled": true,
+    "name": "INSTRUMENTED_FOR_ITER",
+    "num": 243,
+    "pycdc_name": "INSTRUMENTED_FOR_ITER_A",
+    "runtime_only": true,
+    "table": "ok",
+    "used": 0
+   },
+   {
+    "handled": true,
+    "name": "INSTRUMENTED_CALL",
+    "num": 244,
+    "pycdc_name": "INSTRUMENTED_CALL_A",
+    "runtime_only": true,
+    "table": "ok",
+    "used": 0
+   },
+   {
+    "handled": false,
+    "name": "INSTRUMENTED_CALL_KW",
+    "num": 245,
+    "pycdc_name": "INSTRUMENTED_CALL_KW_A",
+    "runtime_only": true,
+    "table": "ok",
+    "used": 0
+   },
+   {
+    "handled": false,
+    "name": "INSTRUMENTED_CALL_FUNCTION_EX",
+    "num": 246,
+    "pycdc_name": "INSTRUMENTED_CALL_FUNCTION_EX_A",
+    "runtime_only": true,
+    "table": "ok",
+    "used": 0
+   },
+   {
+    "handled": false,
+    "name": "INSTRUMENTED_INSTRUCTION",
+    "num": 247,
+    "pycdc_name": "INSTRUMENTED_INSTRUCTION_A",
+    "runtime_only": true,
+    "table": "ok",
+    "used": 0
+   },
+   {
+    "handled": true,
+    "name": "INSTRUMENTED_JUMP_FORWARD",
+    "num": 248,
+    "pycdc_name": "INSTRUMENTED_JUMP_FORWARD_A",
+    "runtime_only": true,
+    "table": "ok",
+    "used": 0
+   },
+   {
+    "handled": false,
+    "name": "INSTRUMENTED_JUMP_BACKWARD",
+    "num": 249,
+    "pycdc_name": "INSTRUMENTED_JUMP_BACKWARD_A",
+    "runtime_only": true,
+    "table": "ok",
+    "used": 0
+   },
+   {
+    "handled": true,
+    "name": "INSTRUMENTED_POP_JUMP_IF_TRUE",
+    "num": 250,
+    "pycdc_name": "INSTRUMENTED_POP_JUMP_IF_TRUE_A",
+    "runtime_only": true,
+    "table": "ok",
+    "used": 0
+   },
+   {
+    "handled": true,
+    "name": "INSTRUMENTED_POP_JUMP_IF_FALSE",
+    "num": 251,
+    "pycdc_name": "INSTRUMENTED_POP_JUMP_IF_FALSE_A",
+    "runtime_only": true,
+    "table": "ok",
+    "used": 0
+   },
+   {
+    "handled": false,
+    "name": "INSTRUMENTED_POP_JUMP_IF_NONE",
+    "num": 252,
+    "pycdc_name": "INSTRUMENTED_POP_JUMP_IF_NONE_A",
+    "runtime_only": true,
+    "table": "ok",
+    "used": 0
+   },
+   {
+    "handled": false,
+    "name": "INSTRUMENTED_POP_JUMP_IF_NOT_NONE",
+    "num": 253,
+    "pycdc_name": "INSTRUMENTED_POP_JUMP_IF_NOT_NONE_A",
+    "runtime_only": true,
+    "table": "ok",
+    "used": 0
+   },
+   {
+    "handled": false,
+    "name": "INSTRUMENTED_LINE",
+    "num": 254,
+    "pycdc_name": "INSTRUMENTED_LINE_A",
+    "runtime_only": true,
+    "table": "ok",
+    "used": 0
+   }
+  ],
+  "table_size": 138,
+  "version": "3.13.17"
+ },
+ "3.14": {
+  "cache_entries": {
+   "BINARY_OP": 5,
+   "CALL": 3,
+   "CALL_KW": 3,
+   "COMPARE_OP": 1,
+   "CONTAINS_OP": 1,
+   "FOR_ITER": 1,
+   "JUMP_BACKWARD": 1,
+   "LOAD_ATTR": 9,
+   "LOAD_GLOBAL": 4,
+   "LOAD_SUPER_ATTR": 1,
+   "POP_JUMP_IF_FALSE": 1,
+   "POP_JUMP_IF_NONE": 1,
+   "POP_JUMP_IF_NOT_NONE": 1,
+   "POP_JUMP_IF_TRUE": 1,
+   "SEND": 1,
+   "STORE_ATTR": 4,
+   "STORE_SUBSCR": 1,
+   "TO_BOOL": 3,
+   "UNPACK_SEQUENCE": 1
+  },
+  "corpus_files": 219,
+  "extraneous": [],
+  "rows": [
+   {
+    "handled": false,
+    "name": "CACHE",
+    "num": 0,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 51482
+   },
+   {
+    "handled": false,
+    "name": "BINARY_SLICE",
+    "num": 1,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 12
+   },
+   {
+    "handled": false,
+    "name": "BUILD_TEMPLATE",
+    "num": 2,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 12
+   },
+   {
+    "handled": false,
+    "name": "CALL_FUNCTION_EX",
+    "num": 4,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 39
+   },
+   {
+    "handled": false,
+    "name": "CHECK_EG_MATCH",
+    "num": 5,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 15
+   },
+   {
+    "handled": false,
+    "name": "CHECK_EXC_MATCH",
+    "num": 6,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 147
+   },
+   {
+    "handled": false,
+    "name": "CLEANUP_THROW",
+    "num": 7,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 102
+   },
+   {
+    "handled": false,
+    "name": "DELETE_SUBSCR",
+    "num": 8,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 42
+   },
+   {
+    "handled": false,
+    "name": "END_FOR",
+    "num": 9,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 327
+   },
+   {
+    "handled": false,
+    "name": "END_SEND",
+    "num": 10,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 102
+   },
+   {
+    "handled": false,
+    "name": "EXIT_INIT_CHECK",
+    "num": 11,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 0
+   },
+   {
+    "handled": false,
+    "name": "FORMAT_SIMPLE",
+    "num": 12,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 154
+   },
+   {
+    "handled": false,
+    "name": "FORMAT_WITH_SPEC",
+    "num": 13,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 45
+   },
+   {
+    "handled": false,
+    "name": "GET_AITER",
+    "num": 14,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 15
+   },
+   {
+    "handled": false,
+    "name": "GET_ANEXT",
+    "num": 15,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 15
+   },
+   {
+    "handled": false,
+    "name": "GET_ITER",
+    "num": 16,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 327
+   },
+   {
+    "handled": false,
+    "name": "RESERVED",
+    "num": 17,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 0
+   },
+   {
+    "handled": false,
+    "name": "GET_LEN",
+    "num": 18,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 24
+   },
+   {
+    "handled": false,
+    "name": "GET_YIELD_FROM_ITER",
+    "num": 19,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 9
+   },
+   {
+    "handled": false,
+    "name": "INTERPRETER_EXIT",
+    "num": 20,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 0
+   },
+   {
+    "handled": false,
+    "name": "LOAD_BUILD_CLASS",
+    "num": 21,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 213
+   },
+   {
+    "handled": false,
+    "name": "LOAD_LOCALS",
+    "num": 22,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 168
+   },
+   {
+    "handled": false,
+    "name": "MAKE_FUNCTION",
+    "num": 23,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 1593
+   },
+   {
+    "handled": false,
+    "name": "MATCH_KEYS",
+    "num": 24,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 6
+   },
+   {
+    "handled": false,
+    "name": "MATCH_MAPPING",
+    "num": 25,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 6
+   },
+   {
+    "handled": false,
+    "name": "MATCH_SEQUENCE",
+    "num": 26,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 15
+   },
+   {
+    "handled": false,
+    "name": "NOP",
+    "num": 27,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 249
+   },
+   {
+    "handled": false,
+    "name": "NOT_TAKEN",
+    "num": 28,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 929
+   },
+   {
+    "handled": false,
+    "name": "POP_EXCEPT",
+    "num": 29,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 456
+   },
+   {
+    "handled": false,
+    "name": "POP_ITER",
+    "num": 30,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 333
+   },
+   {
+    "handled": false,
+    "name": "POP_TOP",
+    "num": 31,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 2118
+   },
+   {
+    "handled": false,
+    "name": "PUSH_EXC_INFO",
+    "num": 32,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 243
+   },
+   {
+    "handled": false,
+    "name": "PUSH_NULL",
+    "num": 33,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 570
+   },
+   {
+    "handled": false,
+    "name": "RETURN_GENERATOR",
+    "num": 34,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 105
+   },
+   {
+    "handled": false,
+    "name": "RETURN_VALUE",
+    "num": 35,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 2028
+   },
+   {
+    "handled": false,
+    "name": "SETUP_ANNOTATIONS",
+    "num": 36,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 3
+   },
+   {
+    "handled": false,
+    "name": "STORE_SLICE",
+    "num": 37,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 3
+   },
+   {
+    "handled": false,
+    "name": "STORE_SUBSCR",
+    "num": 38,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 105
+   },
+   {
+    "handled": false,
+    "name": "TO_BOOL",
+    "num": 39,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 340
+   },
+   {
+    "handled": false,
+    "name": "UNARY_INVERT",
+    "num": 40,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 9
+   },
+   {
+    "handled": false,
+    "name": "UNARY_NEGATIVE",
+    "num": 41,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 27
+   },
+   {
+    "handled": false,
+    "name": "UNARY_NOT",
+    "num": 42,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 15
+   },
+   {
+    "handled": false,
+    "name": "WITH_EXCEPT_START",
+    "num": 43,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 54
+   },
+   {
+    "handled": false,
+    "name": "BINARY_OP",
+    "num": 44,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 903
+   },
+   {
+    "handled": false,
+    "name": "BUILD_INTERPOLATION",
+    "num": 45,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 15
+   },
+   {
+    "handled": false,
+    "name": "BUILD_LIST",
+    "num": 46,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 840
+   },
+   {
+    "handled": false,
+    "name": "BUILD_MAP",
+    "num": 47,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 240
+   },
+   {
+    "handled": false,
+    "name": "BUILD_SET",
+    "num": 48,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 15
+   },
+   {
+    "handled": false,
+    "name": "BUILD_SLICE",
+    "num": 49,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 18
+   },
+   {
+    "handled": false,
+    "name": "BUILD_STRING",
+    "num": 50,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 70
+   },
+   {
+    "handled": false,
+    "name": "BUILD_TUPLE",
+    "num": 51,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 516
+   },
+   {
+    "handled": false,
+    "name": "CALL",
+    "num": 52,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 4172
+   },
+   {
+    "handled": false,
+    "name": "CALL_INTRINSIC_1",
+    "num": 53,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 198
+   },
+   {
+    "handled": false,
+    "name": "CALL_INTRINSIC_2",
+    "num": 54,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 51
+   },
+   {
+    "handled": false,
+    "name": "CALL_KW",
+    "num": 55,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 105
+   },
+   {
+    "handled": false,
+    "name": "COMPARE_OP",
+    "num": 56,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 469
+   },
+   {
+    "handled": false,
+    "name": "CONTAINS_OP",
+    "num": 57,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 60
+   },
+   {
+    "handled": false,
+    "name": "CONVERT_VALUE",
+    "num": 58,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 97
+   },
+   {
+    "handled": false,
+    "name": "COPY",
+    "num": 59,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 810
+   },
+   {
+    "handled": false,
+    "name": "COPY_FREE_VARS",
+    "num": 60,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 180
+   },
+   {
+    "handled": false,
+    "name": "DELETE_ATTR",
+    "num": 61,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 9
+   },
+   {
+    "handled": false,
+    "name": "DELETE_DEREF",
+    "num": 62,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 3
+   },
+   {
+    "handled": false,
+    "name": "DELETE_FAST",
+    "num": 63,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 189
+   },
+   {
+    "handled": false,
+    "name": "DELETE_GLOBAL",
+    "num": 64,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 3
+   },
+   {
+    "handled": false,
+    "name": "DELETE_NAME",
+    "num": 65,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 24
+   },
+   {
+    "handled": false,
+    "name": "DICT_MERGE",
+    "num": 66,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 21
+   },
+   {
+    "handled": false,
+    "name": "DICT_UPDATE",
+    "num": 67,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 12
+   },
+   {
+    "handled": false,
+    "name": "END_ASYNC_FOR",
+    "num": 68,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 15
+   },
+   {
+    "handled": false,
+    "name": "EXTENDED_ARG",
+    "num": 69,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 9
+   },
+   {
+    "handled": false,
+    "name": "FOR_ITER",
+    "num": 70,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 327
+   },
+   {
+    "handled": false,
+    "name": "GET_AWAITABLE",
+    "num": 71,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 78
+   },
+   {
+    "handled": false,
+    "name": "IMPORT_FROM",
+    "num": 72,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 39
+   },
+   {
+    "handled": false,
+    "name": "IMPORT_NAME",
+    "num": 73,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 96
+   },
+   {
+    "handled": false,
+    "name": "IS_OP",
+    "num": 74,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 39
+   },
+   {
+    "handled": false,
+    "name": "JUMP_BACKWARD",
+    "num": 75,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 468
+   },
+   {
+    "handled": false,
+    "name": "JUMP_BACKWARD_NO_INTERRUPT",
+    "num": 76,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 210
+   },
+   {
+    "handled": false,
+    "name": "JUMP_FORWARD",
+    "num": 77,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 213
+   },
+   {
+    "handled": false,
+    "name": "LIST_APPEND",
+    "num": 78,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 267
+   },
+   {
+    "handled": false,
+    "name": "LIST_EXTEND",
+    "num": 79,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 141
+   },
+   {
+    "handled": false,
+    "name": "LOAD_ATTR",
+    "num": 80,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 1725
+   },
+   {
+    "handled": false,
+    "name": "LOAD_COMMON_CONSTANT",
+    "num": 81,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 89
+   },
+   {
+    "handled": false,
+    "name": "LOAD_CONST",
+    "num": 82,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 7193
+   },
+   {
+    "handled": false,
+    "name": "LOAD_DEREF",
+    "num": 83,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 264
+   },
+   {
+    "handled": false,
+    "name": "LOAD_FAST",
+    "num": 84,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 555
+   },
+   {
+    "handled": false,
+    "name": "LOAD_FAST_AND_CLEAR",
+    "num": 85,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 189
+   },
+   {
+    "handled": false,
+    "name": "LOAD_FAST_BORROW",
+    "num": 86,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 3621
+   },
+   {
+    "handled": false,
+    "name": "LOAD_FAST_BORROW_LOAD_FAST_BORROW",
+    "num": 87,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 441
+   },
+   {
+    "handled": false,
+    "name": "LOAD_FAST_CHECK",
+    "num": 88,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 48
+   },
+   {
+    "handled": false,
+    "name": "LOAD_FAST_LOAD_FAST",
+    "num": 89,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 12
+   },
+   {
+    "handled": false,
+    "name": "LOAD_FROM_DICT_OR_DEREF",
+    "num": 90,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 24
+   },
+   {
+    "handled": false,
+    "name": "LOAD_FROM_DICT_OR_GLOBALS",
+    "num": 91,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 39
+   },
+   {
+    "handled": false,
+    "name": "LOAD_GLOBAL",
+    "num": 92,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 3572
+   },
+   {
+    "handled": false,
+    "name": "LOAD_NAME",
+    "num": 93,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 477
+   },
+   {
+    "handled": false,
+    "name": "LOAD_SMALL_INT",
+    "num": 94,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 2566
+   },
+   {
+    "handled": false,
+    "name": "LOAD_SPECIAL",
+    "num": 95,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 108
+   },
+   {
+    "handled": false,
+    "name": "LOAD_SUPER_ATTR",
+    "num": 96,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 39
+   },
+   {
+    "handled": false,
+    "name": "MAKE_CELL",
+    "num": 97,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 309
+   },
+   {
+    "handled": false,
+    "name": "MAP_ADD",
+    "num": 98,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 33
+   },
+   {
+    "handled": false,
+    "name": "MATCH_CLASS",
+    "num": 99,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 36
+   },
+   {
+    "handled": false,
+    "name": "POP_JUMP_IF_FALSE",
+    "num": 100,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 636
+   },
+   {
+    "handled": false,
+    "name": "POP_JUMP_IF_NONE",
+    "num": 101,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 66
+   },
+   {
+    "handled": false,
+    "name": "POP_JUMP_IF_NOT_NONE",
+    "num": 102,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 33
+   },
+   {
+    "handled": false,
+    "name": "POP_JUMP_IF_TRUE",
+    "num": 103,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 185
+   },
+   {
+    "handled": false,
+    "name": "RAISE_VARARGS",
+    "num": 104,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 173
+   },
+   {
+    "handled": false,
+    "name": "RERAISE",
+    "num": 105,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 822
+   },
+   {
+    "handled": false,
+    "name": "SEND",
+    "num": 106,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 102
+   },
+   {
+    "handled": false,
+    "name": "SET_ADD",
+    "num": 107,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 12
+   },
+   {
+    "handled": false,
+    "name": "SET_FUNCTION_ATTRIBUTE",
+    "num": 108,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 339
+   },
+   {
+    "handled": false,
+    "name": "SET_UPDATE",
+    "num": 109,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 12
+   },
+   {
+    "handled": false,
+    "name": "STORE_ATTR",
+    "num": 110,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 171
+   },
+   {
+    "handled": false,
+    "name": "STORE_DEREF",
+    "num": 111,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 267
+   },
+   {
+    "handled": false,
+    "name": "STORE_FAST",
+    "num": 112,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 1803
+   },
+   {
+    "handled": false,
+    "name": "STORE_FAST_LOAD_FAST",
+    "num": 113,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 144
+   },
+   {
+    "handled": false,
+    "name": "STORE_FAST_STORE_FAST",
+    "num": 114,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 120
+   },
+   {
+    "handled": false,
+    "name": "STORE_GLOBAL",
+    "num": 115,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 12
+   },
+   {
+    "handled": false,
+    "name": "STORE_NAME",
+    "num": 116,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 2632
+   },
+   {
+    "handled": false,
+    "name": "SWAP",
+    "num": 117,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 1065
+   },
+   {
+    "handled": false,
+    "name": "UNPACK_EX",
+    "num": 118,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 21
+   },
+   {
+    "handled": false,
+    "name": "UNPACK_SEQUENCE",
+    "num": 119,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 129
+   },
+   {
+    "handled": false,
+    "name": "YIELD_VALUE",
+    "num": 120,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 186
+   },
+   {
+    "handled": false,
+    "name": "RESUME",
+    "num": 128,
+    "pycdc_name": null,
+    "runtime_only": false,
+    "table": "missing",
+    "used": 1992
+   },
+   {
+    "handled": false,
+    "name": "INSTRUMENTED_END_FOR",
+    "num": 234,
+    "pycdc_name": null,
+    "runtime_only": true,
+    "table": "missing",
+    "used": 0
+   },
+   {
+    "handled": false,
+    "name": "INSTRUMENTED_POP_ITER",
+    "num": 235,
+    "pycdc_name": null,
+    "runtime_only": true,
+    "table": "missing",
+    "used": 0
+   },
+   {
+    "handled": false,
+    "name": "INSTRUMENTED_END_SEND",
+    "num": 236,
+    "pycdc_name": null,
+    "runtime_only": true,
+    "table": "missing",
+    "used": 0
+   },
+   {
+    "handled": false,
+    "name": "INSTRUMENTED_FOR_ITER",
+    "num": 237,
+    "pycdc_name": null,
+    "runtime_only": true,
+    "table": "missing",
+    "used": 0
+   },
+   {
+    "handled": false,
+    "name": "INSTRUMENTED_INSTRUCTION",
+    "num": 238,
+    "pycdc_name": null,
+    "runtime_only": true,
+    "table": "missing",
+    "used": 0
+   },
+   {
+    "handled": false,
+    "name": "INSTRUMENTED_JUMP_FORWARD",
+    "num": 239,
+    "pycdc_name": null,
+    "runtime_only": true,
+    "table": "missing",
+    "used": 0
+   },
+   {
+    "handled": false,
+    "name": "INSTRUMENTED_NOT_TAKEN",
+    "num": 240,
+    "pycdc_name": null,
+    "runtime_only": true,
+    "table": "missing",
+    "used": 0
+   },
+   {
+    "handled": false,
+    "name": "INSTRUMENTED_POP_JUMP_IF_TRUE",
+    "num": 241,
+    "pycdc_name": null,
+    "runtime_only": true,
+    "table": "missing",
+    "used": 0
+   },
+   {
+    "handled": false,
+    "name": "INSTRUMENTED_POP_JUMP_IF_FALSE",
+    "num": 242,
+    "pycdc_name": null,
+    "runtime_only": true,
+    "table": "missing",
+    "used": 0
+   },
+   {
+    "handled": false,
+    "name": "INSTRUMENTED_POP_JUMP_IF_NONE",
+    "num": 243,
+    "pycdc_name": null,
+    "runtime_only": true,
+    "table": "missing",
+    "used": 0
+   },
+   {
+    "handled": false,
+    "name": "INSTRUMENTED_POP_JUMP_IF_NOT_NONE",
+    "num": 244,
+    "pycdc_name": null,
+    "runtime_only": true,
+    "table": "missing",
+    "used": 0
+   },
+   {
+    "handled": false,
+    "name": "INSTRUMENTED_RESUME",
+    "num": 245,
+    "pycdc_name": null,
+    "runtime_only": true,
+    "table": "missing",
+    "used": 0
+   },
+   {
+    "handled": false,
+    "name": "INSTRUMENTED_RETURN_VALUE",
+    "num": 246,
+    "pycdc_name": null,
+    "runtime_only": true,
+    "table": "missing",
+    "used": 0
+   },
+   {
+    "handled": false,
+    "name": "INSTRUMENTED_YIELD_VALUE",
+    "num": 247,
+    "pycdc_name": null,
+    "runtime_only": true,
+    "table": "missing",
+    "used": 0
+   },
+   {
+    "handled": false,
+    "name": "INSTRUMENTED_END_ASYNC_FOR",
+    "num": 248,
+    "pycdc_name": null,
+    "runtime_only": true,
+    "table": "missing",
+    "used": 0
+   },
+   {
+    "handled": false,
+    "name": "INSTRUMENTED_LOAD_SUPER_ATTR",
+    "num": 249,
+    "pycdc_name": null,
+    "runtime_only": true,
+    "table": "missing",
+    "used": 0
+   },
+   {
+    "handled": false,
+    "name": "INSTRUMENTED_CALL",
+    "num": 250,
+    "pycdc_name": null,
+    "runtime_only": true,
+    "table": "missing",
+    "used": 0
+   },
+   {
+    "handled": false,
+    "name": "INSTRUMENTED_CALL_KW",
+    "num": 251,
+    "pycdc_name": null,
+    "runtime_only": true,
+    "table": "missing",
+    "used": 0
+   },
+   {
+    "handled": false,
+    "name": "INSTRUMENTED_CALL_FUNCTION_EX",
+    "num": 252,
+    "pycdc_name": null,
+    "runtime_only": true,
+    "table": "missing",
+    "used": 0
+   },
+   {
+    "handled": false,
+    "name": "INSTRUMENTED_JUMP_BACKWARD",
+    "num": 253,
+    "pycdc_name": null,
+    "runtime_only": true,
+    "table": "missing",
+    "used": 0
+   },
+   {
+    "handled": false,
+    "name": "INSTRUMENTED_LINE",
+    "num": 254,
+    "pycdc_name": null,
+    "runtime_only": true,
+    "table": "missing",
+    "used": 0
+   },
+   {
+    "handled": false,
+    "name": "ENTER_EXECUTOR",
+    "num": 255,
+    "pycdc_name": null,
+    "runtime_only": true,
+    "table": "missing",
+    "used": 0
+   }
+  ],
+  "table_size": null,
+  "version": "3.14.9"
+ }
+}
