@@ -9,10 +9,11 @@ acting, read `AGENTS.md` and `docs/STATUS.md`, and check the repository itself.
 | --- | --- |
 | Local checkout | `/Users/intzero/Documents/pycdc/pycdc` |
 | Fork | https://github.com/mahdi-salmanzade/pycdc (owner `mahdi-salmanzade`, parent `zrax/pycdc`) |
-| Branch | `bootstrap` (created from `b428976`; tracks `origin/bootstrap` once pushed) |
+| Branch | `bootstrap` (created from `b428976`; tracks `origin/bootstrap`) |
 | Starting commit | `b4289760970dbc399684f1e155ec6d1ea1cc787e` = upstream `master` = fork `master` |
-| Bootstrap commit | the commit that adds this file; the checkpoint commit after it records the hash |
-| Dirty tree | none intended; `build/` is gitignored |
+| Bootstrap commit | `cb321f8c59b428f490584d7316387c65870fd02f`, pushed and verified on `origin/bootstrap` |
+| Checkpoint tip | the commit after `cb321f8`, which records this verification; check it with `git ls-remote origin refs/heads/bootstrap` |
+| Dirty tree | none; `build/` is gitignored |
 
 ## Completed work (Part 1)
 
