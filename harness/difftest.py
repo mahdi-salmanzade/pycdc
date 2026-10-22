@@ -632,15 +632,21 @@ def meta_block(args, interps, mode, prov, kind):
     }
 
 
+def scrub_paths(text):
+    """Machine-specific absolute paths become <repo> and ~ in written results."""
+    home = os.path.realpath(os.path.expanduser('~'))
+    return text.replace(REPO, '<repo>').replace(home, '~')
+
+
 def write_results(path, meta, cases):
     """Valid JSON laid out as indented metadata plus one compact line per case,
     so frozen baselines stay small and diff per case."""
     os.makedirs(os.path.dirname(os.path.abspath(path)), exist_ok=True)
     with open(path, 'w') as f:
-        f.write('{"schema": 1,\n"meta": %s,\n"cases": [\n' % json.dumps(meta, indent=1,
-                                                                     sort_keys=True))
-        f.write(',\n'.join(json.dumps(c, sort_keys=True, separators=(',', ':'))
-                           for c in cases))
+        f.write(scrub_paths('{"schema": 1,\n"meta": %s,\n"cases": [\n'
+                            % json.dumps(meta, indent=1, sort_keys=True)))
+        f.write(scrub_paths(',\n'.join(json.dumps(c, sort_keys=True, separators=(',', ':'))
+                                       for c in cases)))
         f.write('\n]}\n')
 
 
