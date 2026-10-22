@@ -37,4 +37,7 @@ def observe():
     d = {'a': {'b': [1, 2, {'c': 'deep'}]}}
     d['a']['b'][2]['c'] += '!'
     i = 1
-    return [reads, t, u, m, probes, d, s[i + 1], s[i:i + 3]]
+    w = list(range(5))
+    w[i:i + 2] = ['v']
+    del w[i:]
+    return [reads, t, u, m, probes, d, s[i + 1], s[i:i + 3], w]

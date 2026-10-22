@@ -54,11 +54,15 @@ def observe():
     x |= 64
     x &= 0x7F
     x ^= 5
+    y = 9
+    y /= 2
+    mm = Vec(1, 2)
+    mm @= Vec(3, 4)
     v = Vec(1, 2)
     w = v
     v += 10
     r = 3 + Vec(1, 2)
     s = Vec(1, 1) + Vec(2, 3)
     return {'ints': ints, 'floats': floats, 'big': big, 'cplx': cplx, 'prec': prec, 'x': x,
-            'alias': (w is v, v.xs), 'r': r.xs, 's': s.xs, 'mm': Vec(1, 2) @ Vec(3, 4),
+            'alias': (w is v, v.xs), 'y': y, 'mm_inplace': mm, 'r': r.xs, 's': s.xs, 'mm': Vec(1, 2) @ Vec(3, 4),
             'neg': (-Vec(1, -2)).xs, 'inv': ~Vec()}

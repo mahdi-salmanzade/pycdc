@@ -19,6 +19,14 @@ class Box[T]:
         return self.item if self.item is not None else default
 
 
+class Outer:
+    target = int
+    type Inner = list[target]
+
+    def method[T](self, x: target) -> T:
+        return x
+
+
 type Pair[K] = tuple[K, K]
 type Alias = list[int]
 
@@ -34,5 +42,5 @@ def describe_params(obj):
 def observe():
     return [first([7, 8]), Box('x').get(1), Box(None).get('d'), describe_params(first),
             describe_params(bounded), describe_params(Box), describe_params(Box.get),
-            Pair.__name__, [p.__name__ for p in Pair.__type_params__], Alias.__value__,
+            repr(Outer.Inner.__value__), Outer().method(5), Pair.__name__, [p.__name__ for p in Pair.__type_params__], Alias.__value__,
             repr(Pair[int].__value__) if hasattr(Pair[int], '__value__') else str(Pair[int])]

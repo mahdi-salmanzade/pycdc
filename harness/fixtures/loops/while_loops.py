@@ -29,6 +29,26 @@ def first_square_above(limit):
             return n
 
 
+class Link:
+    def __init__(self, value, next=None):
+        self.value, self.next = value, next
+
+
+def walk(node):
+    values = []
+    while node is not None:
+        values.append(node.value)
+        node = node.next
+    return values
+
+
+def until_set(supply):
+    value = None
+    while value is None:
+        value = supply.pop()
+    return value
+
+
 def with_break(items):
     i = 0
     while i < len(items):
@@ -53,4 +73,5 @@ def observe():
             b += 1
         a += 1
     return [countdown(4), countdown(0), first_square_above(50), with_break([1, 2]),
-            with_break([1, None, 3]), n, nested]
+            with_break([1, None, 3]), n, nested, walk(Link(1, Link(2, Link(3)))), walk(None),
+            until_set([7, None, None])]

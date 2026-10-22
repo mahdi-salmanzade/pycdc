@@ -42,6 +42,16 @@ def cell_after_creation():
     return first, show()
 
 
+def delete_cell():
+    cell = 'temporary'
+
+    def peek():
+        return cell
+    first = peek()
+    del cell
+    return first, len(peek.__closure__)
+
+
 def param_capture(x):
     def inner():
         return x * 2
@@ -56,4 +66,5 @@ def observe():
     inc2, get2 = counter()
     inc2()
     return [get(), get2(), late_binding(), early_binding(), cell_after_creation(),
-            param_capture(3)(), inc.__closure__ is not None, len(get.__closure__)]
+            param_capture(3)(), inc.__closure__ is not None, len(get.__closure__),
+            delete_cell()]
