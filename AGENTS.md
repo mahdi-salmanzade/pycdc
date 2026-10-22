@@ -8,7 +8,7 @@ carefully. Do not drop existing rules.
 
 1. Read `docs/STATUS.md`, `docs/HANDOFF.md` and `docs/ROADMAP.md`.
 2. Check the actual repository: `git status --short --branch`, `git remote -v`,
-   `git log --oneline -5`, `git fetch origin upstream`. Conversation memory
+   `git log --oneline -5`, `git fetch --multiple origin upstream`. Conversation memory
    is not the source of truth. These files and the repository are.
 3. Work only on the part that `docs/STATUS.md` marks as authorized. Do not
    begin the next part until its predecessor's completion gate has passed and
@@ -91,6 +91,22 @@ cmake --build build/debug --target check        # == (cd build/debug && make che
 (cd build/debug && python3.12 -I ../../reports/part1-baseline/per_file_outcomes.py)
 ```
 
+## Differential harness (Part 2+)
+
+See `harness/README.md`. In short:
+
+```bash
+harness/setup_interpreters.sh                  # pinned 3.10-3.14 (D-006)
+python3 harness/difftest.py controls --out build/controls.json   # must be 0 unexpected
+python3 harness/difftest.py run --suite features,upstream-inputs --out build/results.json
+python3 harness/difftest.py compare reports/part2-baseline/baseline.json build/results.json
+python3 harness/difftest.py gate --part N --results ... --controls ... --upstream ...
+```
+
+Only `harness/fixtures` may be executed (D-012). Required scope per part is
+`harness/requirements.json` / `docs/FEATURE_MATRIX.md`; it may be tightened,
+never weakened without a recorded user decision.
+
 `build/` is gitignored. The upstream runner `tests/run_tests.py` runs
 `scripts/token_dump` under whichever interpreter CMake's `FindPython3` selects.
 Pass `-DPython3_EXECUTABLE=...` to pin it.
@@ -105,6 +121,8 @@ Pass `-DPython3_EXECUTABLE=...` to pin it.
 | `docs/HANDOFF.md` | what the next model needs: branch, commit, tree state, commands, results, open questions, next authorized action |
 | `docs/COMPATIBILITY.md` | measured support only |
 | `docs/DECISIONS.md` | architectural and process decisions |
+| `docs/ARCHITECTURE.md` | pipeline audit with `file:line` references |
+| `docs/FEATURE_MATRIX.md` | required fixtures per part and explicit exclusions |
 | `reports/` | reproducible benchmark summaries and failure manifests |
 
 Update `docs/STATUS.md` and `docs/HANDOFF.md` before stopping at any

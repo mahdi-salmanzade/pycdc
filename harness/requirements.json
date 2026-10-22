@@ -1,0 +1,88 @@
+{
+  "comment": "Required fixtures and explicit exclusions for Parts 4-7, defined in Part 2 before any decompiler change. Requirements may be added or tightened; removing or weakening one requires a recorded user decision in docs/DECISIONS.md. Checked mechanically by: harness/difftest.py gate --part N RESULTS.json",
+  "defined": "2026-10-22 (Part 2)",
+  "baseline": "reports/part2-baseline/baseline.json",
+  "required_versions": ["3.13", "3.14"],
+  "regression_versions": ["3.10", "3.11", "3.12"],
+  "opt_levels": [0, 1, 2],
+  "required_suites": ["features", "upstream-inputs"],
+  "parts": {
+    "4": {
+      "title": "Make bytecode decoding trustworthy",
+      "required_stage": "disassemble",
+      "fixtures": "*",
+      "not_yet_mechanized": [
+        "pycdas output matches normalized dis output of the same interpreter at the semantic level (opcodes, operands, names/constants, jump targets, exception table ranges, nested code objects) for every required fixture; the comparison tool is built in Part 4",
+        "hash-based .pyc headers (checked and unchecked) load for every required version",
+        "unsupported versions/formats fail with a clear message and nonzero exit; pycdas must not print '(Python -1.-1)' and exit 0",
+        "truncated or malformed .pyc inputs fail safely (no crash, no hang) under the harness sandbox"
+      ]
+    },
+    "5": {
+      "title": "Recover expressions, calls, functions, and classes",
+      "required_stage": "behavior",
+      "fixtures": [
+        "expressions/arithmetic", "expressions/assignment_unpacking", "expressions/attributes",
+        "expressions/comparisons", "expressions/delete_statements", "expressions/literals",
+        "expressions/string_formatting", "expressions/subscripts_slices",
+        "calls/arguments", "calls/builtin_calls", "calls/evaluation_order", "calls/methods_super",
+        "functions/decorators", "functions/defaults", "functions/docstrings",
+        "functions/exit_handlers", "functions/global_nonlocal", "functions/lambdas",
+        "closures/closure_basics", "closures/nested_scopes", "closures/class_closures",
+        "classes/class_basics", "classes/metaclasses", "classes/class_body_and_nesting",
+        "classes/stdlib_class_helpers",
+        "imports/import_forms", "imports/import_star"
+      ]
+    },
+    "6": {
+      "title": "Recover structured control flow and exceptions",
+      "required_stage": "behavior",
+      "fixtures": [
+        "branches/if_elif_else", "branches/truthiness", "branches/short_circuit",
+        "branches/conditional_expressions", "branches/early_returns",
+        "loops/for_loops", "loops/while_loops", "loops/nested_exits", "loops/iteration_protocol",
+        "loops/class_body_statements",
+        "exceptions/try_except", "exceptions/try_finally", "exceptions/raise_and_chaining",
+        "exceptions/with_statements", "exceptions/exceptions_in_loops",
+        "exceptions/assert_statements", "exceptions/call_errors", "exceptions/import_fallbacks",
+        "classes/dunder_methods"
+      ]
+    },
+    "7": {
+      "title": "Cover modern language features and interactions",
+      "required_stage": "behavior",
+      "fixtures": [
+        "comprehensions/list_set_dict", "comprehensions/generator_expressions",
+        "comprehensions/scoping",
+        "generators/generator_protocol", "generators/yield_from", "generators/generator_cleanup",
+        "async/coroutines", "async/async_for_with", "async/async_generators",
+        "async/asyncio_tasks",
+        "branches/match_literals_captures", "branches/match_structures",
+        "functions/annotations", "imports/future_annotations",
+        "expressions/fstrings", "expressions/walrus", "closures/comprehension_closures",
+        "version_specific/parenthesized_with", "version_specific/except_star",
+        "version_specific/exception_notes", "version_specific/star_subscripts",
+        "version_specific/type_params", "version_specific/fstring_pep701",
+        "version_specific/type_param_defaults", "version_specific/template_strings",
+        "version_specific/except_without_parens", "version_specific/deferred_annotations"
+      ]
+    }
+  },
+  "always": [
+    "no regression against the frozen baseline in any suite, version or optimization level (difftest.py compare exits 0)",
+    "no MISSING interpreter and no HARNESS_ERROR in the results",
+    "difftest.py controls reports 0 unexpected control outcomes",
+    "upstream token-level suite (reports/part1-baseline/per_file_outcomes.py): no compiled/*.pyc that passed at baseline fails"
+  ],
+  "exclusions": [
+    {"what": "source fidelity: comments, formatting, blank lines, choice among equivalent syntax, names of compiler temporaries", "why": "not recoverable from bytecode in general; out of the mission (docs/ROADMAP.md scope)"},
+    {"what": "everything outside the observation contract in harness/README.md: tracebacks, line/column numbers, code-object attributes, object identity, compile-time warnings, timing", "why": "deliberate observation-contract exclusions"},
+    {"what": "docstrings and assert statements at -O/-OO", "why": "absent from the compiled program; behavior comparison already accounts for this"},
+    {"what": "Python 1.x-3.9 in the behavioral matrix", "why": "covered only by upstream's token-level suite, which must not regress"},
+    {"what": "Python 3.15+ and free-threaded (t) builds", "why": "outside the agreed version scope"},
+    {"what": "adaptive/specialized runtime bytecode snapshots", "why": "outside the initial scope unless separately approved"},
+    {"what": "Cython/Nuitka binaries, packaging extraction, obfuscated bytecode", "why": "outside the initial scope"},
+    {"what": "marshalled code objects loaded with pycdc -c -v X.Y", "why": "not in the initial matrix; existing behavior must not regress"},
+    {"what": "executing upstream tests/input sources", "why": "not authored/reviewed fixtures; compiled and decompiled only"}
+  ]
+}

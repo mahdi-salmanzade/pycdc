@@ -14,8 +14,8 @@ separately approved).
 
 | Part | Title | Status |
 | --- | --- | --- |
-| 1 | Fork and establish the workspace | see STATUS.md |
-| 2 | Audit the implementation and establish the benchmark | NOT_STARTED |
+| 1 | Fork and establish the workspace | COMPLETE (2026-10-22) |
+| 2 | Audit the implementation and establish the benchmark | see STATUS.md |
 | 3 | Evaluate existing upstream work | NOT_STARTED |
 | 4 | Make bytecode decoding trustworthy | NOT_STARTED |
 | 5 | Recover expressions, calls, functions, and classes | NOT_STARTED |
@@ -85,6 +85,8 @@ targets and exception ranges. Keep version-specific rules explicit.
 
 **Gate:** required decoding fixtures match the reference. Unsupported formats
 fail clearly. Malformed inputs fail safely. Covered versions do not regress.
+Required scope: `harness/requirements.json` part 4 (`difftest.py gate --part 4`
+plus the listed manual evidence).
 
 ## Part 5 — Expressions, calls, functions, classes
 
@@ -97,6 +99,7 @@ interaction and side-effect-sensitive cases.
 
 **Gate:** required fixtures pass syntax and behavioral checks on their
 applicable versions. Independent review is complete. No new regressions.
+Required scope: `harness/requirements.json` part 5 (`difftest.py gate --part 5`).
 
 ## Part 6 — Structured control flow and exceptions
 
@@ -109,7 +112,8 @@ Every counterexample becomes a permanent minimized regression.
 
 **Gate:** declared control-flow and exception fixtures pass behavioral checks.
 Stack and CFG invariants are checked. Independent review is complete.
-Unresolved structures are explicitly rejected.
+Unresolved structures are explicitly rejected. Required scope:
+`harness/requirements.json` part 6 (`difftest.py gate --part 6`).
 
 ## Part 7 — Modern language features and interactions
 
@@ -122,7 +126,8 @@ exceptions inside generators.
 
 **Gate:** required modern-feature fixtures and declared interactions pass on
 the applicable versions. Each exclusion has a reproducible example and an
-honest diagnostic. No blanket language-support claims.
+honest diagnostic. No blanket language-support claims. Required scope:
+`harness/requirements.json` part 7 (`difftest.py gate --part 7`).
 
 ## Part 8 — Harden, document, prepare contributions
 

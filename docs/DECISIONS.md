@@ -74,3 +74,109 @@ later.
 which are covered by the existing `build/` entry in `.gitignore`. Upstream CI
 uses `build-debug`/`build-release`, which are not ignored, so they are avoided
 locally.
+
+## D-006 — Pinned interpreters in an isolated uv directory (2026-10-22, Part 2)
+
+**Context.** The roadmap needs exact CPython versions for compiling and
+validating. The host had a mix of pyenv, Homebrew and uv interpreters. 3.10
+was missing, and there were two different 3.12 builds.
+
+**Decision.** Pin 3.10.22, 3.11.17, 3.12.15, 3.13.17 and 3.14.9, the latest
+uv-provided patch releases on 2026-10-22 (`harness/interpreters.json`).
+- They are installed with `uv python install --no-bin` into
+  `~/.cache/pycdc-harness/python`.
+- The user's `~/.local/bin` links and uv's per-minor links stay untouched.
+- The harness verifies the exact version and the `.pyc` magic before every run.
+
+**Consequence.** Another machine gets byte-identical `.pyc` files from the same
+builds; two independent runs gave no corpus drift. A version bump is a
+recorded decision, and the baseline must be re-frozen with it.
+
+## D-007 — Harness isolation: sandbox-exec, scrubbed environment, rlimits (2026-10-22, Part 2)
+
+**Decision.** Every process the harness starts runs through
+`harness/sandbox.py`, with:
+- a macOS `sandbox-exec` profile: no network, writes only to the case
+  directory, no reads under `$HOME` except the interpreters and the repo;
+- a scrubbed environment;
+- CPU and file-size limits and a wall-clock timeout.
+
+The profile was verified by probes. Network connect and DNS were denied.
+Writes to `/tmp`, `$HOME` and the repo were denied. Reads of `~/.ssh`,
+`~/.config/gh`, `~/.gitconfig` and Keychains were denied.
+
+**Consequence.**
+- Only macOS has full isolation. Other platforms need an explicit
+  `--sandbox none --allow-unisolated`, which is recorded in the results.
+- Linux isolation is part of Part 8 CI.
+- macOS does not enforce `RLIMIT_AS`.
+
+## D-008 — Behavioral observation contract (2026-10-22, Part 2)
+
+**Decision.** Behavior is compared through the channels in `harness/README.md`:
+- module and `observe()` transcripts, which preserve stdout/stderr
+  interleaving;
+- return values and exceptions, described structurally, including
+  cause/context/notes/groups;
+- a structural snapshot of module globals, including class dicts with dunder
+  methods and function parameter lists with defaults;
+- a deterministic finalization step (automatic GC disabled, explicit
+  `gc.collect()`);
+- the process's exit-time output.
+
+The reference is the **compiled `.pyc` executed at its own optimization
+level**, not the original source.
+
+**Consequence.**
+- The exclusions are explicit: line numbers, code attributes, identity,
+  compile-time warnings and timing.
+- The contract was validated by 29 negative controls, all detected on their
+  declared channel, and by positive controls with 0 false positives.
+- The `default_value` control first exposed a real gap: dunder methods were
+  excluded from class descriptions. The fix is in `observe.py`
+  (`IMPLICIT_CLASS_ATTRS`).
+
+## D-009 — Earliest-stage attribution with a separate load probe (2026-10-22, Part 2)
+
+**Context.** pycdas does not check `isValid()`, exits 0 after `Bad MAGIC!`,
+and loses buffered stdout when it crashes. A load failure could therefore be
+misattributed to disassembly.
+
+**Decision.** The load stage uses `harness/tools/load_probe.cpp`, linked
+against the unmodified `libpycxx.a` of the build under test. It runs only
+`PycModule::loadFromFile`.
+
+Each case is classified at its earliest failing stage: load, disassemble,
+decompile, syntax, behavior. Output that is incomplete or has diagnostics is
+still executed for information, but never counts as PASS.
+
+## D-010 — Fixtures assigned to the highest part whose constructs they use (2026-10-22, Part 2)
+
+**Context.** The first fixture draft mixed constructs: "Part 5" fixtures used
+`try`/loops/comprehensions. Their gates could then only pass after Part 6/7
+work, or by weakening.
+
+**Decision.**
+- Part 5 fixtures use no Part 6/7 constructs, and Part 6 fixtures no Part 7
+  ones. Content was moved or split to achieve this; nothing was deleted.
+- `harness/requirements.json` maps all 73 fixtures and is checked by
+  `difftest.py gate`.
+- Required-to-pass versions are 3.13 and 3.14. For 3.10–3.12 the requirement
+  is no regression.
+- These are proposals for ASTRA to review. Once reviewed they may only be
+  tightened.
+
+## D-011 — Part 2 continues on `bootstrap` (2026-10-22, Part 2)
+
+**Decision.** Part 2 work is committed on `bootstrap`, which now serves as the
+project's integration branch. Fork `master` stays equal to upstream `master`
+(D-003). Isolated candidate branches/worktrees remain reserved for Part 3.
+
+## D-012 — Executing only authored fixtures (2026-10-22, Part 2)
+
+**Decision.**
+- Behavioral execution is limited to `harness/fixtures`, written for this
+  project and reviewed by reading before execution. Independent review by
+  Kimi K3 is pending.
+- Upstream's `tests/input` sources are compiled and decompiled but never run.
+- No `.pyc` from outside the project is parsed in Part 2.

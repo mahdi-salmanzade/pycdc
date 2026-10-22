@@ -1,0 +1,11 @@
+{
+  "comment": "Pinned CPython interpreters for the harness. Each fixture is compiled and validated with the interpreter of its target version. 'magic' is the first two .pyc bytes as a little-endian integer, verified at run time. Install with harness/setup_interpreters.sh.",
+  "install_dir": "~/.cache/pycdc-harness/python",
+  "interpreters": {
+    "3.10": {"version": "3.10.22", "magic": 3439},
+    "3.11": {"version": "3.11.17", "magic": 3495},
+    "3.12": {"version": "3.12.15", "magic": 3531},
+    "3.13": {"version": "3.13.17", "magic": 3571},
+    "3.14": {"version": "3.14.9", "magic": 3627}
+  }
+}

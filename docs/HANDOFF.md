@@ -34,7 +34,7 @@ No decompiler source was changed and no outside contributions were merged.
 
 ```bash
 cd /Users/intzero/Documents/pycdc/pycdc
-git fetch origin upstream && git switch bootstrap
+git fetch --multiple origin upstream && git switch bootstrap
 git rev-parse upstream/master            # expect b4289760970dbc399684f1e155ec6d1ea1cc787e
 cmake -S . -B build/debug -DCMAKE_BUILD_TYPE=Debug && cmake --build build/debug -j8
 cmake -S . -B build/release -DCMAKE_BUILD_TYPE=Release && cmake --build build/release -j8
