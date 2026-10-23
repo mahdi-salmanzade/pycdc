@@ -13,6 +13,7 @@ INSTRUMENTED_* and ENTER_EXECUTOR are runtime-only and never appear in .pyc
 files written by the compiler; they are listed separately.
 
 usage: opcode_coverage.py --pyc-root build/difftest/features --out report.md [--json out.json]
+                          [--source-root TREE]   (default: this repository)
 """
 
 import argparse
@@ -32,16 +33,16 @@ import sandbox  # noqa: E402
 RUNTIME_ONLY = re.compile(r'^(INSTRUMENTED_|ENTER_EXECUTOR$)')
 
 
-def pycdc_table(minor):
-    path = os.path.join(REPO, 'bytes', 'python_%s.cpp' % minor.replace('.', '_'))
+def pycdc_table(root, minor):
+    path = os.path.join(root, 'bytes', 'python_%s.cpp' % minor.replace('.', '_'))
     if not os.path.exists(path):
         return None
     with open(path) as f:
         return {int(n): name for n, name in re.findall(r'MAP_OP\((\d+),\s*(\w+)\)', f.read())}
 
 
-def ast_cases():
-    with open(os.path.join(REPO, 'ASTree.cpp')) as f:
+def ast_cases(root):
+    with open(os.path.join(root, 'ASTree.cpp')) as f:
         return set(re.findall(r'case Pyc::(\w+)\s*:', f.read()))
 
 
@@ -152,10 +153,12 @@ def main():
     ap.add_argument('--out', required=True)
     ap.add_argument('--json')
     ap.add_argument('--workdir', default=os.path.join(REPO, 'build', 'difftest', 'opcodes'))
+    ap.add_argument('--source-root', default=REPO,
+                    help='decompiler source tree whose tables and ASTree.cpp are audited')
     args = ap.parse_args()
     interps = difftest.resolve_interpreters()
     mode = sandbox.default_mode()
-    cases = ast_cases()
+    cases = ast_cases(args.source_root)
     results = {}
     for minor, entry in interps.items():
         if entry['status'] != 'ok':
@@ -163,7 +166,7 @@ def main():
         pycs = sorted(glob.glob(os.path.join(os.path.realpath(args.pyc_root), '*', '%s-O*' % minor,
                                             'fixture.pyc')))
         inv = inventory(minor, entry, pycs, os.path.realpath(args.workdir), mode)
-        table = pycdc_table(minor)
+        table = pycdc_table(args.source_root, minor)
         rows, extraneous = analyze(minor, inv, table, cases)
         results[minor] = {'version': inv['version'], 'corpus_files': inv['corpus_files'],
                           'table_size': None if table is None else len(table),
