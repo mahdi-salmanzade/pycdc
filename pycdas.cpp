@@ -350,6 +350,10 @@ int main(int argc, char* argv[])
         int minor = std::stoi(s.substr(dot+1, s.size()));
         mod.loadFromMarshalledFile(infile, major, minor);
     }
+    if (!mod.isValid() || mod.code() == NULL) {
+        fprintf(stderr, "Could not load file %s\n", infile);
+        return 1;
+    }
     const char* dispname = strrchr(infile, PATHSEP);
     dispname = (dispname == NULL) ? infile : dispname + 1;
     formatted_print(*pyc_output, "%s (Python %d.%d%s)\n", dispname,

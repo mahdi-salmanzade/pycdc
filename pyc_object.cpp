@@ -4,6 +4,7 @@
 #include "pyc_code.h"
 #include "data.h"
 #include <cstdio>
+#include <stdexcept>
 
 PycRef<PycObject> Pyc_None = new PycObject(PycObject::TYPE_NONE);
 PycRef<PycObject> Pyc_Ellipsis = new PycObject(PycObject::TYPE_ELLIPSIS);
@@ -65,8 +66,14 @@ PycRef<PycObject> CreateObject(int type)
     case PycObject::TYPE_SLICE:
         return new PycSlice;
     default:
-        fprintf(stderr, "CreateObject: Got unsupported type 0x%X\n", type);
-        return NULL;
+        {
+            // The size of an unknown object is unknown, so nothing after it
+            // can be read reliably.  Fail instead of returning a NULL that
+            // leaves the stream misaligned.
+            char message[64];
+            snprintf(message, sizeof(message), "unsupported marshal type code 0x%02X", type);
+            throw std::runtime_error(message);
+        }
     }
 }
 
