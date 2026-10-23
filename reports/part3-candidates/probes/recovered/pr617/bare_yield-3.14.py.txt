@@ -1,0 +1,10 @@
+# Source Generated with Decompyle++
+# File: fixture.pyc (Python 3.14)
+
+
+def g():
+    pass
+# WARNING: Decompyle incomplete
+
+# --- pycdc stderr:
+# Unsupported opcode: RETURN_GENERATOR (109)

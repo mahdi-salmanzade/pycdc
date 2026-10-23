@@ -1,0 +1,17 @@
+# Source Generated with Decompyle++
+# File: fixture.pyc (Python 3.12)
+
+
+def h(f):
+    
+    try:
+        f()
+        return 0
+    except ValueError:
+        x = 1
+        return 
+
+
+# --- pycdc stderr:
+# Warning: Stack history is not empty!
+# Warning: block stack is not empty!

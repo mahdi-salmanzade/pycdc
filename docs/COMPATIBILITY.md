@@ -121,3 +121,39 @@ decompiled, but never executed.
 - 3.14 has no magic number and no table. It also introduces marshal version 5
   with `slice` constants (type code `':'`, verified with 3.14.9), which pycdc
   cannot parse.
+
+## After Part 3 integration (`bootstrap` `27ef3c6`, 2026-10-23)
+
+This build adds 3.14 decoding and nothing else (D-015). Evidence:
+`reports/part3-candidates/`.
+
+**Behavior.** L2 (behavioral) results for 3.10–3.13 are identical to the
+Part 2 baseline, case for case.
+
+**3.14:**
+
+| Level | Result |
+| --- | --- |
+| load | 219/219 feature cases (was 0) |
+| disassemble | 219/219 feature cases (was 0) |
+| decompile | 0/219, every case with the explicit incomplete marker: `MAKE_FUNCTION` 168, `LOAD_SMALL_INT` 48, `MAKE_CELL` 3 |
+| L2 behavioral | **0/219** |
+| L1 (upstream inputs) | 15/165 |
+| silent failures | none |
+
+**Notes:**
+- "Disassemble" here means pycdas exits 0 with no invalid opcode and no
+  diagnostic. A semantic comparison with `dis` is Part 4 work and has not
+  been done. pycdas operand rendering for the new 3.14 opcodes was checked
+  by hand against `dis` 3.14.9 on one authored probe.
+- **3.13 and 3.14 have no behavioral support** at this point.
+- The upstream token suite is unchanged: 191 PASS / 39 XFAIL / 0 XPASS.
+
+**Upstream PRs, measured but not adopted:**
+
+| PR | 3.13 L2 | 3.14 L2 | Silent mismatches (3.13 / 3.14) |
+| --- | --- | --- | --- |
+| #616 | 26/210 | 29/219 | 52 / 49 |
+| #617 | 21/210 | 18/219 | 18 / 18 |
+
+Neither is a support claim for this project.

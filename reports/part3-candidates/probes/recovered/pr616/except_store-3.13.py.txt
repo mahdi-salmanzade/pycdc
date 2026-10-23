@@ -1,0 +1,12 @@
+# Source Generated with Decompyle++
+# File: fixture.pyc (Python 3.13)
+
+
+def h(f):
+    try:
+        f()
+        return 0
+    except ValueError as x:
+        return x
+
+

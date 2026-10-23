@@ -180,3 +180,104 @@ project's integration branch. Fork `master` stays equal to upstream `master`
   Kimi K3 is pending.
 - Upstream's `tests/input` sources are compiled and decompiled but never run.
 - No `.pyc` from outside the project is parsed in Part 2.
+
+## D-013 — Part 3 started with the Part 2 reviews outstanding (2026-10-23, Part 3)
+
+**Context.** The Part 2 gate needs an independent reproduction and review
+(Kimi K3, ASTRA) that had not happened. The user was told the gate had not
+passed and was offered two options: obtain the reviews, or waive them
+explicitly. The user replied "continue".
+
+**Decision.**
+- Part 3 proceeds on the user's instruction.
+- Part 2 stays `READY_FOR_REVIEW`, not `COMPLETE`. No review is claimed.
+- Every Part 3 measurement is taken against the Part 2 frozen baseline. If a
+  Part 2 review invalidates the baseline or the harness, the Part 3
+  measurements must be re-run with `reports/part3-candidates/reproduce.sh`.
+
+## D-014 — How candidate patches are evaluated (2026-10-23, Part 3)
+
+**Decision.**
+- Pull request heads are fetched as remote-tracking refs
+  (`refs/remotes/upstream/pr/N`), not local branches.
+- Each candidate is built in a **detached local clone** at its exact commit
+  under `build/part3/src/` (gitignored). The integration branch and the user's
+  branching rules are untouched, and every build is isolated.
+- **Untrusted binaries:** candidate binaries are built from unreviewed code,
+  so they run only inside the harness sandbox. This includes upstream's token
+  suite, via `harness/tools/upstream_suite.py`.
+- **Contributor tests:** the PRs' own test inputs are only compiled and
+  decompiled (`NAME=DIR` suites, L1). They are never executed (D-012). #617's
+  cases are extracted from string literals by parsing its runner, without
+  running it.
+- **Comparison:** every candidate runs the same frozen corpus with the same
+  harness, interpreters and `-O` levels as the baseline. An unmodified base
+  clone is run as a control and must reproduce the baseline exactly.
+- **Silent failures are counted separately**
+  (`harness/tools/candidate_compare.py`): silent mismatches, recovered
+  programs that hang, and silent invalid output. `difftest.py compare` files
+  a move from an explicit failure to a silent one under "failure_changed",
+  not under regressions.
+
+## D-015 — Part 3 integration: adopt the 3.14 decoding layer only (2026-10-23, Part 3)
+
+**Evidence.** `reports/part3-candidates/README.md` and `COMPARISON.md`.
+
+**Decision.**
+- **Adopted**, with co-author attribution:
+  - the 3.14 marshal slice constant (#596, #616);
+  - magic 3627 and the 3.14 opcode table (#616, identical to #617 apart
+    from aliases);
+  - separate internal opcodes for 3.14's changed `CALL_FUNCTION_EX` and
+    `END_ASYNC_FOR`;
+  - pycdas operand display checked against `dis` 3.14.9.
+  - Commits: `200a4cd` and `27ef3c6`.
+- **Not adopted:** the AST-builder changes of both PRs.
+  - They fix 69 (#616) and 42 (#617) feature cases.
+  - They add 162 and 60 silent semantic mismatches, 78 and 37 silent
+    invalid outputs, and 9 and 6 new pycdc crashes. #616 also adds 12
+    recovered programs that hang.
+  - Both change behavior on 3.10–3.12, which they do not target.
+  - #616 is one 4,400-line commit that mixes unrelated changes.
+  - #617 does not load 3.14 slice constants.
+- **Later use:** in Parts 5–7 the PRs are reference implementations. Any
+  part adopted later goes through those parts' process (a minimal failing
+  regression first, then the smallest justified change) and keeps
+  attribution.
+- **Result:** the integrated foundation has no regression, no new crash and
+  no new silent failure against the Part 2 baseline. 3.14 files now load
+  and disassemble, and fail explicitly at decompile, like 3.13.
+- **Left unchanged:** `PycModule::isSupportedVersion` (only `-c -v X.Y`,
+  an excluded mode) stays at 3.12.
+
+**Review.** The adopted commits are production code by Opus and need an
+independent review (Kimi K3 or ASTRA) before Part 3 can be COMPLETE.
+
+## D-016 — Proposal: count silent failures in the gates (2026-10-23, Part 3; open)
+
+**Problem.** The "always" condition "no regression against the frozen
+baseline" (`difftest.py compare`) counts only:
+- PASS → non-PASS;
+- a failure moving to an earlier stage.
+
+A case that goes from an explicit failure (incomplete marker, diagnostic,
+crash, load error) to silently wrong output is reported as
+"failure_changed". Both PRs would pass this check while adding dozens of
+silent mismatches on 3.10–3.12. For 3.13/3.14 the Part 5–7 gates already
+require behavioral PASS on every required fixture, so the gap is in:
+- the regression versions;
+- non-required fixtures;
+- the never-executed `upstream-inputs` suite (silent invalid output).
+
+**Proposal for ASTRA and the user:** add an "always" condition: no new
+silent mismatch, recovered hang or silent invalid output in 3.10–3.12, or in
+any `upstream-inputs` case, relative to the frozen baseline.
+
+**Trade-off:**
+- A fix for an opcode shared with 3.11/3.12 (for example `MAKE_CELL`) can
+  expose older reconstruction bugs on those versions. Under this condition
+  the bugs must be fixed together, or the change limited to 3.13+.
+- Requirements may be tightened without a user decision, but this one
+  could change how Parts 5–7 are scoped. It is therefore **not applied**
+  until ASTRA or the user rules on it.
+- Until then `candidate_compare.py` reports these counts for every change.

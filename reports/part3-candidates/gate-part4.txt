@@ -1,0 +1,12 @@
+gate for Part 4 (requirements of Parts 4..4)
+  Part 4 (Make bytecode decoding trustworthy): 429/429 required cases reach disassemble
+    manual evidence required: pycdas output matches normalized dis output of the same interpreter at the semantic level (opcodes, operands, names/constants, jump targets, exception table ranges, nested code objects) for every required fixture; the comparison tool is built in Part 4
+    manual evidence required: hash-based .pyc headers (checked and unchecked) load for every required version
+    manual evidence required: unsupported versions/formats fail with a clear message and nonzero exit; pycdas must not print '(Python -1.-1)' and exit 0
+    manual evidence required: truncated or malformed .pyc inputs fail safely (no crash, no hang) under the harness sandbox
+  vs baseline: regression 0
+  vs baseline: missing_coverage 0
+  vs baseline: harness_error 0
+  controls: 1461 cases, 0 unexpected
+  upstream token suite: 0 previously passing files no longer pass
+GATE NOT PASSED (4 problems)

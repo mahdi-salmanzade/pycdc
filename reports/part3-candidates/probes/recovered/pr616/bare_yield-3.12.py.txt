@@ -1,0 +1,8 @@
+# Source Generated with Decompyle++
+# File: fixture.pyc (Python 3.12)
+
+
+def g():
+    x = None
+    return x
+

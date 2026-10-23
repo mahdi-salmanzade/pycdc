@@ -48,6 +48,8 @@ Every claim cites `file:line`.
   (`pyc_module.cpp:186-217`) [verified].
 - **3.14 has no magic entry**, so every 3.14 file fails at the load stage
   [verified by execution].
+  - *Update, Part 3 (`27ef3c6`):* `MAGIC_3_14` (3627) was added; 3.14 files
+    now load. See D-015.
 - **Header (3.7+):** a flags word is read. If `flags & 1`, the 8-byte hash is
   skipped; otherwise the timestamp and size are skipped
   (`pyc_module.cpp:219-232`) [verified].
@@ -65,6 +67,8 @@ Every claim cites `file:line`.
 - **Unsupported marshal type codes:** `CreateObject` prints a message and
   returns NULL without consuming the object (`pyc_object.cpp:66-68`), so the
   rest of the stream is misparsed.
+  - *Update, Part 3 (`200a4cd`):* the 3.14 slice constant (`TYPE_SLICE`,
+    `':'`) is now supported (`PycSlice`, `pyc_sequence.h`).
 - **Code-object layout** per version: `pyc_code.cpp:29-120`, with the table in
   the comments at 5-27.
   - qualname and exceptiontable are read for 3.11+.
@@ -78,6 +82,11 @@ Every claim cites `file:line`.
 - **Table accuracy, measured:** for 3.10–3.13, every opcode that CPython can
   write to disk is mapped to the correct raw number. There are no wrong or
   extra entries. There is no 3.14 table (`opcode_coverage.md`).
+  - *Update, Part 3 (`27ef3c6`):* `bytes/python_3_14.cpp` maps all 121
+    on-disk 3.14.9 opcodes correctly
+    (`reports/part3-candidates/opcode_coverage.md`). `BuildFromCode` has no
+    3.14-specific cases, so 3.14 code stops explicitly at the first
+    unsupported opcode.
 - **Decoding** (`bc_next`, `bytecode.cpp:279-303`):
   - From 3.6 on (wordcode), only **one** `EXTENDED_ARG` prefix is folded into
     the operand.
@@ -172,6 +181,10 @@ From `reports/part2-baseline/opcode_coverage.md`:
 | 3.12 | 111 | 111 | 75 | 107 | 32 |
 | 3.13 | 118 | 118 | 72 | 113 | 41 |
 | 3.14 | 121 | 0 (no table) | 0 | 116 | 116 |
+
+After Part 3 (`27ef3c6`, `reports/part3-candidates/opcode_coverage.md`), 3.14
+maps 121 of 121 correctly; 68 are handled by the AST switch, and 50 opcodes
+are used by the corpus but unhandled. 3.10–3.13 are unchanged.
 
 ## Implications for later parts
 

@@ -1,0 +1,6 @@
+# Source Generated with Decompyle++
+# File: fixture.pyc (Python 3.14)
+
+# WARNING: Decompyle incomplete
+# --- pycdc stderr:
+# Unsupported opcode: MAKE_FUNCTION (122)

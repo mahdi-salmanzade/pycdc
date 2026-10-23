@@ -1,0 +1,3 @@
+# --- pycdc stderr:
+# Bad MAGIC!
+# Could not load file fixture.pyc

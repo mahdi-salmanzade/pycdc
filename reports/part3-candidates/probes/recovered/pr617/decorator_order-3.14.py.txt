@@ -1,0 +1,12 @@
+# Source Generated with Decompyle++
+# File: fixture.pyc (Python 3.14)
+
+
+def deco(arg):
+    return (lambda fn: fn)
+
+
+def f(x = print('b')):
+    return x
+
+f = deco(print('a'))(f)
