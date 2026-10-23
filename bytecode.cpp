@@ -294,13 +294,16 @@ void bc_next(PycBuffer& source, PycModule* mod, int& opcode, int& operand, int& 
 {
     opcode = Pyc::ByteToOpcode(mod->majorVer(), mod->minorVer(), source.getByte());
     if (mod->verCompare(3, 6) >= 0) {
-        operand = source.getByte();
+        // Wordcode: an operand wider than 8 bits is built from up to three
+        // EXTENDED_ARG prefixes, each contributing the next 8 high bits.
+        unsigned int arg = source.getByte();
         pos += 2;
-        if (opcode == Pyc::EXTENDED_ARG_A) {
+        while (opcode == Pyc::EXTENDED_ARG_A) {
             opcode = Pyc::ByteToOpcode(mod->majorVer(), mod->minorVer(), source.getByte());
-            operand = (operand << 8) | source.getByte();
+            arg = ((arg << 8) | source.getByte()) & 0xFFFFFFFFU;
             pos += 2;
         }
+        operand = static_cast<int>(arg);
     } else {
         operand = 0;
         pos += 1;
