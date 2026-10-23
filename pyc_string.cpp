@@ -56,6 +56,47 @@ bool PycString::isEqual(PycRef<PycObject> obj) const
     return isEqual(strObj->m_value);
 }
 
+/* Decodes the UTF-8 sequence (surrogates allowed, as marshal writes them)
+ * that starts at value[pos].  Returns its length, or 0 if it is malformed. */
+static size_t utf8_sequence(const std::string& value, size_t pos, unsigned int& cp)
+{
+    const unsigned char lead = static_cast<unsigned char>(value[pos]);
+    size_t len;
+    if (lead >= 0xF0 && lead <= 0xF4) {
+        len = 4;
+        cp = lead & 0x07;
+    } else if (lead >= 0xE0 && lead <= 0xEF) {
+        len = 3;
+        cp = lead & 0x0F;
+    } else if (lead >= 0xC2 && lead <= 0xDF) {
+        len = 2;
+        cp = lead & 0x1F;
+    } else {
+        return 0;
+    }
+    if (pos + len > value.size())
+        return 0;
+    for (size_t k = 1; k < len; ++k) {
+        const unsigned char cont = static_cast<unsigned char>(value[pos + k]);
+        if ((cont & 0xC0) != 0x80)
+            return 0;
+        cp = (cp << 6) | (cont & 0x3F);
+    }
+    return len;
+}
+
+static bool needs_escape(unsigned int cp)
+{
+    return (cp >= 0x80 && cp <= 0x9F)           // C1 controls
+        || cp == 0xAD || cp == 0x61C            // soft hyphen, Arabic letter mark
+        || (cp >= 0x200B && cp <= 0x200F)       // zero width, LRM/RLM
+        || (cp >= 0x2028 && cp <= 0x202E)       // line/paragraph separators, bidi
+        || (cp >= 0x2060 && cp <= 0x206F)       // invisible operators, bidi isolates
+        || (cp >= 0xD800 && cp <= 0xDFFF)       // lone surrogates
+        || cp == 0xFEFF                         // zero width no-break space (BOM)
+        || (cp >= 0xFFF9 && cp <= 0xFFFB);      // interlinear annotation
+}
+
 void PycString::print(std::ostream &pyc_output, PycModule* mod, bool triple,
                       const char* parent_f_string_quote)
 {
@@ -111,8 +152,26 @@ void PycString::print(std::ostream &pyc_output, PycModule* mod, bool triple,
         else
             pyc_output << (useQuotes ? '"' : '\'');
     }
-    for (char ch : m_value) {
-        if (static_cast<unsigned char>(ch) < 0x20 || ch == 0x7F) {
+    // Text (as opposed to bytes) is stored as UTF-8: TYPE_UNICODE always, and
+    // TYPE_INTERNED from Python 3 on, where interned strings are str.
+    const bool text = type() == TYPE_UNICODE
+            || (type() == TYPE_INTERNED && mod->majorVer() >= 3);
+    for (size_t i = 0; i < m_value.size(); ++i) {
+        const char ch = m_value[i];
+        size_t seq_len = 0;
+        unsigned int cp = 0;
+        if (text && static_cast<unsigned char>(ch) >= 0x80
+                && (seq_len = utf8_sequence(m_value, i, cp)) != 0 && needs_escape(cp)) {
+            // Write code points that are invalid in UTF-8 source (lone
+            // surrogates, marshalled with surrogatepass) or invisible in it
+            // (controls, separators, bidi and other format characters) as
+            // escapes, so the recovered source shows what the string holds.
+            if (cp > 0xFFFF)
+                formatted_print(pyc_output, "\\U%08x", cp);
+            else
+                formatted_print(pyc_output, "\\u%04x", cp);
+            i += seq_len - 1;
+        } else if (static_cast<unsigned char>(ch) < 0x20 || ch == 0x7F) {
             if (ch == '\r') {
                 pyc_output << "\\r";
             } else if (ch == '\n') {
@@ -126,7 +185,7 @@ void PycString::print(std::ostream &pyc_output, PycModule* mod, bool triple,
                 formatted_print(pyc_output, "\\x%02x", (ch & 0xFF));
             }
         } else if (static_cast<unsigned char>(ch) >= 0x80) {
-            if (type() == TYPE_UNICODE) {
+            if (text) {
                 // Unicode stored as UTF-8...  Let the stream interpret it
                 pyc_output << ch;
             } else {
