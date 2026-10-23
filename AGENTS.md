@@ -98,10 +98,18 @@ See `harness/README.md`. In short:
 ```bash
 harness/setup_interpreters.sh                  # pinned 3.10-3.14 (D-006)
 python3 harness/difftest.py controls --out build/controls.json   # must be 0 unexpected
-python3 harness/difftest.py run --suite features,upstream-inputs --out build/results.json
+python3 harness/tools/decoding_check.py generate --out build/decoding-generated
+python3 harness/difftest.py run --suite features,upstream-inputs,decoding,decoding-generated \
+    --workroot build/difftest --out build/results.json
 python3 harness/difftest.py compare reports/part2-baseline/baseline.json build/results.json
-python3 harness/difftest.py gate --part N --results ... --controls ... --upstream ...
+# Part 4+: decoding evidence (dis, headers, formats, malformed) -> build/decoding
+python3 harness/difftest.py gate --part N --results ... --controls ... --upstream ... \
+    --decoding build/decoding
 ```
+
+The decoding commands are in `harness/README.md` ("Decoding checks"). The
+full sequence is in `reports/part4-decoding/reproduce.sh`. A pycdas change
+must keep `decoding_check.py dis` at zero mismatches.
 
 Only `harness/fixtures` may be executed (D-012). Required scope per part is
 `harness/requirements.json` / `docs/FEATURE_MATRIX.md`; it may be tightened,

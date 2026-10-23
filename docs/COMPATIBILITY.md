@@ -157,3 +157,40 @@ Part 2 baseline, case for case.
 | #617 | 21/210 | 18/219 | 18 / 18 |
 
 Neither is a support claim for this project.
+
+## Decoding after Part 4 (`bootstrap` `a1ae263`, decompiler source `cf86619`, 2026-10-23)
+
+**pycdas agrees with the matching interpreter.** On every file of the
+corpus (1,953 files across `features`, `upstream-inputs`, `decoding` and
+`decoding-generated`, at 3.10–3.14 and `-O0/1/2`), pycdas matches the
+interpreter's own `marshal`/`dis` decoding. The comparison covers
+code-object fields, names, exact constant values, every instruction (offset,
+opcode, operand and resolved jump target, name, constant or local) and
+exception tables. Evidence: `reports/part4-decoding/`.
+
+**Also measured:**
+- Hash-based (checked and unchecked) `.pyc` files decode identically to
+  timestamp-based ones.
+- 17 kinds of undecodable input make both tools exit 1 with a message.
+- 62,586 truncated or mutated inputs per tool caused no crash or hang:
+  - pycdas, on any version;
+  - pycdc, on 3.13 or 3.14.
+  - pycdc still crashes on some malformed 3.10/3.11 inputs, in the
+    AST-builder crash family already present in upstream (see the report).
+
+**Not covered:** line-number tables and per-local kind flags.
+
+**Decompiler output.** Part 4 changes only decoding and constant rendering.
+Behavioral (L2) and L1 outcomes are identical to the Part 3 foundation.
+
+| Version | L2 feature passes |
+| --- | --- |
+| 3.10 | 15 |
+| 3.11 | 15 |
+| 3.12 | 9 |
+| 3.13 | 0 |
+| 3.14 | 0 |
+
+There is **no behavioral support for 3.13 or 3.14** yet. Constant rendering
+in decompiled source is now exact for floats, complex numbers and
+non-ASCII strings.

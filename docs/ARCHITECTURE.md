@@ -40,6 +40,10 @@ Every claim cites `file:line`.
 - After a bad magic it prints `<name> (Python -1.-1)` and `<NULL>`, and exits 0
   (`pycdas.cpp:82-85, 347-358`) [verified for `<NULL>`].
 - This is why the harness has a separate load probe.
+- *Update, Part 4 (`cf86619`):* pycdas now checks the load and exits 1 with
+  "Could not load file". An unknown marshal type code now fails in both
+  tools instead of returning NULL. Verified by
+  `decoding_check.py formats`.
 
 ### 2. Loading
 
@@ -90,11 +94,26 @@ Every claim cites `file:line`.
 - **Decoding** (`bc_next`, `bytecode.cpp:279-303`):
   - From 3.6 on (wordcode), only **one** `EXTENDED_ARG` prefix is folded into
     the operand.
+    - *Update, Part 4 (`cb77d0b`):* all consecutive prefixes are now folded.
   - CACHE units are decoded as separate `CACHE` instructions, which the switch
     then ignores.
 - **Disassembly jump targets:** `bc_disasm` handles jump-target arithmetic per
   version. A TODO at `bytecode.cpp:475-478` notes that CACHE entries are not
   accounted for.
+  - *Update, Part 4 (`cc7cf1f`):* pycdas counts relative jumps from the end
+    of the inline caches (`bc_skip_caches`), and 3.11 `JUMP_IF_*_OR_POP`
+    are relative.
+  - The AST builder's own jump arithmetic is unchanged (D-018).
+- **Constant rendering** (`print_const`, `PycString::print`), shared by
+  pycdas and the decompiler:
+  - **Before Part 4:** floats used `%g` (`2.0` became `2`, `-0.0` became
+    `0`, six digits). Python 3 interned strings were escaped as bytes
+    (`'é'` became `'\xc3\xa9'`).
+  - *Update, Part 4 (`d8f80f3`, `315bd39`):* exact float and complex
+    rendering; interned strings are printed as text; surrogates and
+    invisible or bidi code points are escaped.
+- **Verified:** `harness/tools/decoding_check.py dis` compares pycdas with
+  `dis` on every corpus file (`reports/part4-decoding/`).
 
 ### 5. AST construction (`BuildFromCode`, `ASTree.cpp:76-2728`)
 

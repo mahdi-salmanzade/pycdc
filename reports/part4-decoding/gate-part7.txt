@@ -1,0 +1,20 @@
+gate for Part 7 (requirements of Parts 4..7)
+  Part 4 (Make bytecode decoding trustworthy): 429/429 required cases reach disassemble
+  Part 5 (Recover expressions, calls, functions, and classes): 0/162 required cases reach behavior
+    ... 162 more
+  Part 6 (Recover structured control flow and exceptions): 0/114 required cases reach behavior
+    ... 114 more
+  Part 7 (Cover modern language features and interactions): 0/153 required cases reach behavior
+    ... 153 more
+  Part 4 decoding checks (build/part4/official/decoding)
+    dis: 1128/1128 required cases match
+    headers: 1128/1128 required cases identical
+    formats: 34 runs, 0 unclear, 0 required inputs missing
+    malformed: 51 pycdc crashes/hangs on other versions (reported, not gating)
+    malformed: 1098/1098 required source files checked, 62586 derived inputs per tool, 0 crashes/hangs where forbidden
+  vs baseline: regression 0
+  vs baseline: missing_coverage 0
+  vs baseline: harness_error 0
+  controls: 1461 cases, 0 unexpected
+  upstream token suite: 0 previously passing files no longer pass
+GATE NOT PASSED (429 problems)

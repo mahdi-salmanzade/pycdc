@@ -16,8 +16,8 @@ separately approved).
 | --- | --- | --- |
 | 1 | Fork and establish the workspace | COMPLETE (2026-10-22) |
 | 2 | Audit the implementation and establish the benchmark | READY_FOR_REVIEW (independent reviews outstanding; Part 3 started on the user's instruction, D-013) |
-| 3 | Evaluate existing upstream work | READY_FOR_REVIEW (see STATUS.md) |
-| 4 | Make bytecode decoding trustworthy | NOT_STARTED |
+| 3 | Evaluate existing upstream work | READY_FOR_REVIEW (independent review outstanding; Part 4 started on the user's instruction, D-017) |
+| 4 | Make bytecode decoding trustworthy | READY_FOR_REVIEW (see STATUS.md) |
 | 5 | Recover expressions, calls, functions, and classes | NOT_STARTED |
 | 6 | Recover structured control flow and exceptions | NOT_STARTED |
 | 7 | Cover modern language features and interactions | NOT_STARTED |

@@ -1,0 +1,38 @@
+malformed: 1098 source files, 62586 derived inputs per tool
+  pycdas:error             54743
+  pycdas:exit0             7843
+  pycdc:crash              49
+  pycdc:error              55525
+  pycdc:exit0              7009
+  pycdc:timeout            3
+  UNSAFE features async/async_for_with 3.11 -O1 pycdc mutate:4060=61,3455=7b: timeout SIGKILL
+  UNSAFE features branches/conditional_expressions 3.10 -O1 pycdc mutate:885=c8,984=de,406=4b: crash SIGSEGV
+  UNSAFE features exceptions/with_statements 3.10 -O0 pycdc mutate:2170=ce,1845=29: crash SIGSEGV
+  UNSAFE features exceptions/with_statements 3.10 -O0 pycdc mutate:920=d6: crash SIGSEGV
+  UNSAFE features exceptions/with_statements 3.10 -O0 pycdc mutate:1202=a4,783=3b,1664=64: crash SIGSEGV
+  UNSAFE features exceptions/with_statements 3.10 -O1 pycdc mutate:1587=78: crash SIGSEGV
+  UNSAFE features exceptions/with_statements 3.10 -O1 pycdc mutate:1969=ca,2283=62,1865=c0,2257=51: crash SIGSEGV
+  UNSAFE features exceptions/with_statements 3.10 -O1 pycdc mutate:1232=08: crash SIGSEGV
+  UNSAFE features exceptions/with_statements 3.10 -O2 pycdc mutate:1168=98,1146=af: crash SIGSEGV
+  UNSAFE features exceptions/with_statements 3.10 -O2 pycdc mutate:814=a1: crash SIGSEGV
+  UNSAFE features exceptions/with_statements 3.10 -O2 pycdc mutate:2212=5e,164=23: crash SIGSEGV
+  UNSAFE features exceptions/with_statements 3.11 -O0 pycdc mutate:957=01,4929=38,2592=63: timeout SIGKILL
+  UNSAFE features expressions/arithmetic 3.12 -O0 pycdc mutate:530=73: timeout SIGKILL
+  UNSAFE features version_specific/parenthesized_with 3.10 -O0 pycdc mutate:267=80,387=77: crash SIGSEGV
+  UNSAFE features version_specific/parenthesized_with 3.10 -O0 pycdc mutate:791=f7: crash SIGSEGV
+  UNSAFE features version_specific/parenthesized_with 3.10 -O0 pycdc mutate:411=a8: crash SIGSEGV
+  UNSAFE features version_specific/parenthesized_with 3.10 -O1 pycdc mutate:828=77: crash SIGSEGV
+  UNSAFE features version_specific/parenthesized_with 3.10 -O1 pycdc mutate:259=2d: crash SIGSEGV
+  UNSAFE features version_specific/parenthesized_with 3.10 -O1 pycdc mutate:1010=c5: crash SIGSEGV
+  UNSAFE features version_specific/parenthesized_with 3.10 -O2 pycdc mutate:53=8a: crash SIGSEGV
+  UNSAFE features version_specific/parenthesized_with 3.10 -O2 pycdc mutate:305=26: crash SIGSEGV
+  UNSAFE features version_specific/parenthesized_with 3.10 -O2 pycdc mutate:766=ac: crash SIGSEGV
+  UNSAFE features version_specific/parenthesized_with 3.11 -O0 pycdc mutate:1565=f0: crash SIGSEGV
+  UNSAFE features version_specific/parenthesized_with 3.11 -O0 pycdc mutate:209=15,1046=70: crash SIGSEGV
+  UNSAFE features version_specific/parenthesized_with 3.11 -O0 pycdc mutate:764=cb: crash SIGSEGV
+  UNSAFE features version_specific/parenthesized_with 3.11 -O1 pycdc mutate:762=9d,359=98: crash SIGSEGV
+  UNSAFE features version_specific/parenthesized_with 3.11 -O1 pycdc mutate:1338=38: crash SIGSEGV
+  UNSAFE features version_specific/parenthesized_with 3.11 -O1 pycdc mutate:325=87,447=ef,1175=de,1069=14: crash SIGSEGV
+  UNSAFE features version_specific/parenthesized_with 3.11 -O2 pycdc mutate:902=fe,1106=a2: crash SIGSEGV
+  UNSAFE features version_specific/parenthesized_with 3.11 -O2 pycdc mutate:1357=0f,1068=c6: crash SIGSEGV
+  UNSAFE features version_specific/parenthesized_with 3.11 -O2 pycdc mutate:771=cc,136=ed: crash SIGSEGV

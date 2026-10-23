@@ -281,3 +281,97 @@ any `upstream-inputs` case, relative to the frozen baseline.
   could change how Parts 5–7 are scoped. It is therefore **not applied**
   until ASTRA or the user rules on it.
 - Until then `candidate_compare.py` reports these counts for every change.
+
+## D-017 — Part 4 started with the Part 2 and Part 3 reviews outstanding (2026-10-23, Part 4)
+
+**Context.** Parts 2 and 3 are READY_FOR_REVIEW. No independent review has
+happened, so neither gate has passed. The user was told this and replied
+"continue".
+
+**Decision.**
+- Part 4 proceeds on the user's instruction, as Part 3 did (D-013).
+- Parts 2 and 3 stay READY_FOR_REVIEW. No review is claimed.
+- Part 4 builds on the Part 3 foundation (`27ef3c6`, D-015), which is not
+  yet reviewed. If a review rejects that foundation, Part 4's measurements
+  must be redone.
+
+## D-018 — Part 4 scope: what decoding covers and what it leaves to later parts (2026-10-23, Part 4)
+
+**Decision.**
+
+*Changed in Part 4.* Each change is shown by `decoding_check.py` against the
+interpreter that wrote the file:
+- **pycdas jump targets** count from the end of an instruction's inline
+  caches (3.11+). 3.11's `JUMP_IF_*_OR_POP` are relative.
+- **Inline caches** are found by reading the `CACHE` units that follow an
+  instruction in the on-disk code, not from a hand-copied per-version
+  table. On-disk bytecode always stores them as `CACHE`, so this is exact
+  for `.pyc` files and needs no update per CPython release. Adaptive or
+  specialized runtime bytecode stays out of scope.
+- **`EXTENDED_ARG`:** every consecutive prefix is folded (3.6+).
+- **Constants** are rendered exactly:
+  - floats by the shortest round-trip text;
+  - complex numbers by forms that rebuild both parts, signed zeros
+    included;
+  - Python 3 interned strings as text;
+  - surrogates and invisible or bidi code points escaped.
+- **Clear failures:** unloadable files and unknown marshal type codes now
+  fail with a message and exit 1.
+
+*Deliberately not changed in Part 4:*
+- **The AST builder's own jump arithmetic** (`ASTree.cpp`), which is not
+  cache-aware. Changing it changes reconstructed control flow. That is
+  Part 6 work, measured there.
+- **Stack effects.** The Part 4 prompt mentions them, but the Part 2
+  requirements did not define a stack-effect requirement. Their use is the
+  stack/control-flow invariants that Part 6's gate requires, so a verified
+  per-version stack-effect table belongs to Part 6, not here.
+- **`std::exit(1)` on end of stream** in `PycFile`/`PycBuffer`. Upstream
+  added it deliberately (`ff0c145`). It ends the process cleanly with a
+  message, which meets "fail safely".
+- **`PycModule::isSupportedVersion`** (only `-c -v`) stays at 3.12 (D-015).
+
+*Found while checking decoding, left to later parts:*
+- **`ASTree.cpp:1957`:** `RETURN_VALUE` inside an if/else block calls
+  `bc_next` without checking for the end of the code. With correct
+  two-prefix decoding, the generated `wide_operands` input on 3.10 now
+  reaches it and exits with "Unexpected end of stream" (before: an
+  explicit "Unsupported opcode: EXTENDED_ARG"). Both are explicit
+  failures. Part 6.
+- **Subscripts with a tuple of slices** are printed as `seq[(1:2, 3)]`,
+  which is invalid syntax. Part 5.
+- **3.14 constant slices** are printed in decompiled source as
+  `slice(a, b, c)`, which depends on the name `slice` not being shadowed.
+  Part 5.
+- **pycdc crashes on malformed 3.10 input** (the `with` crash family,
+  already present in upstream on well-formed input). Part 6.
+
+## D-019 — Part 4 decoding requirements mechanized and tightened (2026-10-23, Part 4)
+
+**Decision.**
+- The four `not_yet_mechanized` items of Part 4 are replaced by
+  `parts.4.decoding` in `harness/requirements.json`, checked by
+  `difftest.py gate --decoding DIR`. Each check is stricter than the item
+  it replaces:
+  - **`dis`:** the semantic `pycdas`/`dis` comparison is required on all of
+    3.10–3.14, not only 3.13 and 3.14, for the `features`, `decoding` and
+    `decoding-generated` suites.
+  - **`headers`:** hash-based headers are required on the same suites and
+    versions.
+  - **`formats`:** "unsupported formats fail clearly" is a fixed list of 17
+    crafted inputs.
+  - **`malformed`:** "malformed inputs fail safely" is a deterministic,
+    seeded campaign of truncations and byte mutations.
+    - pycdas must never crash, hang or hit the output limit, on any
+      version; pycdc must not on 3.13 and 3.14.
+    - pycdc crashes on 3.10–3.12 are AST-builder crashes, the `with`
+      family already in upstream. They are reported, and must not exceed
+      those of the pre-Part-4 build on the same inputs. That comparison is
+      made in `reports/part4-decoding/` because the gate cannot run the
+      old build.
+- **Suites:** `decoding` (authored) and `decoding-generated` (written by
+  `decoding_check.py generate`) join `required_suites`. Like
+  `upstream-inputs`, they are never executed.
+- **Review:** ASTRA must confirm that limiting pycdc's malformed-input
+  requirement to 3.13/3.14 matches the gate policy (3.10–3.12: no
+  regression).
