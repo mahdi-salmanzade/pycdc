@@ -271,6 +271,18 @@ void print_const(std::ostream& pyc_output, PycRef<PycObject> obj, PycModule* mod
     case PycObject::TYPE_CODE2:
         pyc_output << "<CODE> " << obj.cast<PycCode>()->name()->value();
         break;
+    case PycObject::TYPE_SLICE:
+        {
+            PycRef<PycSlice> slice = obj.cast<PycSlice>();
+            pyc_output << "slice(";
+            print_const(pyc_output, slice->get(0), mod);
+            pyc_output << ", ";
+            print_const(pyc_output, slice->get(1), mod);
+            pyc_output << ", ";
+            print_const(pyc_output, slice->get(2), mod);
+            pyc_output << ")";
+        }
+        break;
     default:
         formatted_print(pyc_output, "<TYPE: %d>\n", obj->type());
     }

@@ -70,4 +70,13 @@ private:
     value_t m_values;
 };
 
+/* A constant slice (Python 3.14 ->): start, stop and step, each marshalled
+ * as an object of its own (None when omitted). */
+class PycSlice : public PycSimpleSequence {
+public:
+    PycSlice() : PycSimpleSequence(TYPE_SLICE) { }
+
+    void load(class PycData* stream, class PycModule* mod) override;
+};
+
 #endif
