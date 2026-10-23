@@ -51,15 +51,22 @@ For **3.10–3.12** the requirement is *no regression*, not "must pass". This
 follows the mission: focus on 3.13/3.14 and keep regression coverage for
 3.10–3.12.
 
-Part 4 has extra requirements that are not yet mechanized (listed in
-`requirements.json`). They need recorded manual evidence until the
-`pycdas`-vs-`dis` comparison tool exists. Since Part 3, `gate` counts each
-of them as a problem, so it cannot report PASSED while any is outstanding:
+Part 4's four decoding requirements were mechanized in Part 4. They are
+checked by `gate --decoding DIR` from the reports of
+`harness/tools/decoding_check.py`; `requirements.json`, `parts.4.decoding`,
+has the exact criteria. Each covers more than the original wording, which
+only tightens it:
 
-- semantic `pycdas`/`dis` agreement;
-- hash-based `.pyc` headers;
-- clear failure for unsupported formats;
-- safe failure on malformed input.
+- **semantic `pycdas`/`dis` agreement:** for the `features`, `decoding` and
+  `decoding-generated` suites, on every version 3.10–3.14 (not only 3.13
+  and 3.14);
+- **hash-based `.pyc` headers:** checked and unchecked, on the same suites
+  and versions;
+- **clear failure:** for 17 crafted unsupported or undecodable inputs;
+- **safe failure on malformed input:**
+  - for pycdas on every version;
+  - for pycdc on 3.13 and 3.14;
+  - pycdc crashes on 3.10–3.12 are reported and must not increase.
 
 ## Fixtures
 

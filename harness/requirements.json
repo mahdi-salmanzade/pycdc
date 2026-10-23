@@ -5,18 +5,38 @@
   "required_versions": ["3.13", "3.14"],
   "regression_versions": ["3.10", "3.11", "3.12"],
   "opt_levels": [0, 1, 2],
-  "required_suites": ["features", "upstream-inputs"],
+  "required_suites": ["features", "upstream-inputs", "decoding", "decoding-generated"],
   "parts": {
     "4": {
       "title": "Make bytecode decoding trustworthy",
       "required_stage": "disassemble",
       "fixtures": "*",
-      "not_yet_mechanized": [
-        "pycdas output matches normalized dis output of the same interpreter at the semantic level (opcodes, operands, names/constants, jump targets, exception table ranges, nested code objects) for every required fixture; the comparison tool is built in Part 4",
-        "hash-based .pyc headers (checked and unchecked) load for every required version",
-        "unsupported versions/formats fail with a clear message and nonzero exit; pycdas must not print '(Python -1.-1)' and exit 0",
-        "truncated or malformed .pyc inputs fail safely (no crash, no hang) under the harness sandbox"
-      ]
+      "decoding": {
+        "comment": "Mechanized in Part 4 (the four former not_yet_mechanized items): difftest.py gate --decoding DIR reads the reports of harness/tools/decoding_check.py. Every pycdas run and reference run happens in the harness sandbox. Versions extend beyond required_versions, which only tightens the original items.",
+        "dis": {
+          "suites": ["features", "decoding", "decoding-generated"],
+          "versions": ["3.10", "3.11", "3.12", "3.13", "3.14"],
+          "means": "pycdas output equals the same interpreter's marshal/dis decoding at the semantic level: code-object fields, names, local/cell/free names, constants (exact values, including signed zeros, NaN, non-ASCII and surrogate strings), every instruction (offset with EXTENDED_ARG folded, opcode, raw operand, and the resolved jump target, name, constant, local or comparison) and the exception table"
+        },
+        "headers": {
+          "suites": ["features", "decoding", "decoding-generated"],
+          "versions": ["3.10", "3.11", "3.12", "3.13", "3.14"],
+          "means": "checked-hash and unchecked-hash .pyc files, as py_compile writes them, give pycdas and pycdc results identical to the timestamp-based .pyc"
+        },
+        "formats": {
+          "inputs": ["empty", "one_byte", "text_file", "unknown_magic", "future_magic_3700",
+                     "magic_only_313", "magic_only_314", "truncated_header_313", "truncated_header_314",
+                     "header_only_313", "header_only_314", "unknown_type_code_313", "unknown_type_code_314",
+                     "marshalled_unsupported_313", "marshalled_unsupported_314", "directory", "missing_file"],
+          "means": "pycdas and pycdc exit nonzero with a message on stderr, without a crash or timeout, and print nothing that looks like a successful listing (no '(Python -1.-1)', no '<NULL>')"
+        },
+        "malformed": {
+          "suites": ["features", "decoding"],
+          "versions": ["3.10", "3.11", "3.12", "3.13", "3.14"],
+          "pycdc_versions": ["3.13", "3.14"],
+          "means": "deterministic truncations and seeded byte mutations of every required .pyc: pycdas never crashes, hangs or hits the output limit on any version; pycdc never does on 3.13 and 3.14. pycdc crashes on 3.10-3.12 are reported and must not increase relative to the pre-Part-4 build"
+        }
+      }
     },
     "5": {
       "title": "Recover expressions, calls, functions, and classes",

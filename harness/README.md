@@ -52,6 +52,8 @@ compiled against that tree's headers and `libpycxx.a`.
 | --- | --- | --- | --- |
 | `features` | `harness/fixtures/<category>/*.py`: authored, deterministic fixtures with an `observe()` driver | behavior | yes, in the sandbox |
 | `upstream-inputs` | upstream `tests/input/*.py` | syntax | **never**; compiled and decompiled only |
+| `decoding` | `harness/decoding/*.py`: Part 4 decoding inputs (every constant type, nested code objects, every jump family, exception tables) | syntax | **never**; compiled, disassembled and decompiled only |
+| `decoding-generated` | `build/decoding-generated/*.py`, written by `harness/tools/decoding_check.py generate --out build/decoding-generated`: operands that need two `EXTENDED_ARG` prefixes | syntax | **never**; compiled, disassembled and decompiled only |
 | `NAME=DIR` | any directory of `*.py`, such as a pull request's own test inputs (`--suite contrib=path/to/dir`) | syntax | **never**; compiled and decompiled only |
 
 A fixture header may declare `# requires: >=3.12` (comma-separated clauses).
@@ -104,7 +106,8 @@ a behavior mismatch) is `failure_changed`, not `regression`. Use
 `tools/candidate_compare.py` to count those (D-016).
 
 `gate --part N` passes only if every requirement for Parts 4..N is checked
-and met. A requirement listed as `not_yet_mechanized` in
+and met. From Part 4 on it also needs `--decoding DIR`: the four reports of
+`tools/decoding_check.py` for the same binaries (see "Decoding checks"). A requirement listed as `not_yet_mechanized` in
 `requirements.json` counts as a problem until a tool checks it.
 
 ## Observation contract
@@ -197,6 +200,41 @@ Policy:
 - The decompiler itself is run on fixture `.pyc` files only.
 - Unknown `.pyc` files from issues or the internet must not be added as
   fixtures. Parsing them would also need this sandbox.
+
+## Decoding checks (Part 4)
+
+`harness/tools/decoding_check.py` checks pycdas against the interpreter that
+wrote each `.pyc`. Every pycdas run and every reference run happens in the
+sandbox, and no `.pyc` is executed. It runs on the `.pyc` files of a
+`difftest.py run` work root:
+
+```bash
+python3 harness/tools/decoding_check.py generate --out build/decoding-generated
+python3 harness/difftest.py run --suite features,upstream-inputs,decoding,decoding-generated \
+    --workroot build/difftest --out build/results.json
+T=harness/tools/decoding_check.py; D=build/decoding
+python3 $T dis --workroot build/difftest --suites features,upstream-inputs,decoding,decoding-generated \
+    --workdir $D --out $D/dis.json --summary $D/DIS.md
+python3 $T headers --workroot build/difftest --suites features,decoding,decoding-generated \
+    --workdir $D --out $D/headers.json
+python3 $T formats --workroot build/difftest --workdir $D --out $D/formats.json
+python3 $T malformed --workroot build/difftest --suites features,decoding --workdir $D \
+    --out $D/malformed.json
+python3 harness/difftest.py gate --part 4 --results build/results.json --decoding $D ...
+```
+
+| Check | What must hold |
+| --- | --- |
+| `dis` | pycdas equals `marshal`/`dis` of the same interpreter (`workers/dis_dump.py`) at the semantic level: code-object fields; names; local, cell and free names; exact constant values; every instruction (offset with `EXTENDED_ARG` folded, opcode, raw operand, and the resolved jump target, name, constant, local or comparison); exception-table entries. Formatting is not compared. |
+| `headers` | the checked-hash and unchecked-hash forms of every `.pyc` (`workers/pyc_variants.py`, byte-identical to `py_compile`'s) give the same pycdas and pycdc results as the timestamp form |
+| `formats` | 17 crafted undecodable inputs make both tools exit nonzero with a message and no listing |
+| `malformed` | seeded truncations and byte mutations of every `.pyc` never crash, hang or hit the output limit in pycdas (any version) or pycdc (3.13, 3.14) |
+
+The reference side folds `EXTENDED_ARG` prefixes into the instruction they
+extend, at the offset of the first prefix, and omits `CACHE` units, as
+pycdas prints them. It resolves constant operands from `co_consts`
+directly, because `dis` on 3.11 leaves some of them, such as `KW_NAMES`,
+unresolved.
 
 ## Other tools
 

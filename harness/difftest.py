@@ -56,6 +56,15 @@ SUITES = {
     # Upstream's tests/input sources: compiled and decompiled, never executed.
     'upstream-inputs': {'root': os.path.join(REPO, 'tests', 'input'), 'pattern': '*.py',
                         'behavior': False},
+    # Part 4 decoding inputs: compiled, disassembled and decompiled, never executed.
+    'decoding': {'root': os.path.join(HARNESS, 'decoding'), 'pattern': '*.py',
+                 'behavior': False},
+    # Generated Part 4 inputs whose operands need several EXTENDED_ARG prefixes.
+    'decoding-generated': {
+        'root': os.path.join(REPO, 'build', 'decoding-generated'), 'pattern': '*.py',
+        'behavior': False,
+        'generate': 'python3 harness/tools/decoding_check.py generate '
+                    '--out build/decoding-generated'},
 }
 TIMEOUTS = {'compile': 30, 'load': 10, 'disassemble': 30, 'decompile': 30,
             'syntax': 30, 'observe': 20}
@@ -564,7 +573,11 @@ def suite_spec(suite):
     """A named suite, or NAME=DIR: every DIR/*.py compiled and decompiled up to
     the syntax stage and never executed (e.g. a pull request's own test inputs)."""
     if suite in SUITES:
-        return SUITES[suite]
+        spec = SUITES[suite]
+        if not os.path.isdir(spec['root']):
+            sys.exit('suite %s: %s does not exist; create it with: %s' % (
+                suite, spec['root'], spec.get('generate', '(no generator)')))
+        return spec
     name, sep, root = suite.partition('=')
     if not sep or not name or name in SUITES or not os.path.isdir(root):
         sys.exit('unknown suite %r (use one of %s, or NAME=DIR)' % (suite, ', '.join(SUITES)))
@@ -954,6 +967,10 @@ def cmd_gate(args):
             problems.append('Part %s requirement not mechanized (needs evidence): %s'
                             % (part, note))
 
+    if int(args.part) >= 4:
+        problems.extend(gate_decoding(req['parts']['4']['decoding'], res, args.decoding,
+                                      args.limit))
+
     groups = compare_groups(load_results(args.baseline), res)
     for name in ('regression', 'missing_coverage', 'harness_error'):
         print('  vs baseline: %s %d' % (name, len(groups[name])))
@@ -976,6 +993,93 @@ def cmd_gate(args):
 
     print('GATE %s (%d problems)' % ('PASSED' if not problems else 'NOT PASSED', len(problems)))
     return 0 if not problems else 1
+
+
+def gate_decoding(spec, res, directory, limit):
+    """The Part 4 decoding requirements, checked from the reports written by
+    harness/tools/decoding_check.py into one directory."""
+    problems = []
+    print('  Part 4 decoding checks (%s)' % (directory or 'no --decoding directory'))
+    if not directory:
+        return ['Part 4 decoding evidence missing: pass --decoding DIR '
+                '(harness/tools/decoding_check.py dis/headers/formats/malformed)']
+    binaries = {k: v['sha256'] for k, v in res['meta']['provenance']['binaries'].items()}
+    reports = {}
+    for check in ('dis', 'headers', 'formats', 'malformed'):
+        path = os.path.join(directory, check + '.json')
+        if not os.path.exists(path):
+            problems.append('Part 4 decoding report missing: %s' % path)
+            continue
+        data = load_results(path)
+        meta = data['meta']
+        if meta.get('harness_dirty') or meta.get('decompiler_source_dirty'):
+            problems.append('%s: produced from a modified tree' % check)
+        for tool in ('pycdas', 'pycdc'):
+            if tool in meta and meta[tool]['sha256'] != binaries.get(tool):
+                problems.append('%s: %s is not the binary of the results file' % (check, tool))
+        reports[check] = data
+
+    def required(suites, versions):
+        return sorted({(c['suite'], c['fixture'], c['version'], c['opt']) for c in res['cases']
+                       if c['suite'] in suites and c['version'] in versions
+                       and c['outcome'] != 'N/A'},
+                      key=lambda k: (k[0], k[1], version_tuple(k[2]), k[3]))
+
+    def check_cases(check, suites, versions, ok_status):
+        if check not in reports:
+            return
+        got = {(c['suite'], c['fixture'], c['version'], c['opt']): c
+               for c in reports[check]['cases']}
+        need = required(suites, versions)
+        bad = []
+        for key in need:
+            c = got.get(key)
+            if c is None:
+                bad.append('%s %s %s-O%d: not checked' % key)
+            elif c['status'] != ok_status:
+                bad.append('%s %s %s-O%d: %s' % (key + (c['status'],)))
+        print('    %s: %d/%d required cases %s' % (check, len(need) - len(bad), len(need),
+                                                   ok_status))
+        for line in bad[:limit]:
+            print('      unmet: ' + line)
+        problems.extend('Part 4 %s: %s' % (check, b) for b in bad)
+
+    check_cases('dis', spec['dis']['suites'], spec['dis']['versions'], 'match')
+    check_cases('headers', spec['headers']['suites'], spec['headers']['versions'], 'identical')
+
+    if 'formats' in reports:
+        runs = reports['formats']['cases']
+        names = {c['input'] for c in runs}
+        missing = sorted(set(spec['formats']['inputs']) - names)
+        unclear = ['%s %s: %s' % (c['input'], c['tool'], '; '.join(c['problems']))
+                   for c in runs if c['status'] != 'fails_clearly']
+        print('    formats: %d runs, %d unclear, %d required inputs missing' % (
+            len(runs), len(unclear), len(missing)))
+        problems.extend('Part 4 formats: input not checked: %s' % m for m in missing)
+        problems.extend('Part 4 formats: %s' % u for u in unclear)
+
+    if 'malformed' in reports:
+        m = reports['malformed']
+        got = {(c['suite'], c['fixture'], c['version'], c['opt']): c for c in m['cases']}
+        need = required(spec['malformed']['suites'], spec['malformed']['versions'])
+        missing = [k for k in need if k not in got]
+        # pycdas (decoding only) must be safe on every version; pycdc on the
+        # versions that must pass.  Other pycdc crashes are reported only.
+        unsafe = [(k, f) for k, c in got.items() for f in c['failures']
+                  if f['tool'] == 'pycdas' or k[2] in spec['malformed']['pycdc_versions']]
+        reported = sum(1 for c in got.values() for f in c['failures']) - len(unsafe)
+        if reported:
+            print('    malformed: %d pycdc crashes/hangs on other versions (reported, '
+                  'not gating)' % reported)
+        print('    malformed: %d/%d required source files checked, %d derived inputs per '
+              'tool, %d crashes/hangs where forbidden' % (
+                  len(need) - len(missing), len(need),
+                  sum(v for k, v in m['totals'].items() if k.startswith('pycdas:')),
+                  len(unsafe)))
+        problems.extend('Part 4 malformed: %s %s %s-O%d not checked' % k for k in missing)
+        problems.extend('Part 4 malformed: %s %s %s-O%d %s %s: %s' % (
+            k + (f['tool'], f['variant'], f['outcome'])) for k, f in unsafe)
+    return problems
 
 
 def cmd_list(args):
@@ -1229,6 +1333,9 @@ def main():
                                                       'baseline.json'))
     p.add_argument('--upstream-baseline', default=os.path.join(
         REPO, 'reports', 'part1-baseline', 'per_file_outcomes.json'))
+    p.add_argument('--decoding', help='directory with the decoding_check.py reports '
+                   '(dis.json, headers.json, formats.json, malformed.json); required '
+                   'for --part 4 and above')
     p.add_argument('--limit', type=int, default=40)
     p.set_defaults(fn=cmd_gate)
 
