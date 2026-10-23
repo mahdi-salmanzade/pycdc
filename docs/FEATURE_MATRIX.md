@@ -53,7 +53,8 @@ follows the mission: focus on 3.13/3.14 and keep regression coverage for
 
 Part 4 has extra requirements that are not yet mechanized (listed in
 `requirements.json`). They need recorded manual evidence until the
-`pycdas`-vs-`dis` comparison tool exists:
+`pycdas`-vs-`dis` comparison tool exists. Since Part 3, `gate` counts each
+of them as a problem, so it cannot report PASSED while any is outstanding:
 
 - semantic `pycdas`/`dis` agreement;
 - hash-based `.pyc` headers;

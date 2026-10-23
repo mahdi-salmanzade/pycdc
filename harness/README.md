@@ -52,6 +52,7 @@ compiled against that tree's headers and `libpycxx.a`.
 | --- | --- | --- | --- |
 | `features` | `harness/fixtures/<category>/*.py`: authored, deterministic fixtures with an `observe()` driver | behavior | yes, in the sandbox |
 | `upstream-inputs` | upstream `tests/input/*.py` | syntax | **never**; compiled and decompiled only |
+| `NAME=DIR` | any directory of `*.py`, such as a pull request's own test inputs (`--suite contrib=path/to/dir`) | syntax | **never**; compiled and decompiled only |
 
 A fixture header may declare `# requires: >=3.12` (comma-separated clauses).
 Cases outside that range are reported as `N/A`, which is distinct from
@@ -89,6 +90,22 @@ information, but it can never count as PASS. Outcomes:
 `fixed` (XPASS-like), `still_failing` (XFAIL-like), `failure_changed`,
 `unchanged_pass`, `not_applicable`, `missing_coverage`, `harness_error`,
 `added`, `removed` or `corpus_drift` (a compiled `.pyc` hash changed).
+
+`still_failing` versus `failure_changed` compares the stage, the kind and
+the cause. Some parts of a cause vary without the failure changing, and
+these are ignored:
+- pycdc's internal opcode number in "Unsupported opcode: NAME (N)", which
+  shifts when opcodes are added;
+- SIGSEGV versus SIGBUS for a crash, which depends on the faulting address;
+- the wall-clock duration in a timeout.
+
+A failure that becomes silently wrong output (from an incomplete marker to
+a behavior mismatch) is `failure_changed`, not `regression`. Use
+`tools/candidate_compare.py` to count those (D-016).
+
+`gate --part N` passes only if every requirement for Parts 4..N is checked
+and met. A requirement listed as `not_yet_mechanized` in
+`requirements.json` counts as a problem until a tool checks it.
 
 ## Observation contract
 
@@ -172,7 +189,11 @@ Every process the harness starts runs through `harness/sandbox.py`:
 Policy:
 
 - Only reviewed fixtures in `harness/fixtures/` are executed.
-- `upstream-inputs` sources are compiled and decompiled, never run.
+- `upstream-inputs` and `NAME=DIR` sources are compiled and decompiled, never
+  run.
+- A binary built from unreviewed source (a pull request under evaluation)
+  runs only in this sandbox, including for upstream's token suite
+  (`tools/upstream_suite.py`).
 - The decompiler itself is run on fixture `.pyc` files only.
 - Unknown `.pyc` files from issues or the internet must not be added as
   fixtures. Parsing them would also need this sandbox.
@@ -180,8 +201,21 @@ Policy:
 ## Other tools
 
 - `harness/tools/opcode_coverage.py --pyc-root build/difftest/features --out
-  report.md` cross-checks `bytes/python_X_Y.cpp` and the `ASTree.cpp` cases
-  against each pinned interpreter's `dis.opmap`, and against the opcodes the
-  corpus uses.
+  report.md [--source-root TREE]` cross-checks `bytes/python_X_Y.cpp` and the
+  `ASTree.cpp` cases against each pinned interpreter's `dis.opmap`, and
+  against the opcodes the corpus uses.
+- `harness/tools/candidate_compare.py --baseline BASE.json NAME=RESULTS.json
+  ...` compares candidate builds with a baseline. It reports, per suite and
+  version:
+  - stage outcomes, tool crashes, silent mismatches (including recovered
+    programs that hang) and silent invalid output;
+  - fixed and regressed cases, and failures that moved to an earlier stage;
+  - new and resolved crashes and silent failures;
+  - overlap between candidates.
+
+  Unlike `difftest.py compare`, it separates a case that went from "marked
+  incomplete" to "silently wrong".
+- `harness/tools/upstream_suite.py --build-dir DIR --json OUT.json` runs
+  upstream's token-level suite against `DIR/pycdc` inside the sandbox.
 - `reports/part1-baseline/per_file_outcomes.py` reports upstream's own
   token-level suite per file.

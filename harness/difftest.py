@@ -791,6 +791,24 @@ def cmd_controls(args):
 
 STAGE_RANK = {s: i for i, s in enumerate(('compile', 'reference') + STAGES)}
 
+# Parts of a failure cause that vary between runs or builds without the
+# failure changing: pycdc prints its internal opcode number, which shifts
+# whenever an opcode is added to bytecode_ops.inl; a wild memory access is
+# reported as SIGSEGV or SIGBUS depending on the address; timeouts record
+# the wall-clock time.
+CAUSE_NOISE = [
+    (re.compile(r'(Unsupported opcode: \w+) \(\d+\)'), r'\1'),
+    (re.compile(r'killed by SIG(?:SEGV|BUS)'), 'killed by SIGSEGV/SIGBUS'),
+    (re.compile(r'exceeded [\d.]+s limit'), 'exceeded time limit'),
+]
+
+
+def cause_key(c):
+    cause = c.get('cause') or ''
+    for pattern, repl in CAUSE_NOISE:
+        cause = pattern.sub(repl, cause)
+    return (c.get('stage'), c.get('kind'), cause)
+
 
 def cmd_compare(args):
     base, new = load_results(args.baseline), load_results(args.results)
@@ -848,8 +866,7 @@ def compare_groups(base, new):
             groups['regression'].append((key, b, n))
         elif no == 'PASS':
             groups['fixed'].append((key, b, n))
-        elif (b.get('stage'), b.get('kind'), b.get('cause')) == \
-                (n.get('stage'), n.get('kind'), n.get('cause')):
+        elif cause_key(b) == cause_key(n):
             groups['still_failing'].append((key, b, n))
         elif STAGE_RANK.get(n.get('stage'), 99) < STAGE_RANK.get(b.get('stage'), 99):
             groups['regression'].append((key, b, n))
@@ -932,7 +949,10 @@ def cmd_gate(args):
             print('    ... %d more' % (len(unmet) - args.limit))
         problems.extend('Part %s requirement unmet: %s' % (part, u) for u in unmet)
         for note in spec.get('not_yet_mechanized', []):
+            # Not checkable here, so the gate cannot pass while any remain.
             print('    manual evidence required: ' + note)
+            problems.append('Part %s requirement not mechanized (needs evidence): %s'
+                            % (part, note))
 
     groups = compare_groups(load_results(args.baseline), res)
     for name in ('regression', 'missing_coverage', 'harness_error'):
