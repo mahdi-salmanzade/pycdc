@@ -482,6 +482,7 @@ void bc_disasm(std::ostream& pyc_output, PycRef<PycCode> code, PycModule* mod,
                 }
                 break;
             case Pyc::LOAD_CLOSURE_A:
+            case Pyc::LOAD_CLASSDEREF_A:
             case Pyc::LOAD_DEREF_A:
             case Pyc::STORE_DEREF_A:
             case Pyc::DELETE_DEREF_A:

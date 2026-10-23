@@ -207,7 +207,7 @@ OPCODE_A(SET_ADD)                       // Python 2.7, 3.1 ->           stack[A]
 OPCODE_A(MAP_ADD)                       // Python 2.7, 3.1 ->           stack[A]
 OPCODE_A(UNPACK_EX)                     // Python 3.0 ->                A=(before)+(after<<8)
 OPCODE_A(LIST_APPEND)                   // Python 2.7, 3.1 ->           stack[A]
-OPCODE_A(LOAD_CLASSDEREF)               // Python 3.4 - 3.10            (cellvars+freevars)[A]
+OPCODE_A(LOAD_CLASSDEREF)               // Python 3.4 - 3.11            (cellvars+freevars)[A]
                                         // Python 3.11                  localsplusnames[A]
 OPCODE_A(MATCH_CLASS)                   // Python 3.10 ->               A=#args
 OPCODE_A(BUILD_LIST_UNPACK)             // Python 3.5 - 3.8             A=count
