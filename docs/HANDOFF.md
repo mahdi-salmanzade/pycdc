@@ -16,7 +16,7 @@ repository itself.
 | Local checkout | `/Users/intzero/Documents/pycdc/pycdc` |
 | Fork / branch | https://github.com/mahdi-salmanzade/pycdc, branch `bootstrap` (D-003, D-011) |
 | Upstream base | `b4289760970dbc399684f1e155ec6d1ea1cc787e`. Fork `master` equals upstream `master`. |
-| Part 4 production commits | `cc7cf1f` jump targets · `e404851` LOAD_CLASSDEREF · `cb77d0b` EXTENDED_ARG · `d8f80f3` float/complex · `315bd39` strings · `cf86619` clear failures |
+| Part 4 production commits | `cc7cf1f` jump targets · `e404851` LOAD_CLASSDEREF · `cb77d0b` EXTENDED_ARG · `c61e67c` float/complex · `315bd39` strings · `cf86619` clear failures |
 | Part 4 harness commit | `a1ae263` (decoding checks, suites, gate) |
 | Part 4 docs | the commit containing this file (reports and docs) |
 | Dirty tree | none intended; `build/` is gitignored |
@@ -102,7 +102,7 @@ agreement.
    compiler-reachable in the corpus. Build an authored synthetic code
    object with `code.replace(co_code=...)` under the pinned interpreter
    (never executed) and check pycdas against `dis`.
-3. **Floats and complex numbers (`d8f80f3`).**
+3. **Floats and complex numbers (`c61e67c`).**
    - Find a double whose shortest `%.*g` text does not round-trip, or a
      complex value whose rendering does not rebuild both parts exactly.
    - Note: rendering depends on the C locale; pycdc never calls

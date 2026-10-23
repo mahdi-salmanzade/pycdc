@@ -109,7 +109,7 @@ Every claim cites `file:line`.
   - **Before Part 4:** floats used `%g` (`2.0` became `2`, `-0.0` became
     `0`, six digits). Python 3 interned strings were escaped as bytes
     (`'é'` became `'\xc3\xa9'`).
-  - *Update, Part 4 (`d8f80f3`, `315bd39`):* exact float and complex
+  - *Update, Part 4 (`c61e67c`, `315bd39`):* exact float and complex
     rendering; interned strings are printed as text; surrogates and
     invisible or bidi code points are escaped.
 - **Verified:** `harness/tools/decoding_check.py dis` compares pycdas with

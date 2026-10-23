@@ -49,7 +49,7 @@ is the same check run on the pre-Part-4 build (`4d29eee`), in
 | `cc7cf1f` | Relative jumps counted from the instruction instead of the end of its inline caches (3.11+); 3.11 `JUMP_IF_*_OR_POP` printed as absolute | jump targets: 3.11 12/102, 3.12 120/549, 3.13 192/2,358, 3.14 213/2,472 | 0 |
 | `e404851` | `LOAD_CLASSDEREF` printed without its variable name (3.10/3.11) | 9 files / 12 per version | 0 |
 | `cb77d0b` | Only one `EXTENDED_ARG` prefix folded; a second one desynchronized decoding | 3 files / about 236,800 wrong opcodes per version | 0 |
-| `d8f80f3` | Floats printed with `%g` (`2.0` → `2`, `-0.0` → `0`, `1.4142135623730951` → `1.41421`); complex the same | — | exact, bit for bit |
+| `c61e67c` | Floats printed with `%g` (`2.0` → `2`, `-0.0` → `0`, `1.4142135623730951` → `1.41421`); complex the same | — | exact, bit for bit |
 | `315bd39` | Python 3 interned strings escaped as bytes (`'é'` → `'\xc3\xa9'`, a different string); surrogates written raw (invalid UTF-8); invisible and bidi characters written raw | constants and names: 24–27 files per version | 0 |
 | `cf86619` | pycdas exited 0 with a `(Python -1.-1)` / `<NULL>` listing after a failed load; an unknown marshal type code left the stream misaligned | `formats`: 6 of 34 runs unclear | 34/34 clear |
 
