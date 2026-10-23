@@ -316,6 +316,24 @@ void bc_next(PycBuffer& source, PycModule* mod, int& opcode, int& operand, int& 
     }
 }
 
+/* Since Python 3.11 each instruction may be followed by inline CACHE units,
+ * and a relative jump counts from the end of those caches.  On-disk bytecode
+ * always stores them as CACHE (opcode 0), so they are skipped by reading the
+ * code rather than from a per-opcode table.  `pos` is the offset just past
+ * the instruction itself. */
+static int bc_skip_caches(PycRef<PycCode> code, PycModule* mod, int pos)
+{
+    if (mod->verCompare(3, 11) < 0)
+        return pos;
+    const unsigned char* bytes =
+            reinterpret_cast<const unsigned char*>(code->code()->value());
+    const int length = code->code()->length();
+    while (pos + 1 < length && Pyc::ByteToOpcode(mod->majorVer(), mod->minorVer(),
+                                                 bytes[pos]) == Pyc::CACHE)
+        pos += sizeof(uint16_t);
+    return pos;
+}
+
 void bc_disasm(std::ostream& pyc_output, PycRef<PycCode> code, PycModule* mod,
                int indent, unsigned flags)
 {
@@ -500,14 +518,11 @@ void bc_disasm(std::ostream& pyc_output, PycRef<PycCode> code, PycModule* mod,
             case Pyc::INSTRUMENTED_POP_JUMP_IF_FALSE_A:
             case Pyc::INSTRUMENTED_POP_JUMP_IF_TRUE_A:
                 {
-                    /* TODO: Fix offset based on CACHE instructions.
-                       Offset is relative to next non-CACHE instruction
-                       and thus will be printed lower than actual value.
-                       See TODO @ END_FOR ASTree.cpp */
                     int offs = operand;
                     if (mod->verCompare(3, 10) >= 0)
                         offs *= sizeof(uint16_t); // BPO-27129
-                    formatted_print(pyc_output, "%d (to %d)", operand, pos+offs);
+                    formatted_print(pyc_output, "%d (to %d)", operand,
+                                    bc_skip_caches(code, mod, pos) + offs);
                 }
                 break;
             case Pyc::JUMP_BACKWARD_NO_INTERRUPT_A:
@@ -522,7 +537,8 @@ void bc_disasm(std::ostream& pyc_output, PycRef<PycCode> code, PycModule* mod,
                 {
                     // BACKWARD jumps were only introduced in Python 3.11
                     int offs = operand * sizeof(uint16_t); // BPO-27129
-                    formatted_print(pyc_output, "%d (to %d)", operand, pos-offs);
+                    formatted_print(pyc_output, "%d (to %d)", operand,
+                                    bc_skip_caches(code, mod, pos) - offs);
                 }
                 break;
             case Pyc::POP_JUMP_IF_FALSE_A:
@@ -531,10 +547,15 @@ void bc_disasm(std::ostream& pyc_output, PycRef<PycCode> code, PycModule* mod,
             case Pyc::JUMP_IF_TRUE_OR_POP_A:
             case Pyc::JUMP_ABSOLUTE_A:
             case Pyc::JUMP_IF_NOT_EXC_MATCH_A:
-                if (mod->verCompare(3, 12) >= 0) {
-                    // These are now relative as well
+                if (mod->verCompare(3, 12) >= 0
+                        || (mod->verCompare(3, 11) >= 0
+                            && (opcode == Pyc::JUMP_IF_FALSE_OR_POP_A
+                                || opcode == Pyc::JUMP_IF_TRUE_OR_POP_A))) {
+                    // Relative since 3.12 (POP_JUMP_IF_*), or since 3.11
+                    // (JUMP_IF_*_OR_POP, which 3.12 removed)
                     int offs = operand * sizeof(uint16_t);
-                    formatted_print(pyc_output, "%d (to %d)", operand, pos+offs);
+                    formatted_print(pyc_output, "%d (to %d)", operand,
+                                    bc_skip_caches(code, mod, pos) + offs);
                 } else if (mod->verCompare(3, 10) >= 0) {
                     // BPO-27129
                     formatted_print(pyc_output, "%d (to %d)", operand,
