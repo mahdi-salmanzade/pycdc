@@ -560,8 +560,24 @@ def run_control_case(job):
 
 # ------------------------------------------------------------- job building
 
+def suite_spec(suite):
+    """A named suite, or NAME=DIR: every DIR/*.py compiled and decompiled up to
+    the syntax stage and never executed (e.g. a pull request's own test inputs)."""
+    if suite in SUITES:
+        return SUITES[suite]
+    name, sep, root = suite.partition('=')
+    if not sep or not name or name in SUITES or not os.path.isdir(root):
+        sys.exit('unknown suite %r (use one of %s, or NAME=DIR)' % (suite, ', '.join(SUITES)))
+    return {'root': os.path.realpath(root), 'pattern': '*.py', 'behavior': False}
+
+
+def suite_name(suite):
+    return suite.partition('=')[0]
+
+
 def discover(suite, filters):
-    spec = SUITES[suite]
+    spec = suite_spec(suite)
+    name = suite_name(suite)
     found = []
     for path in sorted(glob.glob(os.path.join(spec['root'], spec['pattern']))):
         fid = os.path.relpath(path, spec['root'])[:-3].replace(os.sep, '/')
@@ -569,7 +585,7 @@ def discover(suite, filters):
             continue
         meta = read_header(path) if suite == 'features' else {}
         category = fid.split('/')[0] if '/' in fid else 'upstream'
-        found.append({'suite': suite, 'id': fid, 'path': path, 'category': category,
+        found.append({'suite': name, 'id': fid, 'path': path, 'category': category,
                       'meta': meta, 'behavior': spec['behavior']})
     return found
 
@@ -686,7 +702,7 @@ def cmd_run(args):
                                                   'interpreter %s: %s' % (
                                                       entry['status'], entry.get('reason'))))
                         continue
-                    wd = os.path.join(workroot, suite, fx['id'].replace('/', '__'),
+                    wd = os.path.join(workroot, fx['suite'], fx['id'].replace('/', '__'),
                                       '%s-O%d' % (minor, opt))
                     job = base_job(fx, minor, entry, opt, mode, read_allow, wd)
                     job.update(pycdc=pycdc, pycdas=pycdas, load_probe=probe)
@@ -696,7 +712,8 @@ def cmd_run(args):
     start = time.monotonic()
     cases.extend(execute(run_case, jobs, args.jobs))
     meta = meta_block(args, interps, mode, prov, 'run')
-    meta['suites'] = args.suite.split(',')
+    meta['suites'] = [suite_name(s) for s in args.suite.split(',')]
+    meta['suite_roots'] = {suite_name(s): suite_spec(s)['root'] for s in args.suite.split(',')}
     meta['wall_seconds'] = round(time.monotonic() - start, 1)
     write_results(args.out, meta, sorted(cases, key=case_key))
     sys.stderr.write('wrote %s\n' % args.out)
@@ -1163,7 +1180,8 @@ def main():
     p.add_argument('--source-root', help='source tree the binaries were built from '
                    '(default: this repository)')
     p.add_argument('--suite', default='features', help='comma-separated: '
-                   + ', '.join(SUITES))
+                   + ', '.join(SUITES) + ', or NAME=DIR (compiled and decompiled, '
+                   'never executed)')
     p.set_defaults(fn=cmd_run)
 
     p = sub.add_parser('controls')
