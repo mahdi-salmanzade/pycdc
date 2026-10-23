@@ -254,11 +254,11 @@ void output_object(PycRef<PycObject> obj, PycModule* mod, int indent,
                                       obj.cast<PycComplex>()->imag());
         break;
     case PycObject::TYPE_BINARY_FLOAT:
-        iprintf(pyc_output, indent, "%g\n", obj.cast<PycCFloat>()->value());
-        break;
     case PycObject::TYPE_BINARY_COMPLEX:
-        iprintf(pyc_output, indent, "(%g+%gj)\n", obj.cast<PycCComplex>()->value(),
-                                      obj.cast<PycCComplex>()->imag());
+        // Same exact rendering as the decompiler's constants
+        iputs(pyc_output, indent, "");
+        print_const(pyc_output, obj, mod);
+        pyc_output << "\n";
         break;
     default:
         iprintf(pyc_output, indent, "<TYPE: %d>\n", obj->type());

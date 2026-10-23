@@ -3,6 +3,9 @@
 #include <stdexcept>
 #include <cstdint>
 #include <cmath>
+#include <cstdio>
+#include <cstdlib>
+#include <string>
 
 #ifdef _MSC_VER
 #define snprintf _snprintf
@@ -115,6 +118,60 @@ int Pyc::ByteToOpcode(int maj, int min, int opcode)
         break;
     }
     return PYC_INVALID_OPCODE;
+}
+
+/* The shortest decimal text that reads back as exactly `value`, as Python's
+ * repr(float) produces.  With force_float, integral values get a ".0" so the
+ * text stays a float literal.  Finite values only. */
+static std::string float_repr(double value, bool force_float)
+{
+    char buf[40];
+    for (int precision = 1; precision <= 17; ++precision) {
+        snprintf(buf, sizeof(buf), "%.*g", precision, value);
+        if (strtod(buf, nullptr) == value)
+            break;
+    }
+    std::string text(buf);
+    if (force_float && text.find_first_of(".e") == std::string::npos)
+        text += ".0";
+    return text;
+}
+
+// A float expression with exactly this value, including nan/inf and -0.0.
+static void print_float(std::ostream& pyc_output, double value)
+{
+    if (std::isnan(value))
+        pyc_output << (std::signbit(value) ? "float('-nan')" : "float('nan')");
+    else if (std::isinf(value))
+        pyc_output << (std::signbit(value) ? "float('-inf')" : "float('inf')");
+    else
+        pyc_output << float_repr(value, true);
+}
+
+/* A complex expression with exactly this value.  Literal forms are used where
+ * their arithmetic reproduces both parts, signed zeros included; anything
+ * else is written as complex(real, imag). */
+static void print_complex(std::ostream& pyc_output, double real, double imag)
+{
+    const bool finite = std::isfinite(real) && std::isfinite(imag);
+    if (finite && real == 0.0 && !std::signbit(real) && !std::signbit(imag)) {
+        pyc_output << float_repr(imag, false) << "j";                    // 2j
+    } else if (finite && real == 0.0 && !std::signbit(real) && imag != 0.0) {
+        pyc_output << "(0-" << float_repr(-imag, false) << "j)";        // (0-2j)
+    } else if (finite && real == 0.0 && std::signbit(real) && std::signbit(imag)
+               && imag != 0.0) {
+        pyc_output << "-" << float_repr(-imag, false) << "j";           // -2j
+    } else if (finite && real != 0.0 && (imag != 0.0 || !std::signbit(imag))) {
+        pyc_output << "(" << float_repr(real, false)                     // (1-2j)
+                   << (std::signbit(imag) ? "-" : "+")
+                   << float_repr(std::fabs(imag), false) << "j)";
+    } else {
+        pyc_output << "complex(";
+        print_float(pyc_output, real);
+        pyc_output << ", ";
+        print_float(pyc_output, imag);
+        pyc_output << ")";
+    }
 }
 
 void print_const(std::ostream& pyc_output, PycRef<PycObject> obj, PycModule* mod,
@@ -244,30 +301,11 @@ void print_const(std::ostream& pyc_output, PycRef<PycObject> obj, PycModule* mod
                                         obj.cast<PycComplex>()->imag());
         break;
     case PycObject::TYPE_BINARY_FLOAT:
-        {
-            // Wrap any nan/inf values in float('').
-            double value = obj.cast<PycCFloat>()->value();
-            bool is_negative = std::signbit(value);
-            if (std::isnan(value)) {
-                if (is_negative) {
-                    pyc_output << "float('-nan')";
-                } else {
-                    pyc_output << "float('nan')";
-                }
-            } else if (std::isinf(value)) {
-                if (is_negative) {
-                    pyc_output << "float('-inf')";
-                } else {
-                    pyc_output << "float('inf')";
-                }
-            } else {
-                formatted_print(pyc_output, "%g", value);
-            }
-        }
+        print_float(pyc_output, obj.cast<PycCFloat>()->value());
         break;
     case PycObject::TYPE_BINARY_COMPLEX:
-        formatted_print(pyc_output, "(%g+%gj)", obj.cast<PycCComplex>()->value(),
-                                        obj.cast<PycCComplex>()->imag());
+        print_complex(pyc_output, obj.cast<PycCComplex>()->value(),
+                      obj.cast<PycCComplex>()->imag());
         break;
     case PycObject::TYPE_CODE:
     case PycObject::TYPE_CODE2:
