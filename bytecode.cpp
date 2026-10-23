@@ -39,6 +39,7 @@ DECLARE_PYTHON(3, 10)
 DECLARE_PYTHON(3, 11)
 DECLARE_PYTHON(3, 12)
 DECLARE_PYTHON(3, 13)
+DECLARE_PYTHON(3, 14)
 
 const char* Pyc::OpcodeName(int opcode)
 {
@@ -109,6 +110,7 @@ int Pyc::ByteToOpcode(int maj, int min, int opcode)
         case 11: return python_3_11_map(opcode);
         case 12: return python_3_12_map(opcode);
         case 13: return python_3_13_map(opcode);
+        case 14: return python_3_14_map(opcode);
         }
         break;
     }
@@ -326,6 +328,7 @@ void bc_disasm(std::ostream& pyc_output, PycRef<PycCode> code, PycModule* mod,
     static const char *binop_strings[] = {
         "+", "&", "//", "<<", "@", "*", "%", "|", "**", ">>", "-", "/", "^",
         "+=", "&=", "//=", "<<=", "@=", "*=", "%=", "|=", "**=", ">>=", "-=", "/=", "^=",
+        "[]",   // Python 3.14 ->
     };
     static const size_t binop_strings_len = sizeof(binop_strings) / sizeof(binop_strings[0]);
 
@@ -349,6 +352,17 @@ void bc_disasm(std::ostream& pyc_output, PycRef<PycCode> code, PycModule* mod,
         "FVC_NONE", "FVC_STR", "FVC_REPR", "FVC_ASCII",
     };
     static const size_t format_value_names_len = sizeof(format_value_names) / sizeof(format_value_names[0]);
+
+    // CPython 3.14 opcode._common_constants and opcode._special_method_names
+    static const char *common_constant_names[] = {
+        "AssertionError", "NotImplementedError", "tuple", "all", "any",
+    };
+    static const size_t common_constant_names_len = sizeof(common_constant_names) / sizeof(common_constant_names[0]);
+
+    static const char *special_method_names[] = {
+        "__enter__", "__exit__", "__aenter__", "__aexit__",
+    };
+    static const size_t special_method_names_len = sizeof(special_method_names) / sizeof(special_method_names[0]);
 
     PycBuffer source(code->code()->value(), code->code()->length());
 
@@ -430,6 +444,7 @@ void bc_disasm(std::ostream& pyc_output, PycRef<PycCode> code, PycModule* mod,
             case Pyc::STORE_FAST_A:
             case Pyc::LOAD_FAST_CHECK_A:
             case Pyc::LOAD_FAST_AND_CLEAR_A:
+            case Pyc::LOAD_FAST_BORROW_A:
                 try {
                     formatted_print(pyc_output, "%d: %s", operand, code->getLocal(operand)->value());
                 } catch (const std::out_of_range &) {
@@ -439,6 +454,7 @@ void bc_disasm(std::ostream& pyc_output, PycRef<PycCode> code, PycModule* mod,
             case Pyc::LOAD_FAST_LOAD_FAST_A:
             case Pyc::STORE_FAST_LOAD_FAST_A:
             case Pyc::STORE_FAST_STORE_FAST_A:
+            case Pyc::LOAD_FAST_BORROW_LOAD_FAST_BORROW_A:
                 try {
                     formatted_print(pyc_output, "%d: %s, %s", operand,
                                     code->getLocal(operand >> 4)->value(),
@@ -501,6 +517,8 @@ void bc_disasm(std::ostream& pyc_output, PycRef<PycCode> code, PycModule* mod,
             case Pyc::POP_JUMP_BACKWARD_IF_FALSE_A:
             case Pyc::POP_JUMP_BACKWARD_IF_TRUE_A:
             case Pyc::INSTRUMENTED_JUMP_BACKWARD_A:
+            case Pyc::END_ASYNC_FOR_A:
+            case Pyc::INSTRUMENTED_END_ASYNC_FOR_A:
                 {
                     // BACKWARD jumps were only introduced in Python 3.11
                     int offs = operand * sizeof(uint16_t); // BPO-27129
@@ -553,6 +571,18 @@ void bc_disasm(std::ostream& pyc_output, PycRef<PycCode> code, PycModule* mod,
                 formatted_print(pyc_output, "%d (%s)", operand, (operand == 0) ? "in"
                                                       : (operand == 1) ? "not in"
                                                       : "UNKNOWN");
+                break;
+            case Pyc::LOAD_COMMON_CONSTANT_A:
+                if (static_cast<size_t>(operand) < common_constant_names_len)
+                    formatted_print(pyc_output, "%d (%s)", operand, common_constant_names[operand]);
+                else
+                    formatted_print(pyc_output, "%d (UNKNOWN)", operand);
+                break;
+            case Pyc::LOAD_SPECIAL_A:
+                if (static_cast<size_t>(operand) < special_method_names_len)
+                    formatted_print(pyc_output, "%d (%s)", operand, special_method_names[operand]);
+                else
+                    formatted_print(pyc_output, "%d (UNKNOWN)", operand);
                 break;
             case Pyc::CALL_INTRINSIC_1_A:
                 if (static_cast<size_t>(operand) < intrinsic1_names_len)
